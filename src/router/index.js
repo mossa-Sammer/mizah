@@ -6,6 +6,7 @@ const {
   testimonial,
   project,
   customer,
+  feature
 } = require('../controller');
 const router = Router();
 
@@ -33,5 +34,10 @@ router.get('/customer', customer.getCustomers);
 router.post('/customer', customer.addCustomer);
 router.put('/customer', customer.updateCustomer);
 router.delete('/customer/:id', customer.deleteCustomer);
+
+router.get('/feature', feature.getFeatures);
+router.post('/feature', feature.addFeature);
+router.put('/feature', feature.updateFeature);
+router.delete('/feature/:id', feature.deleteFeature);
 
 module.exports = router;
