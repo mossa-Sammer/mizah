@@ -14,12 +14,13 @@ CREATE TABLE slider(
     btn_link VARCHAR
 );
 
-CREATE TABLE service(
+CREATE TABLE service (
     service_id SERIAL PRIMARY KEY,
     title VARCHAR(255),
     title_ar VARCHAR(255),
     description VARCHAR,
-    description_ar VARCHAR
+    description_ar VARCHAR,
+    image_url VARCHAR(255)
 ); 
 
 CREATE TABLE testimonial (

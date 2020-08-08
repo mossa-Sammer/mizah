@@ -1,3 +1,4 @@
 const slider = require('./slider');
+const services = require('./services');
 
-module.exports = { slider };
+module.exports = { slider, services };
