@@ -1,0 +1,33 @@
+
+.w1 {
+  animation: rotate 9000ms infinite linear;
+  opacity: .1;
+  
+}
+
+.w2 {
+  animation: rotate 7000ms infinite linear;
+  opacity: .1;
+  
+}
+
+.w3 {
+
+  animation: rotate 9500ms infinite linear;
+}
+.w4 {
+
+  animation: rotate 8000ms infinite linear;
+  background-color: #85a7d0;
+}
+.w5 {
+
+  animation: rotate 8500ms infinite linear;
+  background-color: #85a7d0;
+}
+
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  from { transform: rotate(360deg); }
+}
