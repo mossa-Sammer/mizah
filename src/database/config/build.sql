@@ -60,7 +60,8 @@ CREATE TABLE blog (
     title VARCHAR(255),
     title_ar VARCHAR(255),
     description VARCHAR,
-    description_ar VARCHAR
+    description_ar VARCHAR,
+    image_url VARCHAR
 );
 
 CREATE TABLE message(

@@ -6,7 +6,8 @@ const {
   testimonial,
   project,
   customer,
-  feature
+  feature,
+  blog,
 } = require('../controller');
 const router = Router();
 
@@ -39,5 +40,10 @@ router.get('/feature', feature.getFeatures);
 router.post('/feature', feature.addFeature);
 router.put('/feature', feature.updateFeature);
 router.delete('/feature/:id', feature.deleteFeature);
+
+router.get('/blog', blog.getBlogs);
+router.post('/blog', blog.addBlog);
+router.put('/blog', blog.updateBlog);
+router.delete('/blog/:id', blog.deleteBlog);
 
 module.exports = router;
