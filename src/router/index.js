@@ -1,6 +1,6 @@
 const { Router } = require('express');
 
-const { slider, services, testimonial } = require('../controller');
+const { slider, services, testimonial, project } = require('../controller');
 const router = Router();
 
 router.get('/slider', slider.getSliders);
@@ -18,4 +18,8 @@ router.post('/testimonial', testimonial.addTestimonial);
 router.put('/testimonial', testimonial.updateTestimonial);
 router.delete('/testimonial/:id', testimonial.deleteTestimonial);
 
+router.get('/project', project.getProjects);
+router.post('/project', project.addProject);
+router.put('/project', project.updateProject);
+router.delete('/project/:id', project.deleteProject);
 module.exports = router;
