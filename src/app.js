@@ -3,7 +3,7 @@ const { join } = require('path');
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
-const favicon = require('serve-favicon');
+// const favicon = require('serve-favicon');
 
 const router = require('./router');
 
@@ -22,9 +22,7 @@ if ((process.env.NODE_ENV = 'production')) {
   app.use(
     express.static(join(__dirname, '..', 'client', 'build'), { maxAge: '1d' })
   );
-  app.use(
-    favicon(path.join(__dirname, '..', 'client', 'build', 'favicon.ico'))
-  );
+  // app.use(favicon(join(__dirname, '..', 'client', 'build', 'favicon.ico')));
   app.get('*', (req, res) => {
     res.sendFile(join(__dirname, '..', 'client', 'build', 'index.html'));
   });
