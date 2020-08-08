@@ -47,7 +47,6 @@ const SliderContainer = ({slide, setSlide}) => {
         setColors={setColors}
         slide={slide}
         setSlide={setSlide}
-        // autoSlid={autoSlid}
       />
     </Container>
   );

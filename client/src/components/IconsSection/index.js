@@ -1,18 +1,28 @@
-import React from 'react';
+import React, {useState} from 'react';
+import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 import * as S from './styled';
+
+// icons
 import Icon1 from '../../assets/icon1.png';
 import Icon2 from '../../assets/icon2.png';
 import Icon3 from '../../assets/icon3.png';
 import Icon4 from '../../assets/icon4.png';
 
 const IconsSection = ({slide}) => {
+  const[y, setY] = useState(0)
+  useScrollPosition(({ prevPos, currPos }) => {
+    if(currPos.y < -200 && currPos.y > - 700){
+      setY(currPos.y)
+    }
+  })
   return (
     <S.Content slide={slide}> 
     <S.LeftElement>
-      <S.FirstLeftIconContainer>
+      <div style={{width: 200, height: 200, backgroundColor: 'red'}}></div>
+      <S.FirstLeftIconContainer y={y}>
         <S.Icon1 src={Icon1} alt="icon1" />
       </S.FirstLeftIconContainer>
-      <S.SecondLeftIconContainer>
+      <S.SecondLeftIconContainer  y={y}>
         <S.Icon2 src={Icon2} alt="icon2" />
       </S.SecondLeftIconContainer>
       <S.ThirdLeftIconContainer>
@@ -35,7 +45,7 @@ const IconsSection = ({slide}) => {
       </S.ThirdLeftIconContainer>
       <S.FourthLeftIconContainer>
         <S.Icon3 src={Icon4} alt="icon4" />
-      </S.FourthLeftIconContainer>
+      </S.FourthLeftIconContainer> 
     </S.RightElement>
   </S.Content>
   )

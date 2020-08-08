@@ -1,20 +1,19 @@
-import styled, {keyframes} from 'styled-components';
+import styled from 'styled-components';
 import { rotate,wobble, rubberBand, tada } from './keyframes';
 export const Content = styled.div`
   width: 200%;
   height: 300px;
-  background-color: yellow;
   position: fixed;
   top: 50%;
   left: ${({ slide }) => (slide === 'left' ? '1650px' : '-280px')};
   transform: translate(-50%, -50%);
   transition: 2s;
+  opacity: 1;
 `;
 
 export const LeftElement = styled.div`
 width: 300px;
 height: 300px;
-background-color: red;
 position: fixed;
 left: 250px;
 top: 0;
@@ -23,7 +22,6 @@ top: 0;
 export const RightElement = styled.div`
 width: 300px;
 height: 300px;
-background-color: red;
 position: fixed;
 right: 250px;
 top: 0;
@@ -32,25 +30,31 @@ top: 0;
 export const FirstLeftIconContainer = styled.div`
   width: 50px;
   height: 50px;
-  background: green;
   position: absolute;
   top: 0;
   left: 0;
+  transform: ${({y}) => y !== 0 ?
+   y >= -320 ? `translate(${y + 150}px, ${y + 185}px)`
+   :`translate(${y + 150}px, -135px)`
+   : null};
 `;
 
 export const SecondLeftIconContainer = styled.div`
   width: 50px;
   height: 50px;
-  background: green;
   position: absolute;
   top: 0;
   right: 0;
+  transform: ${({y}) => y ?
+  y >= -280 ? `translate(${y*-1 - 150 }px, ${y + 190}px)`
+  :`translate(${y > -700 ? -1 * y - 150 : 700}px, -100px)`
+  : null};
+  // transition: 0.5s;
 `;
 
 export const ThirdLeftIconContainer = styled.div`
   width: 50px;
   height: 50px;
-  background: green;
   position: absolute;
   bottom: 0;
   right: 0;
@@ -59,7 +63,6 @@ export const ThirdLeftIconContainer = styled.div`
 export const FourthLeftIconContainer = styled.div`
   width: 50px;
   height: 50px;
-  background: green;
   position: absolute;
   bottom: 0;
   left: 0;
