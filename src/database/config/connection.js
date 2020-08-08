@@ -7,7 +7,7 @@ if (process.env.NODE_ENV === 'production') {
 } else if (process.env.NODE_ENV === 'test') {
   dbURL = '';
 } else {
-  dbURL = '';
+  dbURL = process.env.DEV_DB;
 }
 
 module.exports = new Pool({ connectionString: dbURL });
