@@ -5,6 +5,7 @@ const project = require('./projects');
 const customer = require('./customer');
 const feature = require('./feature');
 const blog = require('./blog');
+const message = require('./message');
 
 module.exports = {
   slider,
@@ -14,4 +15,5 @@ module.exports = {
   customer,
   feature,
   blog,
+  message,
 };
