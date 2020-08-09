@@ -11,6 +11,7 @@ import Icon4 from '../../assets/icon4.png';
 
 const IconsSection = ({ slide }) => {
   const [y, setY] = useState(0);
+  // eslint-disable-next-line no-unused-vars
   useScrollPosition(({ prevPos, currPos }) => {
     if (currPos.y < -200 && currPos.y > -700) {
       setY(() => currPos.y);
