@@ -1,5 +1,4 @@
-import styled, {keyframes} from 'styled-components';
-
+import { keyframes } from 'styled-components';
 
 export const rotate = keyframes`
   0% {
@@ -51,7 +50,7 @@ export const wobble = keyframes`
   -webkit-transform: none;
   transform: none;
   }
-  `
+  `;
 
 export const rubberBand = keyframes`
     0% {
@@ -84,7 +83,7 @@ export const rubberBand = keyframes`
   }
   `;
 
-export const tada =  keyframes`
+export const tada = keyframes`
   0% {
   -webkit-transform: scale3d(1, 1, 1);
   transform: scale3d(1, 1, 1);
@@ -106,3 +105,26 @@ export const tada =  keyframes`
   transform: scale3d(1, 1, 1);
   }
   `;
+
+export const swing = keyframes`
+    20% {
+    -webkit-transform: rotate3d(0, 0, 1, 15deg);
+    transform: rotate3d(0, 0, 1, 15deg);
+    }
+    40% {
+    -webkit-transform: rotate3d(0, 0, 1, -10deg);
+    transform: rotate3d(0, 0, 1, -10deg);
+    }
+    60% {
+    -webkit-transform: rotate3d(0, 0, 1, 5deg);
+    transform: rotate3d(0, 0, 1, 5deg);
+    }
+    80% {
+    -webkit-transform: rotate3d(0, 0, 1, -5deg);
+    transform: rotate3d(0, 0, 1, -5deg);
+    }
+    100% {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+    }
+    `;
