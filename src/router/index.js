@@ -8,6 +8,7 @@ const {
   customer,
   feature,
   blog,
+  message,
 } = require('../controller');
 const router = Router();
 
@@ -45,5 +46,10 @@ router.get('/blog', blog.getBlogs);
 router.post('/blog', blog.addBlog);
 router.put('/blog', blog.updateBlog);
 router.delete('/blog/:id', blog.deleteBlog);
+
+router.get('/message', message.getMessages);
+router.post('/message', message.addMessage);
+router.put('/message', message.updateMessage);
+router.delete('/message/:id', message.deleteMessage);
 
 module.exports = router;
