@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Container } from './styled';
 
-import Logo from '../../assets/logo.png';
 import Slider from '../Slider';
 
-const SliderContainer = ({slide, setSlide}) => {
-  
+const SliderContainer = ({ slide, setSlide }) => {
   const [leftHover, setLeftHover] = useState(false);
   const [rightHover, setRightHover] = useState(false);
   const [leftClick, setLeftClick] = useState(false);
@@ -33,7 +31,6 @@ const SliderContainer = ({slide, setSlide}) => {
 
   return (
     <Container>
-      <img src={Logo} alt="logo" />
       <Slider
         colors={colors}
         leftHover={leftHover}
