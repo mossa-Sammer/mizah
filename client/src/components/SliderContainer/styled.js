@@ -5,5 +5,6 @@ export const Container = styled.div`
   width: 100%;
   height: 100vh;
   background-color: ${({ bgColor }) => bgColor};
+  overflow: hidden;
 `;
 export const Div = styled.div``;

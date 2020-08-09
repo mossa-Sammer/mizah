@@ -1,7 +1,7 @@
 import React from 'react';
 import Waves from '../Waves';
 import { LeftCircle, RightCircle } from '../Waves/styled';
-import { Content, ContentContainer } from './styled';
+import { ContentContainer } from './styled';
 
 const Slider = ({
   colors,
@@ -43,10 +43,9 @@ const Slider = ({
         setColors={setColors}
         setSlide={setSlide}
       />
-      <ContentContainer slide={slide}>
+      <ContentContainer slide={slide}> 
         <LeftCircle color="#483569" />
         <RightCircle color="#daaf82" />
-        <Content />
       </ContentContainer>
     </div>
   );
