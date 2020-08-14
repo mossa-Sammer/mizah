@@ -9,6 +9,9 @@ import ServicesItemForm from './Forms/ServicesItemForm';
 import TestimonialItemForm from './Forms/TestimonialItemForm';
 import ProjectItemForm from './Forms/ProjectItemForm';
 import CustomerItemForm from './Forms/CustomerItemForm';
+import FeatureItemForm from './Forms/FeatureItemForm';
+import SettingsForm from './Forms/SettingsForm';
+import BlogItemForm from './Forms/BlogItemForm';
 
 export default function FormLayout({ page }) {
   const [state, setStates] = useState({});
@@ -64,6 +67,33 @@ export default function FormLayout({ page }) {
   } else if (page === 'customers') {
     renderForm = (
       <CustomerItemForm
+        handleInputChange={handleInputChange}
+        values={state}
+        setImage={setImage}
+        image={state.image}
+      />
+    );
+  } else if (page === 'features') {
+    renderForm = (
+      <FeatureItemForm
+        handleInputChange={handleInputChange}
+        values={state}
+        setImage={setImage}
+        image={state.image}
+      />
+    );
+  } else if (page === 'settings') {
+    renderForm = (
+      <SettingsForm
+        handleInputChange={handleInputChange}
+        values={state}
+        setImage={setImage}
+        image={state.image}
+      />
+    );
+  } else if (page === 'blog') {
+    renderForm = (
+      <BlogItemForm
         handleInputChange={handleInputChange}
         values={state}
         setImage={setImage}
