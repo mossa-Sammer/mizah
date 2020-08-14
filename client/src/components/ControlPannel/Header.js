@@ -5,7 +5,7 @@ import { AppBar, Toolbar, Grid, makeStyles, Button } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    backgroundColor: 'green',
+    backgroundColor: '#253053',
   },
   searchInput: {
     opacity: '0.6',
