@@ -68,7 +68,7 @@ export default function SignIn({ setIsAuth }) {
       setErrors('something wrong with you email or password please check it !!');
     } else {
       setIsAuth(true);
-      history.push('/test');
+      history.push('/control-panel');
     }
   };
   return (

@@ -43,7 +43,7 @@ function App() {
             render={() => <Login isAuth={isAuth} setIsAuth={setIsAuth} />}
           />
           <Route
-            path="/test"
+            path="/control-panel"
             exact
             render={() =>
               isAuth ? (
