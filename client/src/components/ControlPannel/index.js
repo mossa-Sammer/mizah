@@ -16,7 +16,7 @@ import {
   Services,
 } from './TabsComponents';
 
-const ControlPannel = () => {
+const ControlPannel = ({ setIsAuth }) => {
   const [currentTab, setCurrentTab] = useState('aboutUs');
   // const [isFormOpen, setIsFormOpen] = useState(false);
   const renderPage = () => {
@@ -48,7 +48,7 @@ const ControlPannel = () => {
   return (
     <div style={{ height: '100%', minHeight: '100vh' }}>
       <SideMenu setCurrentTab={setCurrentTab} />
-      <Header />
+      <Header setIsAuth={setIsAuth} />
       {renderPage()}
     </div>
   );
