@@ -6,6 +6,7 @@ import { Form } from '../controls/useForm';
 import SliderItemForm from './Forms/SliderItemForm';
 import AboutUsForm from './Forms/AboutUsForm';
 import ServicesItemForm from './Forms/ServicesItemForm';
+import TestimonialItemForm from './Forms/TestimonialItemForm';
 
 export default function FormLayout({ page }) {
   const [state, setStates] = useState({});
@@ -34,6 +35,15 @@ export default function FormLayout({ page }) {
   } else if (page === 'services') {
     renderForm = (
       <ServicesItemForm
+        handleInputChange={handleInputChange}
+        values={state}
+        setImage={setImage}
+        image={state.image}
+      />
+    );
+  } else if (page === 'testimonial') {
+    renderForm = (
+      <TestimonialItemForm
         handleInputChange={handleInputChange}
         values={state}
         setImage={setImage}
