@@ -1,8 +1,8 @@
+/* eslint-disable consistent-return */
 import React, { useState } from 'react';
 
 import SideMenu from './SideMenu';
 import Header from './Header';
-import FormLayout from './FormLayout';
 import {
   Settings,
   Slider,
@@ -50,8 +50,6 @@ const ControlPannel = () => {
       <SideMenu setCurrentTab={setCurrentTab} />
       <Header />
       {renderPage()}
-      {/* <FormLayout /> */}
-      {/* <Slider /> */}
     </div>
   );
 };
