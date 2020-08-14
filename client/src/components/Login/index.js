@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -45,21 +47,39 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SignIn() {
+export default function SignIn({ setIsAuth }) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errors, setErrors] = useState('');
   const classes = useStyles();
+  const history = useHistory();
 
+  const handleChange = ({ target: { name, value } }) => {
+    setErrors('');
+    if (name === 'email') setEmail(value);
+    if (name === 'password') setPassword(value);
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (!email.match(/^\S+@\S+\.\S+$/)) {
+      setErrors('something wrong with you email or password please check it !!');
+    } else if (!password.trim()) {
+      setErrors('something wrong with you email or password please check it !!');
+    } else {
+      setIsAuth(true);
+      history.push('/test');
+    }
+  };
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          {/* <LockOutlinedIcon /> */}
-          {/* <img src={Looked} alt="looked" /> */}
-        </Avatar>
+        <Avatar className={classes.avatar} />
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate onSubmit={handleSubmit}>
           <TextField
             variant="outlined"
             margin="normal"
@@ -70,6 +90,9 @@ export default function SignIn() {
             name="email"
             autoComplete="email"
             autoFocus
+            value={email}
+            onChange={handleChange}
+            error={errors}
           />
           <TextField
             variant="outlined"
@@ -81,6 +104,9 @@ export default function SignIn() {
             type="password"
             id="password"
             autoComplete="current-password"
+            value={password}
+            onChange={handleChange}
+            error={errors}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
@@ -95,18 +121,13 @@ export default function SignIn() {
           >
             Sign In
           </Button>
-          {/* <Grid container>
-            <Grid item xs>
-              <Link href="#" variant="body2">
-                Forgot password?
-              </Link>
+          {errors && (
+            <Grid container>
+              <Grid item xs>
+                <h4 style={{ color: 'red' }}>{errors}</h4>
+              </Grid>
             </Grid>
-            <Grid item>
-              <Link href="#" variant="body2">
-                Don't have an account? Sign Up
-              </Link>
-            </Grid>
-          </Grid> */}
+          )}
         </form>
       </div>
       <Box mt={8}>
