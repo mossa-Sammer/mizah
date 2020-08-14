@@ -1,16 +1,21 @@
 import React from 'react';
-import { makeStyles, withStyles } from '@material-ui/core';
+import { withStyles } from '@material-ui/core';
+import FormLayout from '../FormLayout';
 
 const style = {
   title: {
-    color: 'green',
+    color: '#8368af',
+    textAlign: 'left',
+    paddingLeft: '20px',
+    marginBottom: 30,
   },
 };
 
 const Settings = ({ classes }) => {
   return (
-    <div>
-      <h1 className={classes.title}>Hi from settings</h1>
+    <div style={{ paddingLeft: 320 }}>
+      <h1 className={classes.title}>Settings Page :</h1>
+      <FormLayout page="settings" />
     </div>
   );
 };
