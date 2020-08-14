@@ -1,0 +1,95 @@
+import React from 'react';
+import Controls from '../../controls/Controls';
+
+export default function SettingsForm({ values, handleInputChange, errors = {} }) {
+  return (
+    <>
+      <Controls.Input
+        label="Facebook"
+        name="facebook"
+        value={values.facebook}
+        onChange={handleInputChange}
+        error={errors.facebook}
+      />
+      <Controls.Input
+        label="Twitter"
+        name="twitter"
+        value={values.twitter}
+        onChange={handleInputChange}
+        error={errors.twitter}
+      />
+      <Controls.Input
+        label="Instagram"
+        name="instagram"
+        value={values.instagram}
+        onChange={handleInputChange}
+        error={errors.instagram}
+      />
+      <Controls.Input
+        label="Google"
+        name="google"
+        value={values.google}
+        onChange={handleInputChange}
+        error={errors.google}
+      />
+      <Controls.Input
+        label="Website"
+        name="website"
+        value={values.website}
+        onChange={handleInputChange}
+        error={errors.website}
+      />
+      <Controls.Input
+        label="Email"
+        name="email"
+        value={values.email}
+        onChange={handleInputChange}
+        error={errors.email}
+      />
+      <Controls.Input
+        label="WhatsApp NO"
+        name="WhatsAppNo"
+        value={values.WhatsAppNo}
+        onChange={handleInputChange}
+        error={errors.WhatsAppNo}
+      />
+      <Controls.Input
+        label="WhatsApp Link"
+        name="WhatsAppLink"
+        value={values.WhatsAppLink}
+        onChange={handleInputChange}
+        error={errors.WhatsAppLink}
+      />
+      <Controls.Input
+        label="Address"
+        name="address"
+        value={values.address}
+        onChange={handleInputChange}
+        error={errors.address}
+      />
+      <Controls.Input
+        label="Address Ar"
+        name="addressAr"
+        value={values.addressAr}
+        onChange={handleInputChange}
+        error={errors.addressAr}
+      />
+      <Controls.Input
+        label="Description"
+        name="description"
+        value={values.description}
+        onChange={handleInputChange}
+        error={errors.description}
+        multiline
+      />
+      <Controls.Input
+        label="DescriptionAr"
+        name="descriptionAr"
+        value={values.descriptionAr}
+        onChange={handleInputChange}
+        error={errors.descriptionAr}
+        multiline
+      />
+    </>
+  );
+}
