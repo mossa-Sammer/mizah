@@ -17,7 +17,7 @@ import {
 } from './TabsComponents';
 
 const ControlPannel = ({ setIsAuth }) => {
-  const [currentTab, setCurrentTab] = useState('aboutUs');
+  const [currentTab, setCurrentTab] = useState('settings');
   // const [isFormOpen, setIsFormOpen] = useState(false);
   const renderPage = () => {
     switch (currentTab) {
