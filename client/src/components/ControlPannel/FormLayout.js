@@ -8,6 +8,7 @@ import AboutUsForm from './Forms/AboutUsForm';
 import ServicesItemForm from './Forms/ServicesItemForm';
 import TestimonialItemForm from './Forms/TestimonialItemForm';
 import ProjectItemForm from './Forms/ProjectItemForm';
+import CustomerItemForm from './Forms/CustomerItemForm';
 
 export default function FormLayout({ page }) {
   const [state, setStates] = useState({});
@@ -54,6 +55,15 @@ export default function FormLayout({ page }) {
   } else if (page === 'projects') {
     renderForm = (
       <ProjectItemForm
+        handleInputChange={handleInputChange}
+        values={state}
+        setImage={setImage}
+        image={state.image}
+      />
+    );
+  } else if (page === 'customers') {
+    renderForm = (
+      <CustomerItemForm
         handleInputChange={handleInputChange}
         values={state}
         setImage={setImage}
