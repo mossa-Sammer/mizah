@@ -1,4 +1,6 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
+
 import { AppBar, Toolbar, Grid, makeStyles, Button } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
@@ -18,14 +20,21 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Header() {
+export default function Header({ setIsAuth }) {
   const classes = useStyles();
-
+  const history = useHistory();
   return (
     <AppBar position="static" className={classes.root}>
       <Toolbar>
         <Grid container xs={12} justify="flex-end">
-          <Button variant="contained" color="secondary" onClick={() => {}}>
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={() => {
+              setIsAuth(false);
+              history.push('/admin');
+            }}
+          >
             Log out
           </Button>
         </Grid>
