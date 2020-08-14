@@ -1,0 +1,18 @@
+
+.dropzone {
+  text-align: center;
+  padding: 20px;
+  border: 3px dashed #eeeeee;
+  background-color: #fafafa;
+  color: #bdbdbd;
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+.dz-success-mark {
+  display: none;
+}
+
+.dz-error-mark {
+  display: none;
+}
