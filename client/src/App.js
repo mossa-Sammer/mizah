@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -17,6 +18,8 @@ import './App.css';
 function App() {
   const [slide, setSlide] = useState('left');
   const [lang, setLang] = useState('en');
+  const [isAuth, setIsAuth] = useState(false);
+
   return (
     <div className="App">
       <Router>
@@ -37,20 +40,18 @@ function App() {
           <Route
             path="/admin"
             exact
-            render={() => (
-              <>
-                <Login />
-              </>
-            )}
+            render={() => <Login isAuth={isAuth} setIsAuth={setIsAuth} />}
           />
           <Route
             path="/test"
             exact
-            render={() => (
-              <>
-                <ControlPannel />
-              </>
-            )}
+            render={() =>
+              isAuth ? (
+                <ControlPannel setIsAuth={setIsAuth} />
+              ) : (
+                <h1>"You need permission to access this site".. try to login agin </h1>
+              )
+            }
           />
           <Route
             path="/111"
