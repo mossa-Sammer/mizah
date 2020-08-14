@@ -5,19 +5,53 @@ export const Section = styled.section`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background-color: gray;
+  flex-direction: ${({ lang }) => (lang === 'en' ? 'row' : ' row-reverse')};
+  background-color: #f5ebfe;
+  height: 550px;
 `;
 
 export const ImageContainer = styled.div`
   width: 50%;
   flex: 1;
-  height: 300px;
-  background: blue;
+  height: 95%;
 `;
 
 export const ContentContainer = styled.div`
   width: 50%;
+  height: 95%;
   flex: 1;
-  height: 300px;
-  background: yellow;
+`;
+
+export const TitleContainer = styled.div`
+  display: flex;
+  // margin-left: 30px;
+  padding-right: 60px;
+  width: 100%;
+  flex-direction: ${({ lang }) => (lang === 'en' ? 'row' : ' row-reverse')};
+  align-items: center;
+`;
+
+export const TitleSubContainer = styled.div`
+  display: flex;
+  flex-direction: ${({ lang }) => (lang === 'en' ? 'row' : ' row-reverse')};
+  align-items: center;
+  margin-right: ${({ lang }) => (lang === 'ar' ? 50 : 0)};
+  margin-left: ${({ lang }) => (lang === 'en' ? 50 : 0)};
+`;
+
+export const Title = styled.h1`
+  font-size: 54px;
+  color: #52387f;
+  margin:0;
+  padding 0 10px;
+`;
+
+export const Content = styled.div`
+  color: #777;
+  font-size: 20px;
+  text-align: ${({ lang }) => (lang === 'en' ? 'left' : 'right')};
+  // text-align: right;
+  // padding-left: 50px;
+  // padding-right: 50px;
+  padding: ${({ lang }) => (lang === 'en' ? '0 0 0 50px' : '0 50px 0 0')};
 `;
