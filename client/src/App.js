@@ -32,7 +32,7 @@ function App() {
                 <Header lang={lang} setLang={setLang} />
                 <SliderContainer slide={slide} setSlide={setSlide} />
                 <section style={{ width: '100%', height: '100vh', backgroundColor: 'gray' }} />
-                <OurStorySection />
+                <OurStorySection lang={lang} />
                 <IconsSection slide={slide} />
               </>
             )}
@@ -58,7 +58,7 @@ function App() {
             exact
             render={() => (
               <>
-                <UploadImage />
+                <OurStorySection />
               </>
             )}
           />
