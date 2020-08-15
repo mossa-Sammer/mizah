@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // sections
 import OurStorySection from './Sections/OurStorySection';
 import OurServicesSection from './Sections/OurServicesSection';
+import WhyUsSection from './Sections/WhyUsSection';
 
 // components
 import SliderContainer from './components/SliderContainer';
@@ -34,6 +35,7 @@ function App() {
                 <section style={{ width: '100%', height: '100vh', backgroundColor: 'gray' }} />
                 <OurStorySection lang={lang} />
                 <OurServicesSection lang={lang} />
+                <WhyUsSection lang={lang} />
                 <IconsSection slide={slide} />
               </>
             )}
