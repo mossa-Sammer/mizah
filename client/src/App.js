@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // sections
 import OurStorySection from './components/OurStorySection';
+import OurServicesSection from './components/OurServicesSection';
 
 // components
 import SliderContainer from './components/SliderContainer';
@@ -11,7 +12,6 @@ import IconsSection from './components/IconsSection';
 import Header from './components/Header';
 import Login from './components/Login';
 import ControlPannel from './components/ControlPannel';
-import UploadImage from './components/UploadImage';
 
 import './App.css';
 
@@ -33,6 +33,7 @@ function App() {
                 <SliderContainer slide={slide} setSlide={setSlide} />
                 <section style={{ width: '100%', height: '100vh', backgroundColor: 'gray' }} />
                 <OurStorySection lang={lang} />
+                <OurServicesSection lang={lang} />
                 <IconsSection slide={slide} />
               </>
             )}
@@ -58,7 +59,7 @@ function App() {
             exact
             render={() => (
               <>
-                <OurStorySection />
+                <OurServicesSection />
               </>
             )}
           />
