@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -60,15 +61,20 @@ export default function SignIn({ setIsAuth }) {
     if (name === 'password') setPassword(value);
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     if (!email.match(/^\S+@\S+\.\S+$/)) {
       setErrors('something wrong with you email or password please check it !!');
     } else if (!password.trim()) {
       setErrors('something wrong with you email or password please check it !!');
     } else {
-      setIsAuth(true);
-      history.push('/control-panel');
+      const data = await axios.post('/api/v1/login', {
+        email,
+        password,
+      });
+      // setIsAuth(true);
+      // history.push('/control-panel');
+      console.log('wwwwwwww', data);
     }
   };
   return (
