@@ -63,7 +63,7 @@ const Customers = ({ classes }) => {
         </BtnContainer>
       </TitleContainer>
       {openForm ? (
-        <FormLayout page="customers" route={route}/>
+        <FormLayout page="customers" route={route} setOpenForm={setOpenForm}/>
       ) : (
         <Table
           hideSearch

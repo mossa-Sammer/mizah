@@ -5,10 +5,8 @@ import Button from '@material-ui/core/Button';
 import FormLayout from '../FormLayout';
 import { BtnContainer, TitleContainer } from './styled';
 
-import Table from '../../Table'; 
+import Table from '../../Table';
 import { RemoveRejoinCol } from '../../Table/tableSharedData';
-
-
 
 const style = {
   title: {
@@ -21,30 +19,28 @@ const style = {
 
 const Slider = ({ classes }) => {
   const [openForm, setOpenForm] = useState(false);
-  const [data, setData] = useState(null)
+  const [data, setData] = useState(null);
   const route = '/api/v1/slider';
 
   const rowClick = async (rowData, route) => {
-    try{
-      setData(old => old.filter(e => e.slider_id !== rowData.slider_id))
-      const data = await axios.delete(`${route}/${rowData.slider_id}`)
-    } catch(e){
-      console.log(e)
-    }
-  }
-
-  useEffect( () => {
-  (async () => {
     try {
-    
-    const data = await axios.get('/api/v1/slider')
-    setData(data.data)
-  } catch(e) {
-    console.log(e)
-  }
-  })()
+      setData(old => old.filter(e => e.slider_id !== rowData.slider_id));
+      const data = await axios.delete(`${route}/${rowData.slider_id}`);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
-  }, [openForm])
+  useEffect(() => {
+    (async () => {
+      try {
+        const data = await axios.get('/api/v1/slider');
+        setData(data.data);
+      } catch (e) {
+        console.log(e);
+      }
+    })();
+  }, [openForm]);
 
   return (
     <div style={{ paddingLeft: 320 }}>
@@ -63,8 +59,7 @@ const Slider = ({ classes }) => {
         </BtnContainer>
       </TitleContainer>
       {openForm ? (
-
-        <FormLayout page="slider" route={route}/>
+        <FormLayout page="slider" route={route} setOpenForm={setOpenForm} />
       ) : (
         <Table
           hideSearch

@@ -23,29 +23,25 @@ const Services = ({ classes }) => {
   const route = '/api/v1/service';
 
   const rowClick = async (rowData, route) => {
-    try{
-      setData(old => old.filter(e => e.service_id !== rowData.service_id))
-      const data = await axios.delete(`${route}/${rowData.service_id}`)
-    } catch(e){
-      console.log(e)
+    try {
+      setData(old => old.filter(e => e.service_id !== rowData.service_id));
+      const data = await axios.delete(`${route}/${rowData.service_id}`);
+    } catch (e) {
+      console.log(e);
     }
-  }
+  };
 
-  useEffect( () => {
+  useEffect(() => {
     (async () => {
       try {
-      
-      const data = await axios.get('/api/v1/service')
-      setData(data.data)
-    } catch(e) {
-      console.log(e)
-    }
-  
-  
-    })()
-  
-    }, [openForm])
-  
+        const data = await axios.get('/api/v1/service');
+        setData(data.data);
+      } catch (e) {
+        console.log(e);
+      }
+    })();
+  }, [openForm]);
+
   return (
     <div style={{ paddingLeft: 320 }}>
       <TitleContainer>
@@ -63,7 +59,7 @@ const Services = ({ classes }) => {
         </BtnContainer>
       </TitleContainer>
       {openForm ? (
-        <FormLayout page="services" route={route}/>
+        <FormLayout page="services" route={route} setOpenForm={setOpenForm} />
       ) : (
         <Table
           hideSearch

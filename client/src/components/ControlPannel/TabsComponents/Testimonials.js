@@ -20,31 +20,29 @@ const style = {
 
 const Testimonials = ({ classes }) => {
   const [openForm, setOpenForm] = useState(false);
-  const [data, setData] = useState([])
+  const [data, setData] = useState([]);
   const route = '/api/v1/testimonial';
 
   const rowClick = async (rowData, route) => {
-    try{
-      setData(old => old.filter(e => e.testimonial_id !== rowData.testimonial_id))
-      const data = await axios.delete(`${route}/${rowData.testimonial_id}`)
-    } catch(e){
-      console.log(e)
+    try {
+      setData(old => old.filter(e => e.testimonial_id !== rowData.testimonial_id));
+      const data = await axios.delete(`${route}/${rowData.testimonial_id}`);
+    } catch (e) {
+      console.log(e);
     }
-  }
+  };
 
-  useEffect( () => {
+  useEffect(() => {
     (async () => {
       try {
-      
-      const data = await axios.get('/api/v1/testimonial')
-      console.log(data)
-      setData(data.data)
-    } catch(e) {
-      console.log(e)
-    }
-    })()
-  
-    }, [openForm])
+        const data = await axios.get('/api/v1/testimonial');
+        console.log(data);
+        setData(data.data);
+      } catch (e) {
+        console.log(e);
+      }
+    })();
+  }, [openForm]);
 
   return (
     <div style={{ paddingLeft: 320 }}>
@@ -63,7 +61,7 @@ const Testimonials = ({ classes }) => {
         </BtnContainer>
       </TitleContainer>
       {openForm ? (
-        <FormLayout page="testimonial" route={route} />
+        <FormLayout page="testimonial" route={route} setOpenForm={setOpenForm} />
       ) : (
         <Table
           hideSearch

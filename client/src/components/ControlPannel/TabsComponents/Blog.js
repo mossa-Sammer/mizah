@@ -65,7 +65,7 @@ const Blog = ({ classes }) => {
         </BtnContainer>
       </TitleContainer>
       {openForm ? (
-        <FormLayout page="blog" route={route} />
+        <FormLayout page="blog" route={route} setOpenForm={setOpenForm}/>
       ) : (
         <Table
           hideSearch

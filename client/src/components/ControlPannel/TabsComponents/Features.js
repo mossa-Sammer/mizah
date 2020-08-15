@@ -66,7 +66,7 @@ const Features = ({ classes }) => {
         </BtnContainer>
       </TitleContainer>
       {openForm ? (
-        <FormLayout page="features" route={route}/>
+        <FormLayout page="features" route={route} setOpenForm={setOpenForm}/>
       ) : (
         <Table
           hideSearch
@@ -80,7 +80,7 @@ const Features = ({ classes }) => {
             { title: 'Description AR', field: 'description_ar' },
             RemoveRejoinCol,
           ]}
-          onRowClick={(e, rowData) => rowClick(rowData, route)}
+          onRowClick={(e, rowData) => rowClick(rowData, route) }
         />
       )}
     </div>
