@@ -14,9 +14,9 @@ export default function testimonialItemForm({
       <Controls.Input
         name="name"
         label="Name"
-        value={values.nameEn}
+        value={values.name}
         onChange={handleInputChange}
-        error={errors.nameEn}
+        error={errors.name}
       />
       <Controls.Input
         name="nameAr"
@@ -27,10 +27,10 @@ export default function testimonialItemForm({
       />
       <Controls.Input
         label="said"
-        name="saidEn"
-        value={values.saidEn}
+        name="said"
+        value={values.said}
         onChange={handleInputChange}
-        error={errors.saidEn}
+        error={errors.said}
         multiline
       />
       <Controls.Input
