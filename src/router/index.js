@@ -28,7 +28,7 @@ router.get('/blog', blog.getBlogs);
 router.post('/message', message.addMessage);
 router.post('/login', login);
 router.post('/logout', logout);
-// router.use(isAuthed);
+router.use(isAuthed);
 
 router.post('/slider', slider.addSlider);
 router.put('/slider', slider.updateSlider);
