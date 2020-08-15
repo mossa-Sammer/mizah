@@ -3,6 +3,15 @@ BEGIN;
 DROP SCHEMA public CASCADE;
 CREATE SCHEMA public;
 
+
+
+
+CREATE TABLE "user" (
+    user_id SERIAL PRIMARY KEY,
+    email VARCHAR(255),
+    password VARCHAR
+);
+
 CREATE TABLE slider(
     slider_id SERIAL PRIMARY KEY,
     title VARCHAR(255),
@@ -79,7 +88,7 @@ CREATE TABLE website (
     instagram_url VARCHAR,
     google_url VARCHAR,
     website_url VARCHAR,
-    Email VARCHAR,
+    email VARCHAR,
     whatsapp_no VARCHAR,
     whatsapp_link VARCHAR,
     address VARCHAR,
@@ -91,6 +100,6 @@ CREATE TABLE website (
     about_us_description VARCHAR,
     about_us_description_ar VARCHAR,
     about_us_image_url VARCHAR
-);
+);  
 
 COMMIT;
