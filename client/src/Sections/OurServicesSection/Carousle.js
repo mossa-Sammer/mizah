@@ -2,7 +2,7 @@
 /* eslint-disable react/state-in-constructor */
 import React from 'react';
 import Slider from 'react-slick';
-import Card from '../Card';
+import Card from '../../components/Card';
 import { Button } from './styled';
 
 import 'slick-carousel/slick/slick.css';

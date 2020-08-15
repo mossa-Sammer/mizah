@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // sections
-import OurStorySection from './components/OurStorySection';
-import OurServicesSection from './components/OurServicesSection';
+import OurStorySection from './Sections/OurStorySection';
+import OurServicesSection from './Sections/OurServicesSection';
 
 // components
 import SliderContainer from './components/SliderContainer';

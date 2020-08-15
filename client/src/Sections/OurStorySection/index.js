@@ -2,7 +2,7 @@
 import React from 'react';
 import * as S from './styled';
 import OurStoryImg from '../../assets/ourStory.png';
-import TitleIcon from '../SVG/titleIcon';
+import TitleIcon from '../../components/SVG/titleIcon';
 
 const content = {
   title: 'OUR STORY',

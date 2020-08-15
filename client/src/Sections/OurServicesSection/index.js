@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import React, { useState } from 'react';
 import * as S from './styled';
-import TitleIcon from '../SVG/titleIcon';
+import TitleIcon from '../../components/SVG/titleIcon';
 import Carousel from './Carousle';
 
 const imgsrc = 'http://oldmizah.geeksteams.com/public/image/Services/1591344978.png';
