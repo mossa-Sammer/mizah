@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 
 import { AppBar, Toolbar, Grid, makeStyles, Button } from '@material-ui/core';
@@ -23,6 +24,16 @@ const useStyles = makeStyles(theme => ({
 export default function Header({ setIsAuth }) {
   const classes = useStyles();
   const history = useHistory();
+  const handleClick = async () => {
+    try {
+      await axios.post('/api/v1/logout')
+      setIsAuth(false);
+      history.push('/admin');
+
+    } catch (e) {
+      console.log(e)
+    }
+  }
   return (
     <AppBar position="static" className={classes.root}>
       <Toolbar>
@@ -30,10 +41,7 @@ export default function Header({ setIsAuth }) {
           <Button
             variant="contained"
             color="secondary"
-            onClick={() => {
-              setIsAuth(false);
-              history.push('/admin');
-            }}
+            onClick={handleClick}
           >
             Log out
           </Button>
