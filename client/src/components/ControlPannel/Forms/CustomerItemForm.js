@@ -14,9 +14,9 @@ export default function CustomerItemForm({
       <Controls.Input
         name="name"
         label="Customer Name"
-        value={values.nameEn}
+        value={values.name}
         onChange={handleInputChange}
-        error={errors.nameEn}
+        error={errors.name}
       />
       <Controls.Input
         name="nameAr"
