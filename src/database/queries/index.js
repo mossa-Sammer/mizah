@@ -6,6 +6,13 @@ const customer = require('./customer');
 const feature = require('./feature');
 const blog = require('./blog');
 const message = require('./message');
+const findUserByEmail = require('./findUserByEmail');
+const {
+  editAboutUs,
+  editWebSiteSetting,
+  getAboutUs,
+  getWebSiteSetting,
+} = require('./webSiteSetting');
 
 module.exports = {
   slider,
@@ -16,4 +23,9 @@ module.exports = {
   feature,
   blog,
   message,
+  findUserByEmail,
+  editAboutUs,
+  editWebSiteSetting,
+  getAboutUs,
+  getWebSiteSetting,
 };

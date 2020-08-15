@@ -6,6 +6,9 @@ const customer = require('./customer');
 const feature = require('./feature');
 const blog = require('./blog');
 const message = require('./message');
+const login = require('./login');
+const logout = require('./logout');
+const website = require('./website');
 
 module.exports = {
   slider,
@@ -16,4 +19,7 @@ module.exports = {
   feature,
   blog,
   message,
+  login,
+  logout,
+  website,
 };
