@@ -68,13 +68,17 @@ export default function SignIn({ setIsAuth }) {
     } else if (!password.trim()) {
       setErrors('something wrong with you email or password please check it !!');
     } else {
-      const data = await axios.post('/api/v1/login', {
-        email,
-        password,
-      });
-      // setIsAuth(true);
-      // history.push('/control-panel');
-      console.log('wwwwwwww', data);
+      try {
+        await axios.post('/api/v1/login', {
+          email,
+          password,
+        });
+        setIsAuth(true);
+        history.push('/control-panel');
+
+      } catch (e) {
+        setErrors('something wrong with you email or password please check it !!'); 
+      }
     }
   };
   return (
