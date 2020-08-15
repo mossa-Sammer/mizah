@@ -3,7 +3,9 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // sections
-import OurStorySection from './components/OurStorySection';
+import OurStorySection from './Sections/OurStorySection';
+import OurServicesSection from './Sections/OurServicesSection';
+import WhyUsSection from './Sections/WhyUsSection';
 
 // components
 import SliderContainer from './components/SliderContainer';
@@ -11,7 +13,6 @@ import IconsSection from './components/IconsSection';
 import Header from './components/Header';
 import Login from './components/Login';
 import ControlPannel from './components/ControlPannel';
-import UploadImage from './components/UploadImage';
 
 import './App.css';
 
@@ -32,7 +33,9 @@ function App() {
                 <Header lang={lang} setLang={setLang} />
                 <SliderContainer slide={slide} setSlide={setSlide} />
                 <section style={{ width: '100%', height: '100vh', backgroundColor: 'gray' }} />
-                <OurStorySection />
+                <OurStorySection lang={lang} />
+                <OurServicesSection lang={lang} />
+                <WhyUsSection lang={lang} />
                 <IconsSection slide={slide} />
               </>
             )}
@@ -43,7 +46,7 @@ function App() {
             render={() => <Login isAuth={isAuth} setIsAuth={setIsAuth} />}
           />
           <Route
-            path="/test"
+            path="/control-panel"
             exact
             render={() =>
               isAuth ? (
@@ -58,7 +61,7 @@ function App() {
             exact
             render={() => (
               <>
-                <UploadImage />
+                <OurServicesSection />
               </>
             )}
           />

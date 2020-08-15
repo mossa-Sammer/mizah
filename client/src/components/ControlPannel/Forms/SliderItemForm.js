@@ -5,7 +5,7 @@ export default function SliderItemForm({ values, handleInputChange, errors = {} 
   return (
     <>
       <Controls.Input
-        name="titleEn"
+        name="title"
         label="Title EN"
         value={values.titleEn}
         onChange={handleInputChange}
@@ -13,14 +13,14 @@ export default function SliderItemForm({ values, handleInputChange, errors = {} 
       />
       <Controls.Input
         label="Description EN"
-        name="descriptionEn"
+        name="description"
         value={values.descriptionEn}
         onChange={handleInputChange}
         error={errors.descriptionEn}
         multiline
       />
       <Controls.Input
-        name="btnNameEn"
+        name="btnName"
         label="btn Name EN"
         value={values.btnNameEn}
         onChange={handleInputChange}

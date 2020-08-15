@@ -9,7 +9,8 @@ export const Content = styled.div`
   left: ${({ slide }) => (slide === 'left' ? '1650px' : '-280px')};
   transform: translate(-50%, -50%);
   transition: 2s;
-  opacity: 1;
+  opacity: 0.5;
+  z-index: 1;
 `;
 
 export const LeftElement = styled.div`

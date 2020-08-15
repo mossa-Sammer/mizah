@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Paper, Grid } from '@material-ui/core';
-
+import axios from 'axios';
 import Controls from '../controls/Controls';
 import { Form } from '../controls/useForm';
 import SliderItemForm from './Forms/SliderItemForm';
@@ -13,16 +13,15 @@ import FeatureItemForm from './Forms/FeatureItemForm';
 import SettingsForm from './Forms/SettingsForm';
 import BlogItemForm from './Forms/BlogItemForm';
 
-export default function FormLayout({ page }) {
+export default function FormLayout({ page, route, setOpenForm }) {
   const [state, setStates] = useState({});
+  const [image, setImage] = useState(null);
   // const [errors, setErrors] = useState({});
 
   const handleInputChange = ({ target: { value, name } }) => {
     setStates(_state => ({ ..._state, [name]: value }));
   };
-  const setImage = file => {
-    setStates(_state => ({ ..._state, image: file }));
-  };
+
 
   let renderForm = null;
 
@@ -34,7 +33,7 @@ export default function FormLayout({ page }) {
         handleInputChange={handleInputChange}
         values={state}
         setImage={setImage}
-        image={state.image}
+        image={image}
       />
     );
   } else if (page === 'services') {
@@ -43,7 +42,7 @@ export default function FormLayout({ page }) {
         handleInputChange={handleInputChange}
         values={state}
         setImage={setImage}
-        image={state.image}
+        image={image}
       />
     );
   } else if (page === 'testimonial') {
@@ -52,7 +51,7 @@ export default function FormLayout({ page }) {
         handleInputChange={handleInputChange}
         values={state}
         setImage={setImage}
-        image={state.image}
+        image={image}
       />
     );
   } else if (page === 'projects') {
@@ -61,7 +60,7 @@ export default function FormLayout({ page }) {
         handleInputChange={handleInputChange}
         values={state}
         setImage={setImage}
-        image={state.image}
+        image={image}
       />
     );
   } else if (page === 'customers') {
@@ -70,7 +69,7 @@ export default function FormLayout({ page }) {
         handleInputChange={handleInputChange}
         values={state}
         setImage={setImage}
-        image={state.image}
+        image={image}
       />
     );
   } else if (page === 'features') {
@@ -79,7 +78,7 @@ export default function FormLayout({ page }) {
         handleInputChange={handleInputChange}
         values={state}
         setImage={setImage}
-        image={state.image}
+        image={image}
       />
     );
   } else if (page === 'settings') {
@@ -88,7 +87,7 @@ export default function FormLayout({ page }) {
         handleInputChange={handleInputChange}
         values={state}
         setImage={setImage}
-        image={state.image}
+        image={image}
       />
     );
   } else if (page === 'blog') {
@@ -97,14 +96,31 @@ export default function FormLayout({ page }) {
         handleInputChange={handleInputChange}
         values={state}
         setImage={setImage}
-        image={state.image}
+        image={image}
       />
     );
   }
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    console.log(state);
+    let imageUrl, uploadURL;
+    console.log({state, route})
+    try {
+      if(image){
+        const { data } = await axios.post('/api/v1/upload', {type: image.type})
+        imageUrl = data.imageUrl;
+        uploadURL = data.uploadURL;
+        await axios.put(uploadURL, image, {
+          headers: {
+            "Content-Type" : image.type
+          }
+        })
+      }
+      const result = await axios.post(route, {...state, imageUrl})
+      setOpenForm(false)
+    }catch(e) {
+      console.log(e)
+    }
   };
   return (
     <>
