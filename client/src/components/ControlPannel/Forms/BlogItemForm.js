@@ -6,11 +6,11 @@ export default function BlogItemForm({ values, handleInputChange, errors = {}, s
   return (
     <>
       <Controls.Input
-        name="titleEn"
+        name="title"
         label="Title"
-        value={values.titleEn}
+        value={values.title}
         onChange={handleInputChange}
-        error={errors.titleEn}
+        error={errors.title}
       />
       <Controls.Input
         name="titleAr"
@@ -21,10 +21,10 @@ export default function BlogItemForm({ values, handleInputChange, errors = {}, s
       />
       <Controls.Input
         label="Description"
-        name="descriptionEn"
-        value={values.descriptionEn}
+        name="description"
+        value={values.description}
         onChange={handleInputChange}
-        error={errors.descriptionEn}
+        error={errors.description}
         multiline
       />
       <Controls.Input
