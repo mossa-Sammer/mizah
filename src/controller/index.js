@@ -9,6 +9,7 @@ const message = require('./message');
 const login = require('./login');
 const logout = require('./logout');
 const website = require('./website');
+const images = require('./images');
 
 module.exports = {
   slider,
@@ -22,4 +23,5 @@ module.exports = {
   login,
   logout,
   website,
+  images,
 };
