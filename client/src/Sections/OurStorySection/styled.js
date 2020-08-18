@@ -11,9 +11,12 @@ export const Section = styled.section`
 `;
 
 export const ImageContainer = styled.div`
-  width: 50%;
+  width: 90%;
   flex: 1;
   height: 95%;
+  max-width: 500px;
+  max-height: 500px;
+  margin-top: 30px;
 `;
 
 export const ContentContainer = styled.div`
@@ -44,6 +47,12 @@ export const Title = styled.h1`
   color: #52387f;
   margin:0;
   padding 0 10px;
+  @media (max-width: 380px) {
+    font-size: 38px;
+  }
+  @media (max-width: 300px) {
+    font-size: 28px;
+  }
 `;
 
 export const Content = styled.div`
