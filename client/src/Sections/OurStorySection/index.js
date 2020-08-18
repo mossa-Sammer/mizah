@@ -17,31 +17,31 @@ const content = {
 
 const OurStorySection = ({ lang }) => {
   const _lang = lang || 'en';
-  return true ? (
-    <Section>
-      <Row>
-        <Col w={[4, 12, 12]}>
-          <h1>asdsadsd</h1>
+  return (
+    <Section bgcolor="#f5ebfe">
+      <Row mrT={6}>
+        <Col w={[4, 5, 12]}>
+          <S.TitleContainer lang={_lang}>
+            <S.TitleSubContainer lang={_lang}>
+              <TitleIcon />
+              <S.Title>{lang === 'en' ? content.title : content.titleAr}</S.Title>
+            </S.TitleSubContainer>
+          </S.TitleContainer>
+        </Col>
+      </Row>
+      <Row mt={4} mtT={4} mtM={2}>
+        <Col w={[4, 5, 12]}>
+          <S.Content lang={_lang}>
+            {lang === 'en' ? content.description : content.descriptionAr}
+          </S.Content>
+        </Col>
+        <Col w={[4, 6, 12]} style={{ display: 'flex', justifyContent: 'center' }}>
+          <S.ImageContainer>
+            <img src={OurStoryImg} alt="our story" style={{ width: '100%' }} />
+          </S.ImageContainer>
         </Col>
       </Row>
     </Section>
-  ) : (
-    <S.Section id="our-story" lang={_lang}>
-      <S.ImageContainer>
-        <img src={OurStoryImg} alt="our story" />
-      </S.ImageContainer>
-      <S.ContentContainer>
-        <S.TitleContainer lang={_lang}>
-          <S.TitleSubContainer lang={_lang}>
-            <TitleIcon />
-            <S.Title>{lang === 'en' ? content.title : content.titleAr}</S.Title>
-          </S.TitleSubContainer>
-        </S.TitleContainer>
-        <S.Content lang={_lang}>
-          {lang === 'en' ? content.description : content.descriptionAr}
-        </S.Content>
-      </S.ContentContainer>
-    </S.Section>
   );
 };
 
