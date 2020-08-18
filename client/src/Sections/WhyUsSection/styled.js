@@ -22,7 +22,8 @@ export const SecSection = styled.div`
   width: 50%;
   flex: 1;
   height: 95%;
-  background: green;
+  padding: 30px;
+  margin-top: 30px;
 `;
 
 export const TitleContainer = styled.div`
@@ -59,4 +60,46 @@ export const SectionTitleText = styled.h1`
   color: #52387f;
   margin:0;
   padding 0 10px;
+`;
+
+export const SecondSecItem = styled.div`
+  background-color: #f5ebfe;
+  width: 100%;
+  height: 100px;
+  margin-top: 30px;
+  border-radius: 15px;
+  box-shadow: 5px 10px 20px -8px #000;
+`;
+
+export const SubTitle = styled.h5`
+  text-align: ${({ lang }) => (lang === 'en' ? 'left' : 'right')};
+  padding: 10px 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  color: #8368af;
+`;
+
+export const SubTitleSpan = styled.span`
+  width: 80px;
+  height: 5px;
+  background: #cea380;
+  display: block;
+  margin: 0;
+`;
+
+export const SubTitleContainer = styled.div`
+  padding: 0 20px;
+  display: flex;
+  align-items: ${({ lang }) => (lang === 'en' ? 'flex-start' : 'flex-end')};
+  flex-direction: column;
+`;
+
+export const TextContent = styled.p`
+  text-align: ${({ lang }) => (lang === 'en' ? 'left' : 'right')};
+  padding: 10px 20px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  color: gray;
 `;
