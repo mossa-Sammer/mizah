@@ -25,13 +25,13 @@ const bounce = keyframes`
 
 export const HeaderContainer = styled.div`
   width: 100%;
-  height: 50px;
   background: #8369b0;
   position: fixed;
   z-index: 9999;
   display: flex;
   align-items: center;
   flex-direction: ${({ lang }) => (lang === 'en' ? 'row' : 'row-reverse')};
+  padding: 10px 0;
 `;
 
 export const LogoContainer = styled.div`
@@ -50,6 +50,7 @@ export const Nav = styled.nav`
   // justify-content: flex-end;
   justify-content: ${({ lang }) => (lang === 'en' ? 'flex-start' : 'flex-end')};
   padding-right: ${({ lang }) => (lang === 'ar' ? ' 40px' : '0px')};
+  height: 100%;
 `;
 
 export const List = styled.ul`
@@ -59,7 +60,6 @@ export const List = styled.ul`
   height: 100%;
   margin: 0;
   padding: 0;
-  padding-bottom: 10px;
 `;
 
 export const ListItem = styled.li`
