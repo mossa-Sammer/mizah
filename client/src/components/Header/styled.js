@@ -55,11 +55,14 @@ export const Nav = styled.nav`
 
 export const List = styled.ul`
   display: flex;
+  flex-direction: ${({ tablet }) => (tablet ? 'column' : 'row')};
   list-style: none;
   align-items: center;
-  height: 100%;
   margin: 0;
+  margin-top: ${({ tablet }) => (tablet ? '-100px' : 0)};
   padding: 0;
+  z-index: 9999999;
+  position: relative;
 `;
 
 export const ListItem = styled.li`
@@ -68,9 +71,18 @@ export const ListItem = styled.li`
   margin-top: auto;
   padding: 10px 0px;
   cursor: pointer;
-  :hover {
+  s :hover {
     animation: ${bounce} 0.7s;
   }
+`;
+
+export const MenuBtn = styled.button`
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  height: 50px;
+  margin-left: 30px;
 `;
 
 export const Link = styled.a`
@@ -78,8 +90,17 @@ export const Link = styled.a`
   font-size: 15px;
   font-weight: bolder;
   font-family: 'Poppins';
-  color: white;
+  color: #f3c691;
   padding-bottom: 5px;
+`;
+
+export const MenuLink = styled.a`
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: bolder;
+  font-family: 'Poppins';
+  color: #f3c691;
+  padding: 5px 20px;
 `;
 
 export const Img = styled.img`
