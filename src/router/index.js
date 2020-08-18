@@ -29,7 +29,7 @@ router.get('/blog', blog.getBlogs);
 router.post('/message', message.addMessage);
 router.post('/login', login);
 router.post('/logout', logout);
-// router.use(isAuthed);
+router.use(isAuthed);
 
 router.post('/upload', images.addImage);
 router.delete('/upload', images.deleteImage);
@@ -66,10 +66,10 @@ router.get('/message', message.getMessages);
 router.put('/message', message.updateMessage);
 router.delete('/message/:id', message.deleteMessage);
 
-router.get('/aboutus');
-router.put('/aboutus');
+router.get('/aboutus', website.getAboutUs);
+router.put('/aboutus', website.editAboutUs);
 
 router.get('/setting', website.getWebsiteSetting);
-router.put('/setting');
+router.put('/setting', website.editSetting);
 
 module.exports = router;
