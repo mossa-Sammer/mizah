@@ -46,8 +46,7 @@ CREATE TABLE project(
     title VARCHAR(255),
     title_ar VARCHAR(255),
     description VARCHAR,
-    description_ar VARCHAR,
-    image_url VARCHAR
+    description_ar VARCHAR
 );
 
 CREATE TABLE customer (
@@ -56,6 +55,7 @@ CREATE TABLE customer (
     name_ar VARCHAR(255),
     logo_url VARCHAR
 );
+
 CREATE TABLE feature (
     feature_id SERIAL PRIMARY KEY,
     title VARCHAR(255),
@@ -101,5 +101,17 @@ CREATE TABLE website (
     about_us_description_ar VARCHAR,
     about_us_image_url VARCHAR
 );  
+
+create table project_image (
+    project_image_id SERIAL PRIMARY KEY,
+    project_id INT REFERENCES project(project_id) ON DELETE CASCADE,
+    image VARCHAR
+);
+
+CREATE table blog_image (
+    blog_image_id SERIAL PRIMARY KEY,
+    blog_id INT REFERENCES blog(blog_id) ON DELETE CASCADE,
+    image VARCHAR
+);
 
 COMMIT;
