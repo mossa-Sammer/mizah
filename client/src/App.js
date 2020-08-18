@@ -69,7 +69,7 @@ function App() {
             render={() => (
               <>
                 {/* <SliderContainer2 lang={lang} slide={slide} setSlide={setSlide} /> */}
-                <Header lang={lang} setLang={setLang} />
+                <OurStorySection lang={lang} setLang={setLang} />
 
                 <div style={{ width: '100%', height: '100vh' }} />
               </>
