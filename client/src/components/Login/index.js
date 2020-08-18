@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
@@ -75,9 +75,8 @@ export default function SignIn({ setIsAuth }) {
         });
         setIsAuth(true);
         history.push('/control-panel');
-
-      } catch (e) {
-        setErrors('something wrong with you email or password please check it !!'); 
+      } catch (error) {
+        setErrors('something wrong with you email or password please check it !!');
       }
     }
   };

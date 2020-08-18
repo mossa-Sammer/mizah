@@ -13,6 +13,11 @@ import IconsSection from './components/IconsSection';
 import Header from './components/Header';
 import Login from './components/Login';
 import ControlPannel from './components/ControlPannel';
+import CustomersSection from './Sections/CustomersSection';
+import ProjectsSection from './Sections/ProjectsSection';
+import Footer from './Sections/Footer';
+
+// test
 
 import './App.css';
 
@@ -32,10 +37,12 @@ function App() {
               <>
                 <Header lang={lang} setLang={setLang} />
                 <SliderContainer slide={slide} setSlide={setSlide} />
-                <section style={{ width: '100%', height: '100vh', backgroundColor: 'gray' }} />
                 <OurStorySection lang={lang} />
                 <OurServicesSection lang={lang} />
                 <WhyUsSection lang={lang} />
+                <CustomersSection lang={lang} />
+                <ProjectsSection lang={lang} />
+                <Footer lang={lang} />
                 <IconsSection slide={slide} />
               </>
             )}
@@ -57,11 +64,14 @@ function App() {
             }
           />
           <Route
-            path="/111"
+            path="/test"
             exact
             render={() => (
               <>
-                <OurServicesSection />
+                {/* <SliderContainer2 lang={lang} slide={slide} setSlide={setSlide} /> */}
+                <OurStorySection lang={lang} setLang={setLang} />
+
+                <div style={{ width: '100%', height: '100vh' }} />
               </>
             )}
           />

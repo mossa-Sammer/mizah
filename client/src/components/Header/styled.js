@@ -25,13 +25,13 @@ const bounce = keyframes`
 
 export const HeaderContainer = styled.div`
   width: 100%;
-  height: 50px;
   background: #8369b0;
   position: fixed;
   z-index: 9999;
   display: flex;
   align-items: center;
   flex-direction: ${({ lang }) => (lang === 'en' ? 'row' : 'row-reverse')};
+  padding: 10px 0;
 `;
 
 export const LogoContainer = styled.div`
@@ -50,16 +50,19 @@ export const Nav = styled.nav`
   // justify-content: flex-end;
   justify-content: ${({ lang }) => (lang === 'en' ? 'flex-start' : 'flex-end')};
   padding-right: ${({ lang }) => (lang === 'ar' ? ' 40px' : '0px')};
+  height: 100%;
 `;
 
 export const List = styled.ul`
   display: flex;
+  flex-direction: ${({ tablet }) => (tablet ? 'column' : 'row')};
   list-style: none;
   align-items: center;
-  height: 100%;
   margin: 0;
+  margin-top: ${({ tablet }) => (tablet ? '-100px' : 0)};
   padding: 0;
-  padding-bottom: 10px;
+  z-index: 9999999;
+  position: relative;
 `;
 
 export const ListItem = styled.li`
@@ -68,9 +71,18 @@ export const ListItem = styled.li`
   margin-top: auto;
   padding: 10px 0px;
   cursor: pointer;
-  :hover {
+  s :hover {
     animation: ${bounce} 0.7s;
   }
+`;
+
+export const MenuBtn = styled.button`
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  height: 50px;
+  margin-left: 30px;
 `;
 
 export const Link = styled.a`
@@ -78,8 +90,17 @@ export const Link = styled.a`
   font-size: 15px;
   font-weight: bolder;
   font-family: 'Poppins';
-  color: white;
+  color: #f3c691;
   padding-bottom: 5px;
+`;
+
+export const MenuLink = styled.a`
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: bolder;
+  font-family: 'Poppins';
+  color: #f3c691;
+  padding: 5px 20px;
 `;
 
 export const Img = styled.img`

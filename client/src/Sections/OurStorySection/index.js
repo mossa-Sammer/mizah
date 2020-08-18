@@ -3,6 +3,8 @@ import React from 'react';
 import * as S from './styled';
 import OurStoryImg from '../../assets/ourStory.png';
 import TitleIcon from '../../components/SVG/titleIcon';
+import Section from '../../components/Layout/Section';
+import { Col, Row } from '../../components/Grid';
 
 const content = {
   title: 'OUR STORY',
@@ -15,7 +17,15 @@ const content = {
 
 const OurStorySection = ({ lang }) => {
   const _lang = lang || 'en';
-  return (
+  return true ? (
+    <Section>
+      <Row>
+        <Col w={[4, 12, 12]}>
+          <h1>asdsadsd</h1>
+        </Col>
+      </Row>
+    </Section>
+  ) : (
     <S.Section id="our-story" lang={_lang}>
       <S.ImageContainer>
         <img src={OurStoryImg} alt="our story" />
