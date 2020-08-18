@@ -66,8 +66,8 @@ router.get('/message', message.getMessages);
 router.put('/message', message.updateMessage);
 router.delete('/message/:id', message.deleteMessage);
 
-router.get('/aboutus');
-router.put('/aboutus');
+router.get('/aboutus', website.getAboutUs);
+router.put('/aboutus', website.editAboutUs);
 
 router.get('/setting', website.getWebsiteSetting);
 router.put('/setting', website.editSetting);
