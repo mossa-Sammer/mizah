@@ -10,21 +10,20 @@ export const Row = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  justify-content: center;
   margin-left: -${({ inner }) => (inner ? theme.vars.gridGutter.desktop : theme.vars.gridGutter.desktop / 2)}px !important;
   margin-right: -${({ inner }) => (inner ? theme.vars.gridGutter.desktop : theme.vars.gridGutter.desktop / 2)}px !important;
 
   width: ${({ inner }) => (inner ? `calc(100% + ${theme.vars.gridGutter.desktop}px)` : '100%')};
 
-  justify-content: ${({ jc }) => jc || 'left'};
+  justify-content: ${({ jc }) => jc || 'flex-start'};
   ${() => theme.media.tablet} {
-    justify-content: ${({ jc, jcT }) => jcT || jc || 'left'};
+    justify-content: ${({ jc, jcT }) => jcT || jc || 'flex-start'};
     width: ${({ inner }) => (inner ? `calc(100% + ${theme.vars.gridGutter.tablet}px)` : '100%')};
     margin-left: -${({ inner }) => (inner ? theme.vars.gridGutter.tablet : theme.vars.gridGutter.tablet / 2)}px !important;
     margin-right: -${({ inner }) => (inner ? theme.vars.gridGutter.tablet : theme.vars.gridGutter.tablet / 2)}px !important;
   }
   ${() => theme.media.mobile} {
-    justify-content: ${({ jc, jcT, jcM }) => jcM || jcT || jc || 'left'};
+    justify-content: ${({ jc, jcT, jcM }) => jcM || jcT || jc || 'flex-start'};
     width: ${({ inner }) => (inner ? `calc(100% + ${theme.vars.gridGutter.mobile}px)` : '100%')};
     margin-left: -${({ inner }) => (inner ? theme.vars.gridGutter.mobile : theme.vars.gridGutter.mobile / 2)}px !important;
     margin-right: -${({ inner }) => (inner ? theme.vars.gridGutter.mobile : theme.vars.gridGutter.mobile / 2)}px !important;
