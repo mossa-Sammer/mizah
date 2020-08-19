@@ -20,13 +20,10 @@ export const TitleContainer = styled.div`
 
 export const TitleSubContainer = styled.div`
   display: flex;
-  // flex-direction: ${({ lang }) => (lang === 'en' ? 'row' : ' row-reverse')};
   align-items: center;
   justify-content: center;
   width: 100%;
-  // margin-right: ${({ lang }) => (lang === 'ar' ? '50px' : 0)};
-  // margin-left: ${({ lang }) => (lang === 'en' ? '50px' : 0)};
-  margin-top: 70px;
+  margin-top: 60px;
 `;
 
 export const Title = styled.h1`
@@ -34,6 +31,12 @@ export const Title = styled.h1`
   color: #52387f;
   margin:0;
   padding 0 10px;
+  @media (max-width: 960px) {
+    font-size: 38px;
+  }
+  @media (max-width: 420px) {
+    font-size: 26px;
+  }
 `;
 
 export const Content = styled.div`
@@ -54,7 +57,8 @@ export const ActiveTitle = styled.h3`
   margin-right: 50px;
   font-weight: 900;
   color: #f3c691;
-  margin-bottom: 0;
+  margin-bottom: 16px;
+  font-size: 28px;
 `;
 
 export const Button = styled.button`
