@@ -7,27 +7,31 @@ export const CardContainer = styled.div`
   justify-content: center;
   align-items: center;
   direction: ltr;
-  border: 2px solid #b68cff;
-  border-radius: 25px;
-  -webkit-border-radius: 25px;
+  // border: 3px solid #b68cff;
+  // border-radius: 25px;
+  // -webkit-border-radius: 25px;
   box-shadow: 0px 5px 35px -16px rgba(0, 0, 0, 0.75);
   overflow: hidden;
   flex-direction: column;
   margin: 15px;
   outline: none;
   cursor: pointer;
+  background-color: #f2e3ff;
+  &:hover {
+    transform: scale(1.1);
+  }
+  transition: 0.3s;
 `;
 
 export const ImageContainer = styled.div`
   width: 90px;
   height: 90px;
-  border: 2px solid #b68cff;
-  background-color: #f2e3ff;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
+  // border: 2px solid #b68cff;
+  // border-radius: 50%;
+  // -webkit-border-radius: 50%;
+  // -moz-border-radius: 50%;
+  // -ms-border-radius: 50%;
+  // -o-border-radius: 50%;
   overflow: hidden;
   display: flex;
   align-items: center;

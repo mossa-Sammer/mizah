@@ -4,6 +4,9 @@ import * as S from './styled';
 import TitleIcon from '../../components/SVG/titleIcon';
 import Carousel from './Carousle';
 
+import Section from '../../components/Layout/Section';
+import { Row, Col } from '../../components/Grid';
+
 const imgsrc = 'http://oldmizah.geeksteams.com/public/image/Services/1591344978.png';
 const content = [
   {
@@ -43,30 +46,39 @@ const content = [
       'شسيشس شسيشيمكةلقثصلصنكةت  كشمنبلقصكمل ضيبمكضصن ض ضصكمن ضصي ضكمصينلثصكمنل ب كمضني ',
   },
 ];
+
 const OurServicesSection = ({ lang }) => {
   const _lang = lang || 'en';
   const [activeIndex, setActiveIndex] = useState(0);
   return (
-    <>
-      <S.Section id="our-services" lang={_lang} style={{ padding: '0 30px' }}>
-        <S.TitleContainer lang={_lang}>
-          <S.TitleSubContainer lang={_lang}>
-            <TitleIcon />
-            <S.Title>{_lang === 'en' ? 'Our Services' : 'خدماتنا '}</S.Title>
-            <TitleIcon />
-          </S.TitleSubContainer>
-        </S.TitleContainer>
-        <S.ActiveContent key={activeIndex} lang={_lang}>
-          <S.ActiveTitle lang={_lang}>
-            {_lang === 'en' ? content[activeIndex].title : content[activeIndex].titleAr}
-          </S.ActiveTitle>
-          <S.Content lang={_lang}>
-            {_lang === 'en' ? content[activeIndex].description : content[activeIndex].descriptionAr}
-          </S.Content>
-        </S.ActiveContent>
-        <Carousel items={content} setActiveIndex={setActiveIndex} lang={_lang} />
-      </S.Section>
-    </>
+    <Section>
+      <Row>
+        <Col w={[4, 6, 12]}>
+          <S.TitleContainer lang={_lang}>
+            <S.TitleSubContainer lang={_lang}>
+              <TitleIcon />
+              <S.Title>{_lang === 'en' ? 'Our Services' : 'خدماتنا '}</S.Title>
+              <TitleIcon />
+            </S.TitleSubContainer>
+          </S.TitleContainer>
+        </Col>
+      </Row>
+      <Row mt={3} jc={_lang === 'en' ? 'flex-start' : 'flex-end'}>
+        <Col w={[4, 5, 10]}>
+          <S.ActiveContent key={activeIndex} lang={_lang}>
+            <S.ActiveTitle lang={_lang}>
+              {_lang === 'en' ? content[activeIndex].title : content[activeIndex].titleAr}
+            </S.ActiveTitle>
+            <S.Content lang={_lang}>
+              {_lang === 'en'
+                ? content[activeIndex].description
+                : content[activeIndex].descriptionAr}
+            </S.Content>
+          </S.ActiveContent>
+        </Col>
+      </Row>
+      <Carousel items={content} setActiveIndex={setActiveIndex} lang={_lang} />
+    </Section>
   );
 };
 
