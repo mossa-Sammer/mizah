@@ -25,7 +25,6 @@ function App() {
   const [slide, setSlide] = useState('left');
   const [lang, setLang] = useState('en');
   const [isAuth, setIsAuth] = useState(false);
-
   return (
     <div className="App">
       <Router>
@@ -69,8 +68,9 @@ function App() {
             render={() => (
               <>
                 {/* <SliderContainer2 lang={lang} slide={slide} setSlide={setSlide} /> */}
-                <OurStorySection lang={lang} setLang={setLang} />
-
+                {/* <SliderContainer slide={slide} setSlide={setSlide} /> */}
+                <Header lang={lang} setLang={setLang} />
+                <div style={{ width: '100%', height: '100vh' }} />
                 <div style={{ width: '100%', height: '100vh' }} />
               </>
             )}
