@@ -11,7 +11,7 @@ const addProjectImages = (projectId, images) => {
   console.log(11111111111111, images);
   const { preparedStatment, values } = multiRowInsert(images, projectId);
   return connection.query(
-    `INSERT INTO project_image (project_id, image) VALUES ${preparedStatment} RETURNING *`,
+    `INSERT INTO project_image (project_id, image_url) VALUES ${preparedStatment} RETURNING *`,
     values
   );
 };

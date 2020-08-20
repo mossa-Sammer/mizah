@@ -105,13 +105,13 @@ CREATE TABLE website (
 create table project_image (
     project_image_id SERIAL PRIMARY KEY,
     project_id INT REFERENCES project(project_id) ON DELETE CASCADE,
-    image VARCHAR
+    image_url VARCHAR
 );
 
 CREATE table blog_image (
     blog_image_id SERIAL PRIMARY KEY,
     blog_id INT REFERENCES blog(blog_id) ON DELETE CASCADE,
-    image VARCHAR
+    image_url VARCHAR
 );
 
 COMMIT;
