@@ -45,21 +45,6 @@ export const TitleSpan = styled.span`
   margin: 0;
 `;
 
-// export const SectionTitle = styled.div`
-//   width: 100%;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   background-color: #f5ebfe;
-// `;
-
-// export const SectionTitleText = styled.h1`
-//   font-size: 54px;
-//   color: #52387f;
-//   margin:0;
-//   padding 0 10px;
-// `;
-
 export const SectionTitle = styled.div`
   display: flex;
   padding-right: 60px;
