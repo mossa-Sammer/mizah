@@ -6,33 +6,38 @@ import { Col, Row } from '../../components/Grid';
 import LeftArrow from '../../components/SVG/LeftArrow';
 import SectionLayout from '../../components/Layout/SectionLayout';
 
-import HeadlineTitle from '../../components/Title';
 import ProjectCard from '../../components/ProjectCard';
 
 import Img from '../../assets/ourStory.png';
 import Img1 from '../../assets/project1.png';
 import Img2 from '../../assets/project2.png';
 
+import TitleIcon from '../../components/SVG/titleIcon';
+
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const data = [
   {
+    id: 1,
     image: Img1,
     title: 'SOCIAL MEDIA MANAGEMENT FOR MUBADRAH COMPANY',
     titleAr: 'اداره حسابات التواصل الأجتماعي لشركة مبادرة',
   },
   {
+    id: 2,
     image: Img2,
     title: 'MOTION GRAPHICS "MUBADARAH"',
     titleAr: 'موشن جرافيك "مبادرة"',
   },
   {
+    id: 3,
     image: Img1,
     title: 'SOCIAL MEDIA MANAGEMENT FOR MUBADRAH COMPANY',
     titleAr: 'اداره حسابات التواصل الأجتماعي لشركة مبادرة',
   },
   {
+    id: 4,
     image: Img,
     title: 'MOTION GRAPHICS "MUBADARAH"',
     titleAr: 'موشن جرافيك "مبادرة"',
@@ -49,7 +54,6 @@ const ProjectsSection = ({ lang }) => {
   if (mobile) {
     numberOfItems = 1;
   }
-  // console.log(matches);
   const settings = {
     dots: true,
     infinite: true,
@@ -70,7 +74,7 @@ const ProjectsSection = ({ lang }) => {
         </S.NextArrow>
       </S.Button>
     ),
-    slidesToShow: numberOfItems, // this should be responseve
+    slidesToShow: numberOfItems,
     slidesToScroll: 1,
   };
 
@@ -79,9 +83,13 @@ const ProjectsSection = ({ lang }) => {
       <SectionLayout id="our-people" bgcolor="sectionBackground" addPaddingY>
         <Row>
           <Col w={[4, 6, 12]}>
-            <HeadlineTitle lang={lang}>
-              {lang === 'en' ? 'Our Projects' : 'مشاريعنا '}
-            </HeadlineTitle>
+            <S.TitleContainer lang={lang} style={{ position: 'relative', zIndex: 999 }}>
+              <S.TitleSubContainer lang={lang}>
+                <TitleIcon />
+                <S.Title>{lang === 'en' ? 'Our Projects' : 'مشاريعنا '}</S.Title>
+                <TitleIcon />
+              </S.TitleSubContainer>
+            </S.TitleContainer>
           </Col>
         </Row>
         {!!data.length && (
