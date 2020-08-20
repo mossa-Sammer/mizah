@@ -18,7 +18,7 @@ const content = {
 const OurStorySection = ({ lang }) => {
   const _lang = lang || 'en';
   return (
-    <Section bgcolor="#f5ebfe">
+    <Section bgcolor="#f5ebfe" id="our-story" customBg>
       <Row mrT={6}>
         <Col w={[4, 5, 12]}>
           <S.TitleContainer lang={_lang}>

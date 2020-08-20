@@ -17,6 +17,9 @@ import CustomersSection from './Sections/CustomersSection';
 import ProjectsSection from './Sections/ProjectsSection';
 import Footer from './Sections/Footer';
 
+// pages
+import ProjectPage from './Pages/project';
+
 // test
 
 import './App.css';
@@ -25,7 +28,6 @@ function App() {
   const [slide, setSlide] = useState('left');
   const [lang, setLang] = useState('en');
   const [isAuth, setIsAuth] = useState(false);
-
   return (
     <div className="App">
       <Router>
@@ -34,7 +36,7 @@ function App() {
             path="/"
             exact
             render={() => (
-              <>
+              <div id="home">
                 <Header lang={lang} setLang={setLang} />
                 <SliderContainer slide={slide} setSlide={setSlide} />
                 <OurStorySection lang={lang} />
@@ -44,7 +46,7 @@ function App() {
                 <ProjectsSection lang={lang} />
                 <Footer lang={lang} />
                 <IconsSection slide={slide} />
-              </>
+              </div>
             )}
           />
           <Route
@@ -63,14 +65,18 @@ function App() {
               )
             }
           />
+          <Route path="/project/:id" exact component={ProjectPage} />
           <Route
             path="/test"
             exact
             render={() => (
               <>
                 {/* <SliderContainer2 lang={lang} slide={slide} setSlide={setSlide} /> */}
-                <OurStorySection lang={lang} setLang={setLang} />
+                {/* <SliderContainer slide={slide} setSlide={setSlide} /> */}
+                <Header lang={lang} setLang={setLang} />
+                <WhyUsSection lang={lang} />
 
+                <div style={{ width: '100%', height: '100vh' }} />
                 <div style={{ width: '100%', height: '100vh' }} />
               </>
             )}

@@ -5,9 +5,8 @@ import { Col, Row } from '../../components/Grid';
 import LeftArrow from '../../components/SVG/LeftArrow';
 import SectionLayout from '../../components/Layout/SectionLayout';
 
-import HeadlineTitle from '../../components/Title';
-
 import Img from '../../assets/ourStory.png';
+import TitleIcon from '../../components/SVG/titleIcon';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -59,16 +58,20 @@ const OurPeapoleSection = ({ lang }) => {
       <SectionLayout id="our-people" bgcolor="sectionBackground" addPaddingY>
         <Row>
           <Col w={[4, 6, 12]}>
-            <HeadlineTitle lang={lang}>
-              {lang === 'en' ? 'CUSTOMER TESTIMONIALS' : 'شهادات العملاء'}
-            </HeadlineTitle>
+            <S.TitleContainer lang={lang} style={{ position: 'relative', zIndex: 999 }}>
+              <S.TitleSubContainer lang={lang}>
+                <TitleIcon />
+                <S.Title>{lang === 'en' ? 'Customer Testimonials' : 'شهادات العملاء'}</S.Title>
+                <TitleIcon />
+              </S.TitleSubContainer>
+            </S.TitleContainer>
           </Col>
         </Row>
         {!!data.length && (
           <Row jc="center" jcM="flex-end">
             <Col w={[4, 6, 11.5]}>
               <S.SliderWrapper>
-                <Slider {...settings}>
+                <Slider {...settings} style={{ position: 'relative', zIndex: 999 }}>
                   {data.map(
                     elem =>
                       elem && (

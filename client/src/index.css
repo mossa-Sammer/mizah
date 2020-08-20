@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap');
 
 *, body, html {
   padding: 0;
@@ -6,7 +6,7 @@
 }
 body {
   margin: 0;
-  font-family: "Poppins", "Segoe UI", "Roboto", "Oxygen",
+  font-family: 'Cairo', sans-serif,
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -14,10 +14,15 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family: 'Cairo', sans-serif,
     monospace;
 }
 
 html {
   scroll-behavior: smooth;
+  font-family: 'Cairo', sans-serif;
+}
+
+h1,h2,h3,h4,h5,h5,p {
+  font-family: 'Cairo', sans-serif;
 }
