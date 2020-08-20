@@ -78,6 +78,7 @@ export const H5Caps = styled.h5`
   line-height: 24px;
   letter-spacing: 0.08em;
   text-transform: capitalize;
+  margin-bottom: 16px;
   color: ${({ color }) => theme.colors[color] || color || theme.colors.black2};
 `;
 
@@ -93,9 +94,8 @@ export const Caption12 = styled.p`
 export const SocialContainer = styled.div`
   display: flex;
   width: 30%;
-  height: 50;
   position: absolute;
-  top: -30px;
+  top: -22px;
   right: 30px;
   @media (max-width: 960px) {
     top: auto;
@@ -121,10 +121,10 @@ export const ImgContainer = styled.div`
 
 export const SocialLink = styled.a`
   box-shadow: 1px 0px 13px 0px rgba(243, 198, 145, 1);
-  width: 50px;
-  height: 50px;
-  min-width: 50px;
-  min-height: 50px;
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  min-height: 4px;
   border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
@@ -140,7 +140,7 @@ export const SocialLink = styled.a`
   padding: 2px;
   background: #fff;
   &:hover {
-    background: green;
+    background: #f3c691;
   }
   @ media (max-width: 930px) {
     width: 30px;
@@ -152,12 +152,12 @@ export const SocialLink = styled.a`
 
 export const ColorButton = withStyles(() => ({
   root: {
-    color: '#fff',
+    color: '#000',
     width: '90%',
     marginLeft: 30,
-    backgroundColor: '#7c5dbd',
+    backgroundColor: '#f4c081',
     '&:hover': {
-      backgroundColor: '#a57dfb',
+      backgroundColor: '#f3c691',
     },
   },
 }))(Button);
@@ -181,6 +181,7 @@ export const Input = styled.input`
   background-clip: padding-box;
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
+  margin-top: 8px;
 `;
 
 export const TextArea = styled.textarea`
@@ -197,6 +198,9 @@ export const TextArea = styled.textarea`
 export const Label = styled.label`
   text-align: left;
   width: 100%;
+  color: white;
+  font-weight: bold;
+
   @media (max-width: 930px) {
     width: 90%;
   }
