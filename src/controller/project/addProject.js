@@ -2,7 +2,14 @@ const { project } = require('../../database/queries');
 const { addImage } = require('../images');
 
 module.exports = async (req, res, next) => {
-  const { title, titleAr, description, descriptionAr, images } = req.body;
+  const {
+    title,
+    titleAr,
+    description,
+    descriptionAr,
+    videoUrl,
+    images,
+  } = req.body;
   try {
     const {
       rows: [addedProject],
@@ -11,10 +18,9 @@ module.exports = async (req, res, next) => {
       titleAr,
       description,
       descriptionAr,
+      videoUrl,
     });
-    console.log(req.body);
 
-    console.log(title, titleAr, description, descriptionAr, addedProject);
     let addedImages = [];
     if (images) {
       const { rows } = await project.addProjectImages(
