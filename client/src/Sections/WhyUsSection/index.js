@@ -3,34 +3,45 @@ import * as S from './styled';
 import TitleIcon from '../../components/SVG/titleIcon';
 import items, { title } from './dummyData';
 
+import Section from '../../components/Layout/Section';
+import { Row, Col } from '../../components/Grid';
+
 const WhyUsSection = ({ lang }) => {
   return (
-    <>
-      <S.SectionTitle>
-        <TitleIcon />
-        <S.SectionTitleText>{lang === 'en' ? 'WHY US ?' : 'لماذا نحن ؟'}</S.SectionTitleText>
-        <TitleIcon />
-      </S.SectionTitle>
-      <S.Section lang={lang}>
-        <S.MainSection lang={lang}>
-          <S.TitleContainer lang={lang}>
+    <Section id="why-us">
+      <Row>
+        <Col w={[4, 6, 12]}>
+          <S.SectionTitle lang={lang}>
+            <S.TitleSubContainer lang={lang}>
+              <TitleIcon />
+              <S.TitleText>{lang === 'en' ? 'WHY US ?' : 'لماذا نحن ؟'}</S.TitleText>
+              <TitleIcon />
+            </S.TitleSubContainer>
+          </S.SectionTitle>
+        </Col>
+      </Row>
+      <Row mt={3} jc={lang === 'en' ? 'flex-start' : 'flex-end'}>
+        <Col w={[4, 6, 12]}>
+          <S.MainTitleContainer lang={lang}>
             <S.Title lang={lang}>{lang === 'en' ? title.en : title.ar}</S.Title>
-            <S.TitleSpan />
-          </S.TitleContainer>
-        </S.MainSection>
-        <S.SecSection>
-          {items.map(e => (
-            <S.SecondSecItem>
-              <S.SubTitleContainer lang={lang}>
+            <S.TitleSpan style={{ marginTop: 15 }} />
+          </S.MainTitleContainer>
+        </Col>
+      </Row>
+      <Row>
+        {items.map(e => (
+          <Col w={[4, 6, 12]}>
+            <S.Card>
+              <S.ItemTitleContainer lang={lang}>
                 <S.SubTitle lang={lang}>{lang === 'en' ? e.title : e.titleAr}</S.SubTitle>
                 <S.SubTitleSpan />
-              </S.SubTitleContainer>
+              </S.ItemTitleContainer>
               <S.TextContent lang={lang}>{lang === 'en' ? e.content : e.contentAr}</S.TextContent>
-            </S.SecondSecItem>
-          ))}
-        </S.SecSection>
-      </S.Section>
-    </>
+            </S.Card>
+          </Col>
+        ))}
+      </Row>
+    </Section>
   );
 };
 

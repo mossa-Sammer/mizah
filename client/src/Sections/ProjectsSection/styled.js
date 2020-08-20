@@ -162,3 +162,32 @@ export const H4Bold = styled.h4`
   margin: 0;
   padding: 0;
 `;
+
+export const TitleContainer = styled.div`
+  display: flex;
+  padding-right: 60px;
+  width: 100%;
+  flex-direction: ${({ lang }) => (lang === 'en' ? 'row' : ' row-reverse')};
+  align-items: center;
+`;
+
+export const TitleSubContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 60px;
+`;
+
+export const Title = styled.h1`
+  font-size: 54px;
+  color: #52387f;
+  margin:0;
+  padding 0 10px;
+  @media (max-width: 960px) {
+    font-size: 38px;
+  }
+  @media (max-width: 420px) {
+    font-size: 26px;
+  }
+`;

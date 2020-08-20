@@ -51,7 +51,7 @@ const OurServicesSection = ({ lang }) => {
   const _lang = lang || 'en';
   const [activeIndex, setActiveIndex] = useState(0);
   return (
-    <Section>
+    <Section id="our-services">
       <Row>
         <Col w={[4, 6, 12]}>
           <S.TitleContainer lang={_lang}>

@@ -28,7 +28,8 @@ const Footer = () => {
   };
   return (
     <>
-      <Section bgimg={FooterBg} bgcolor="footerBg" footer>
+      {/* <Section bgimg={FooterBg} bgcolor="footerBg" footer id="footer"> */}
+      <Section bgcolor="footerBg" footer id="footer">
         <S.SocialContainer>
           <S.SocialLink href="#">
             <Twitter icon="twitter" width="80%" height="80%" color="#755e9e" />
@@ -46,7 +47,7 @@ const Footer = () => {
 
         <Row jc="flex-start" wrap>
           <Col w={[4, 6, 4]}>
-            <S.H5Caps color="white">send as a message </S.H5Caps>
+            <S.H5Caps color="#f3c691">send as a message </S.H5Caps>
             <form noValidate autoComplete="off" onSubmit={handleSubmit}>
               <S.InputContainer>
                 <S.Label>

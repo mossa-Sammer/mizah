@@ -8,14 +8,14 @@ import Menu from '../SVG/Menu';
 import Close from '../SVG/Close';
 
 const content = [
-  { title: 'home', arTitle: 'الرئيسية', link: '' },
-  { title: 'our services', arTitle: 'خدماتنا', link: '' },
-  { title: 'why us?', arTitle: 'من نحن ', link: '' },
-  { title: 'Customer', arTitle: ' عملاؤنا', link: '' },
-  { title: 'review', arTitle: 'قالو عنا', link: '' },
-  { title: 'our projects', arTitle: 'آخر مشاريعنا ', link: '' },
-  { title: 'for uniquenss contact us', arTitle: 'تواصل معنا', link: '' },
-  { title: 'blog', arTitle: 'المدونة', link: '' },
+  { title: 'home', arTitle: 'الرئيسية', link: '#home' },
+  { title: 'our services', arTitle: 'خدماتنا', link: '#our-services' },
+  { title: 'why us?', arTitle: 'من نحن ', link: '#why-us' },
+  { title: 'Customers', arTitle: ' عملاؤنا', link: '#our-people' },
+  // { title: 'review', arTitle: 'قالو عنا', link: '#review' },
+  { title: 'our projects', arTitle: 'آخر مشاريعنا ', link: '#our-projects' },
+  { title: 'for uniquenss contact us', arTitle: 'تواصل معنا', link: '#footer' },
+  // { title: 'blog', arTitle: 'المدونة', link: '#blog' },
 ];
 
 const Header = ({ lang, setLang }) => {
@@ -65,7 +65,7 @@ const Header = ({ lang, setLang }) => {
                 const text = lang === 'en' ? elm.title : elm.arTitle;
                 return (
                   <S.ListItem>
-                    <S.MenuLink href="#our-story" onClick={() => setIsOpen(false)}>
+                    <S.MenuLink href={elm.link} onClick={() => setIsOpen(false)}>
                       {text}
                     </S.MenuLink>
                   </S.ListItem>
@@ -84,7 +84,7 @@ const Header = ({ lang, setLang }) => {
             const text = lang === 'en' ? elm.title : elm.arTitle;
             return (
               <S.ListItem>
-                <S.Link href="#our-story">{text}</S.Link>
+                <S.Link href={elm.link}>{text}</S.Link>
               </S.ListItem>
             );
           })}
