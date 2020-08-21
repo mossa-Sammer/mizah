@@ -9,7 +9,7 @@ const style = {
   sideMenu: {
     display: 'flex',
     flexDirection: 'column',
-    position: 'fixed',
+    position: 'absolute',
     left: '0px',
     width: '320px',
     height: '100%',
