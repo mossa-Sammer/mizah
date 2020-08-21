@@ -42,7 +42,7 @@ export default function ProjectItemForm({
         multiline
       />
       <div>
-        <UploadImage setFiles={setImage} files={image} />
+        <UploadImage setFiles={setImage} files={image}/>  
       </div>
     </>
   );
