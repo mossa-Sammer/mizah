@@ -23,8 +23,7 @@ const Projects = ({ classes }) => {
   const [data, setData] = useState([])
   const route = '/api/v1/project';
 
-  const rowClick = async (rowData, route) => {
-    console.log('route',`${route}/${rowData.project_id}`)
+  const deleteRow = async (rowData, route) => {
     try{
       setData(old => old.filter(e => e.project_id !== rowData.project_id))
       const data = await axios.delete(`${route}/${rowData.project_id}`)
@@ -40,7 +39,6 @@ const Projects = ({ classes }) => {
       try {
       
       const data = await axios.get('/api/v1/project')
-      console.log(data)
       setData(data.data)
     } catch(e) {
       console.log(e)
@@ -79,9 +77,10 @@ const Projects = ({ classes }) => {
             { title: 'Title AR', field: 'title_ar' },
             { title: 'Description', field: 'description' },
             { title: 'Description AR', field: 'description_ar' },
-            RemoveRejoinCol,
+            RemoveRejoinCol({onDelete: (row) => {deleteRow(row, route)}}),
+            
           ]}
-          onRowClick={(e, rowData) => rowClick(rowData, route)}
+          // onRowClick={(e, rowData) => rowClick(rowData, route)}
         />
       )}
     </div>
