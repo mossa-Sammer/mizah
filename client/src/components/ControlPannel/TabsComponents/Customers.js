@@ -23,7 +23,7 @@ const Customers = ({ classes }) => {
   const [data, setData] = useState([])
   const route = '/api/v1/customer';
 
-  const rowClick = async (rowData, route) => {
+  const deleteRow = async (rowData, route) => {
     try{
       setData(old => old.filter(e => e.customer_id !== rowData.customer_id))
       const data = await axios.delete(`${route}/${rowData.customer_id}`)
@@ -73,9 +73,10 @@ const Customers = ({ classes }) => {
           columns={[
             { title: 'Customer Name', field: 'name' },
             { title: 'Customer Name AR', field: 'name_ar' },
-            RemoveRejoinCol,
+            RemoveRejoinCol({onDelete: (row) => {deleteRow(row, route)}}),
+            ,
           ]}
-          onRowClick={(e, rowData) => rowClick(rowData, route)}
+          // onRowClick={(e, rowData) => rowClick(rowData, route)}
         />
       )}
     </div>

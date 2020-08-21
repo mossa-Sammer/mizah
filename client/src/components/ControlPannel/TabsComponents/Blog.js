@@ -24,7 +24,7 @@ const Blog = ({ classes }) => {
   const [data, setData] = useState([])
   const route = '/api/v1/blog';
 
-  const rowClick = async (rowData, route) => {
+  const deleteRow = async (rowData, route) => {
     try{
       setData(old => old.filter(e => e.blog_id !== rowData.blog_id))
       const data = await axios.delete(`${route}/${rowData.blog_id}`)
@@ -77,9 +77,8 @@ const Blog = ({ classes }) => {
             { title: 'Title AR', field: 'title_ar' },
             { title: 'Description', field: 'description' },
             { title: 'Description AR', field: 'description_ar' },
-            RemoveRejoinCol,
+            RemoveRejoinCol({onDelete: (row) => {deleteRow(row, route)}}),
           ]}
-          onRowClick={(e, rowData) => rowClick(rowData, route)}
         />
       )}
     </div>

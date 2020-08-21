@@ -15,7 +15,7 @@ import BlogItemForm from './Forms/BlogItemForm';
 
 export default function FormLayout({ page, route, setOpenForm }) {
   const [state, setStates] = useState({});
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState([]);
   // const [errors, setErrors] = useState({});
 
   const handleInputChange = ({ target: { value, name } }) => {
@@ -56,7 +56,7 @@ export default function FormLayout({ page, route, setOpenForm }) {
     );
   } else if (page === 'projects') {
     renderForm = (
-      <ProjectItemForm
+      <ProjectItemForm 
         handleInputChange={handleInputChange}
         values={state}
         setImage={setImage}
@@ -100,24 +100,30 @@ export default function FormLayout({ page, route, setOpenForm }) {
       />
     );
   }
-
   const handleSubmit = async e => {
     e.preventDefault();
-    let imageUrl, uploadURL;
-    console.log({state, route})
+    let uploadedImages = []
     try {
-      if(image){
-        const { data } = await axios.post('/api/v1/upload', {type: image.type})
-        imageUrl = data.imageUrl;
-        uploadURL = data.uploadURL;
-        await axios.put(uploadURL, image, {
-          headers: {
-            "Content-Type" : image.type
+      if(image.length){
+
+        const promises = image.map(
+          async img => {
+            const { data } = await axios.post('/api/v1/upload', {type: img.type})
+            uploadedImages.push(data.imageUrl)
+            await axios.put(data.uploadURL, img, {
+              headers: {
+                "Content-Type" : img.type
+              }
+            })
           }
-        })
+        )
+        await Promise.all(promises)
+        const result = await axios.post(route, {...state, images: uploadedImages})
+        setOpenForm(false)
+      } else {
+        const result = await axios.post(route, {...state, images: uploadedImages})
+        setOpenForm(false)
       }
-      const result = await axios.post(route, {...state, imageUrl})
-      setOpenForm(false)
     }catch(e) {
       console.log(e)
     }

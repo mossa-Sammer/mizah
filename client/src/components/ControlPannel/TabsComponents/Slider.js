@@ -22,7 +22,7 @@ const Slider = ({ classes }) => {
   const [data, setData] = useState(null);
   const route = '/api/v1/slider';
 
-  const rowClick = async (rowData, route) => {
+  const deleteRow = async (rowData, route) => {
     try {
       setData(old => old.filter(e => e.slider_id !== rowData.slider_id));
       const data = await axios.delete(`${route}/${rowData.slider_id}`);
@@ -73,9 +73,10 @@ const Slider = ({ classes }) => {
             { title: 'Description AR', field: 'description_ar' },
             { title: 'Btn Name', field: 'btn_name' },
             { title: 'Btn Name AR', field: 'btn_name_ar' },
-            RemoveRejoinCol,
+            RemoveRejoinCol({onDelete: (row) => {deleteRow(row, route)}}),
+            
           ]}
-          onRowClick={(e, rowData) => rowClick(rowData, route)}
+          // onRowClick={(e, rowData) => rowClick(rowData, route)}
         />
       )}
     </div>

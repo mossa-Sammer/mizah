@@ -12,16 +12,14 @@ export const nameJoinDateCol = {
   ),
 };
 
-export const RemoveRejoinCol = {
+export const RemoveRejoinCol = ({onDelete}) => ({
   title: 'action',
   field: 'removeRejoin',
   disableClick: true,
   render: rowData => (
     <RemoveRejoin
       type="Remove"
-      handleClick={() => {
-        console.log('custom function to go here');
-      }}
+      handleClick={() => onDelete(rowData)}
     />
   ),
-};
+});
