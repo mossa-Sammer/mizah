@@ -10,8 +10,7 @@ export const BoxWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px;
-  width: 80%;
+  width: 300px;
   border-width: 1px;
   border-radius: 5px;
   border-color: gray;
@@ -20,12 +19,15 @@ export const BoxWrapper = styled.div`
   outline: none;
   transition: border 0.24s ease-in-out;
   cursor: pointer;
-  min-height: 145px;
+  min-height: 42px;
+  transition: all .3s;
 
   :focus,
   :active,
   :hover {
     border-color: blue;
+    background-color: #eee;
+    transition: all .3s;
   }
 `;
 
@@ -39,8 +41,8 @@ export const FileNameWrapper = styled.div`
 export const UploadContainer = styled.section`
   display: flex;
   flex-direction: column;
-  width: 100%;
-  align-items: center;
+  width: 80%;
+  padding-left: 100px;
 `;
 
 export const ThumbsContainer = styled.div`
@@ -57,35 +59,33 @@ export const Thumb = styled.div`
   margin-right: 8px;
   padding: 4px;
   justify-content: center;
-  width: 80%;
-  height: 200px;
-  margin: 0 auto;
+  width: 100%;
 `;
 
 export const ThumbInner = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
   min-width: 0;
   width: 100%;
   height: 100%;
   margin-right: 0;
+  border: 1px solid #eee;
+  border-radius: 5px;
 `;
 
 export const ImageWrap = styled.div`
   width: 100%;
-  height: 150px;
   overflow: hidden;
   border-radius: 5px;
-  margin-bottom: 16px;
+  margin-right: 16px;
 `;
 
 export const StyledImage = styled.img`
   display: block;
-  height: auto;
-  min-height: 100%;
-  width: 100%;
-  margin: 0 auto;
+  height: 128px;
+  width: 128px;
+  padding: 10px;
+  object-fit: contain;
 `;
 
 export const DeleteBtn = styled.button`
@@ -104,3 +104,9 @@ export const FileWrapper = styled.div`
   align-items: center;
   margin-bottom: 16px;
 `;
+
+export const ActionButtons = styled.div`
+  display: flex;
+  align-self: center;
+  margin: 0 15px;
+`

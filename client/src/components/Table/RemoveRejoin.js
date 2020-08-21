@@ -13,15 +13,12 @@ const Wrapper = styled('div')(({ theme, type }) => ({
   justifyContent: 'flexStart',
   alignItems: 'center',
   outline: 'none',
-
   '& p': {
     fontSize: type === 'Re-join' && '14px',
     lineHeight: type === 'Re-join' && '15px',
   },
-
   [theme.breakpoints.tablet]: {
     flexDirection: 'row',
-
     '& p': {
       fontSize: '14px',
       lineHeight: '15px',
