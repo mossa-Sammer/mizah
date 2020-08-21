@@ -23,7 +23,7 @@ const Testimonials = ({ classes }) => {
   const [data, setData] = useState([]);
   const route = '/api/v1/testimonial';
 
-  const rowClick = async (rowData, route) => {
+  const deleteRow = async (rowData, route) => {
     try {
       setData(old => old.filter(e => e.testimonial_id !== rowData.testimonial_id));
       const data = await axios.delete(`${route}/${rowData.testimonial_id}`);
@@ -73,9 +73,10 @@ const Testimonials = ({ classes }) => {
             { title: 'Name AR', field: 'name_ar' },
             { title: 'said', field: 'said' },
             { title: 'said AR', field: 'said_ar' },
-            RemoveRejoinCol,
+            RemoveRejoinCol({onDelete: (row) => {deleteRow(row, route)}}),
+            
           ]}
-          onRowClick={(e, rowData) => rowClick(rowData, route)}
+          // onRowClick={(e, rowData) => rowClick(rowData, route)}
         />
       )}
     </div>
