@@ -18,7 +18,6 @@ const UploadFile = ({
   error: _error,
 }) => {
   const [error, setError] = useState('');
-
   const onDropRejected = errors => {
     if (
       errors &&
@@ -45,7 +44,7 @@ const UploadFile = ({
         })
       ),
     ].reduce((acc, val) => acc.concat(val), []);
-    setFiles(updatedFiles[0]);
+    setFiles(updatedFiles);
   };
 
   const onSingleDrop = acceptedFiles => {
@@ -56,23 +55,22 @@ const UploadFile = ({
       })
     );
 
-    setFiles(fileToUpload[0]);
+    setFiles([fileToUpload[0]]);
   };
 
   const removeFile = () => {
     setFiles(null);
   };
-
-  const thumbs = files && (
-    <S.Thumb key={files.name}>
-      <S.ThumbInner image={files.preview}>
+  const thumbs = !!files.length && files.map( file => ((
+    <S.Thumb key={file.name}>
+      <S.ThumbInner image={file.preview}>
         <S.ImageWrap>
-          <S.StyledImage src={files.preview || files.url} />
+          <S.StyledImage src={file.preview || file.url} />
         </S.ImageWrap>
         <S.DeleteBtn onClick={() => removeFile()}>DELETE</S.DeleteBtn>
       </S.ThumbInner>
     </S.Thumb>
-  );
+  )))
 
   return (
     <Dropzone
