@@ -10,3 +10,8 @@ export const TitleContainer = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+
+export const InlineImage = styled.img`
+  width: 64px;
+  height: 64px;
+`;

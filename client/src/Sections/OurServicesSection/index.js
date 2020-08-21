@@ -1,19 +1,20 @@
 /* eslint-disable no-underscore-dangle */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as S from './styled';
 import TitleIcon from '../../components/SVG/titleIcon';
 import Carousel from './Carousle';
+import axios from 'axios';
 
 import Section from '../../components/Layout/Section';
 import { Row, Col } from '../../components/Grid';
 
 const imgsrc = 'http://oldmizah.geeksteams.com/public/image/Services/1591344978.png';
-const content = [
+const _content = [
   {
     id: 0,
     title: 'first',
     titleAr: 'شسيي',
-    image: imgsrc,
+    image_url: imgsrc,
     description: 'asdas asdas asdas asd asd asdasdasd asdas asdasdasdas  asdas',
     descriptionAr:
       'شسيشس شسيشيمكةلقثصلصنكةت  كشمنبلقصكمل ضيبمكضصن ض ضصكمن ضصي ضكمصينلثصكمنل ب كمضني ',
@@ -22,7 +23,7 @@ const content = [
     id: 1,
     title: 'second',
     titleAr: 'سثصؤخىي',
-    image: imgsrc,
+    image_url: imgsrc,
     description: 'affffsdas asdas asdas asd asd asdasdasd asdas asdasdasdas  asdas',
     descriptionAr:
       'شسيشس شسيشيمكةلقثصلصنكةت  كشمنبلقصكمل ضيبمكضصن ض ضصكمن ضصي ضكمصينلثصكمنل ب كمضني ',
@@ -31,7 +32,7 @@ const content = [
     id: 2,
     title: 'third',
     titleAr: 'فاهقي',
-    image: imgsrc,
+    image_url: imgsrc,
     description: 'qqqffsdas asdas asdas asd asd asdasdasd asdas asdasdasdas  asdas',
     descriptionAr:
       'شسيشس شسيشيمكةلقثصلصنكةت  كشمنبلقصكمل ضيبمكضصن ض ضصكمن ضصي ضكمصينلثصكمنل ب كمضني ',
@@ -40,7 +41,7 @@ const content = [
     id: 3,
     title: 'fourth',
     titleAr: 'بخعقفغا',
-    image: imgsrc,
+    image_url: imgsrc,
     description: 'qq4sadqffsdas asdas asdas asd asd asdasdasd asdas asdasdasdas  asdas',
     descriptionAr:
       'شسيشس شسيشيمكةلقثصلصنكةت  كشمنبلقصكمل ضيبمكضصن ض ضصكمن ضصي ضكمصينلثصكمنل ب كمضني ',
@@ -48,8 +49,15 @@ const content = [
 ];
 
 const OurServicesSection = ({ lang }) => {
-  const _lang = lang || 'en';
+  const [content, setContent] = useState(_content)
+  useEffect(async () => {
+    const { data } = await axios.get('/api/v1/service');
+    console.log({data})
+    setContent(data);
+  }, [])
   const [activeIndex, setActiveIndex] = useState(0);
+  const _lang = lang || 'en';
+  console.log({content, activeIndex})
   return (
     <Section id="our-services">
       <Row>
@@ -64,18 +72,22 @@ const OurServicesSection = ({ lang }) => {
         </Col>
       </Row>
       <Row mt={3} jc={_lang === 'en' ? 'flex-start' : 'flex-end'}>
-        <Col w={[4, 5, 10]}>
-          <S.ActiveContent key={activeIndex} lang={_lang}>
-            <S.ActiveTitle lang={_lang}>
-              {_lang === 'en' ? content[activeIndex].title : content[activeIndex].titleAr}
-            </S.ActiveTitle>
-            <S.Content lang={_lang}>
-              {_lang === 'en'
-                ? content[activeIndex].description
-                : content[activeIndex].descriptionAr}
-            </S.Content>
-          </S.ActiveContent>
-        </Col>
+        {
+          content.length > 0 && (
+            <Col w={[4, 5, 10]}>
+              <S.ActiveContent key={activeIndex} lang={_lang}>
+                <S.ActiveTitle lang={_lang}>
+                  {_lang === 'en' ? content[activeIndex].title : content[activeIndex].titleAr}
+                </S.ActiveTitle>
+                <S.Content lang={_lang}>
+                  {_lang === 'en'
+                    ? content[activeIndex].description
+                    : content[activeIndex].descriptionAr}
+                </S.Content>
+              </S.ActiveContent>
+            </Col>
+          )
+        }
       </Row>
       <Carousel items={content} setActiveIndex={setActiveIndex} lang={_lang} />
     </Section>

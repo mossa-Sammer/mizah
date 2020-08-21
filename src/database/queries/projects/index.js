@@ -2,6 +2,7 @@ const getProjects = require('./getProjects');
 const { addProject, addProjectImages } = require('./addProject');
 const updateProject = require('./updateProject');
 const deleteProject = require('./deleteProject');
+const getProjectById = require('./getProjectById');
 
 module.exports = {
   getProjects,
@@ -9,4 +10,5 @@ module.exports = {
   addProjectImages,
   updateProject,
   deleteProject,
+  getProjectById,
 };

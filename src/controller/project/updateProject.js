@@ -1,7 +1,15 @@
 const { project } = require('../../database/queries');
 
 module.exports = async (req, res, next) => {
-  const { id, title, titleAr, description, descriptionAr, imageUrl } = req.body;
+  const {
+    id,
+    title,
+    titleAr,
+    description,
+    descriptionAr,
+    videoUrl,
+    imageUrl,
+  } = req.body;
   try {
     const {
       rows: [updatedProject],
@@ -11,7 +19,7 @@ module.exports = async (req, res, next) => {
       titleAr,
       description,
       descriptionAr,
-      imageUrl,
+      videoUrl,
     });
     res.json({
       msg: 'project updated successfully',

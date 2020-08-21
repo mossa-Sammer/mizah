@@ -9,12 +9,12 @@ const style = {
   sideMenu: {
     display: 'flex',
     flexDirection: 'column',
-    position: 'absolute',
+    position: 'fixed',
     left: '0px',
     width: '320px',
     height: '100%',
     backgroundColor: '#253053',
-    paddingTop: 80,
+    paddingTop: 100,
   },
   list: {
     listStyle: 'none',
@@ -23,14 +23,24 @@ const style = {
   },
   listItem: {
     color: 'white',
-    margin: '10px 0',
+    margin: '5px 0',
+    padding: '10px 0',
     backgroundColor: '#724ab8',
-    fontSize: 16,
+    fontSize: 18,
     fontWight: 'bold',
+    transition: 'background-color .3s',
+    textTransform: 'capitalize', 
     '&:hover': {
       backgroundColor: '#9767ec',
       cursor: 'pointer',
+    transition: 'background-color .3s'
     },
+    '&:first-child': {
+      marginTop: 0
+    },
+    '&:last-child': {
+      marginBottom: 0
+    }
   },
 };
 
@@ -41,7 +51,7 @@ const SideMenu = props => {
     { tab: 'aboutUs', title: 'About Us' },
     { tab: 'services', title: 'Services' },
     { tab: 'testimonials', title: 'Testimonials' },
-    { tab: 'projects', title: 'projects' },
+    { tab: 'projects', title: 'Projects' },
     { tab: 'customers', title: 'Customers' },
     { tab: 'features', title: 'Features' },
     { tab: 'settings', title: 'Settings' },

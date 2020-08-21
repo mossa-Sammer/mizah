@@ -23,6 +23,7 @@ router.get('/slider', slider.getSliders);
 router.get('/service', services.getServices);
 router.get('/testimonial', testimonial.getTestimonials);
 router.get('/project', project.getProjects);
+router.get('/project/:id', project.getProject);
 router.get('/customer', customer.getCustomers);
 router.get('/feature', feature.getFeatures);
 router.get('/blog', blog.getBlogs);

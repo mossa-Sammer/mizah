@@ -3,7 +3,7 @@ import axios from 'axios';
 import { withStyles } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import FormLayout from '../FormLayout';
-import { BtnContainer, TitleContainer } from './styled';
+import { BtnContainer, TitleContainer, InlineImage } from './styled';
 
 import Table from '../../Table';
 import { RemoveRejoinCol } from '../../Table/tableSharedData';

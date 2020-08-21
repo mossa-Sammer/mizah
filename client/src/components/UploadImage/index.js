@@ -67,7 +67,9 @@ const UploadFile = ({
         <S.ImageWrap>
           <S.StyledImage src={file.preview || file.url} />
         </S.ImageWrap>
-        <S.DeleteBtn onClick={() => removeFile()}>DELETE</S.DeleteBtn>
+        <S.ActionButtons>
+          <S.DeleteBtn onClick={() => removeFile()}>DELETE</S.DeleteBtn>
+        </S.ActionButtons>
       </S.ThumbInner>
     </S.Thumb>
   )))
@@ -92,7 +94,7 @@ const UploadFile = ({
             {files && <S.ThumbsContainer>{thumbs}</S.ThumbsContainer>}
             <div>
               <S.BoxWrapper
-                {...getRootProps({ className: 'dropzone' })}
+                {...getRootProps({ className: 'dropzone ' })}
                 disabled={disabled}
                 error={!!error || !!validationError}
               >

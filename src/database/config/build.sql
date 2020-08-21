@@ -46,7 +46,8 @@ CREATE TABLE project(
     title VARCHAR(255),
     title_ar VARCHAR(255),
     description VARCHAR,
-    description_ar VARCHAR
+    description_ar VARCHAR,
+    video_url VARCHAR
 );
 
 CREATE TABLE customer (
