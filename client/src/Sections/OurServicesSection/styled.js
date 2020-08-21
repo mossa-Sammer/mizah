@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { fadeInLeft, fadeInRight } from './keyframes';
+import theme from '../../utils/theme';
 
 export const Section = styled.section`
   width: 100%;
@@ -61,7 +62,7 @@ export const ActiveTitle = styled.h3`
   font-size: 28px;
 `;
 
-export const Button = styled.button`
+export const ButtonContainer = styled.button`
   background-color: transparent;
   margin: 0;
   padding: 0;
@@ -73,4 +74,71 @@ export const Button = styled.button`
 export const ActiveContent = styled.div`
   width: 100%;
   animation: ${({ lang }) => (lang === 'en' ? fadeInLeft : fadeInRight)} 0.5s linear;
+`;
+
+export const Button = styled.button`
+  height: auto;
+  z-index: 5;
+  ${() => theme.media.mobile} {
+    height: 100%;
+  }
+
+  &::before {
+    display: none;
+    content: '';
+  }
+`;
+export const PrevArrow = styled.div`
+  border: 1px solid #dbdbdb;
+  box-shadow: ${() => theme.shadows.db1};
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -200%;
+  left: auto;
+  margin-left: 0;
+
+  ${() => theme.media.mobile} {
+    top: 100%;
+    left: 10px;
+    margin-left: 0 !important;
+  }
+  ${() => theme.media.tablet} {
+    margin-left: -30px;
+  }
+
+  background: ${() => theme.colors.white};
+  transform: rotate(180deg);
+
+  @media (max-width: 700px) {
+    top: 95%;
+  }
+`;
+export const NextArrow = styled.div`
+  border: 1px solid #dbdbdb;
+  box-shadow: ${() => theme.shadows.db1};
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  background: ${() => theme.colors.white};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999;
+  position: absolute;
+  top: -200%;
+  right: auto;
+
+  ${() => theme.media.mobile} {
+    top: 100%;
+    right: 10px;
+  }
+
+  @media (max-width: 700px) {
+    top: 95%;
+  }
 `;

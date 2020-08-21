@@ -5,6 +5,7 @@ export const Content = styled.div`
   width: 200%;
   height: 300px;
   position: fixed;
+  pointer-events: none;
   top: calc(50% - 150px);
   transform: ${({ slide }) => (slide === 'left' ? 'translateX(0)' : 'translateX(-50%)')};
   transition: 2s;

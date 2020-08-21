@@ -3,7 +3,7 @@ import axios from 'axios';
 import { withStyles } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import FormLayout from '../FormLayout';
-import { BtnContainer, TitleContainer } from './styled';
+import { BtnContainer, TitleContainer, InlineImage } from './styled';
 
 import Table from '../../Table';
 import { RemoveRejoinCol } from '../../Table/tableSharedData';
@@ -71,6 +71,11 @@ const Services = ({ classes }) => {
             { title: 'Title AR', field: 'title_ar' },
             { title: 'Description', field: 'description' },
             { title: 'Description AR', field: 'description_ar' },
+            {
+              title: 'Image',
+              field: 'image_url',
+              render: ({ image_url: imageUrl }) => <InlineImage src={imageUrl} />,
+            },
             RemoveRejoinCol,
           ]}
           onRowClick={(e, rowData) => rowClick(rowData, route)}

@@ -27,7 +27,7 @@ import './App.css';
 function App() {
   const [slide, setSlide] = useState('left');
   const [lang, setLang] = useState('en');
-  const [isAuth, setIsAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(true); // SET ME BACK TO FALSE
   return (
     <div className="App">
       <Router>

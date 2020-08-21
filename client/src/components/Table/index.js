@@ -12,7 +12,7 @@ const Table = ({ columns, data, onRowClick, hideSearch, memberMobile, tabbedData
     borderBottomWidth: 3,
     borderBottomColor: '#fff',
     fontSize: '0.875rem',
-    color: '#fff',
+    color: '#444',
     fontWeight: '400',
   };
   const searchFieldStyle = {
@@ -33,20 +33,23 @@ const Table = ({ columns, data, onRowClick, hideSearch, memberMobile, tabbedData
   };
 
   const headerStyle = {
-    backgroundColor: '#483569',
-    color: '#daaf81',
+    backgroundColor: '#7455b8',
+    color: '#fff',
     fontWeight: 'bold',
     textTransform: 'uppercase',
     fontSize: '0.875rem',
     borderBottom: `2px solid black`,
     display: memberMobile && 'none',
+    "border-right": '1px solid #253053'
   };
 
   const style = {
     boxShadow: 'none',
-    background: '#333',
+    background: '#fff',
     width: '100%',
     color: '#fff',
+    padding: '0 30px',
+    boxSizing: 'border-box'
   };
 
   return (
