@@ -113,6 +113,13 @@ export default function FormLayout({ page, route, setOpenForm, defaultValues }) 
     e.preventDefault();
     const uploadedImages = [];
     try {
+      console.log({ state, page });
+      let method = 'post';
+      if (page === 'services' && state.service_id) method = 'put';
+      if (page === 'testimonial' && state.testimonial_id) method = 'put';
+      if (page === 'projects' && state.project_id) method = 'put';
+      if (page === 'features' && state.feature_id) method = 'put';
+      if (page === 'blog' && state.blog_id) method = 'put';
       if (image.length) {
         const promises = image.map(async img => {
           const { data } = await axios.post('/api/v1/upload', { type: img.type });
@@ -124,10 +131,10 @@ export default function FormLayout({ page, route, setOpenForm, defaultValues }) 
           });
         });
         await Promise.all(promises);
-        const result = await axios.post(route, { ...state, images: uploadedImages });
+        const result = await axios[method](route, { ...state, images: uploadedImages });
         setOpenForm(false);
       } else {
-        const result = await axios.post(route, { ...state, images: uploadedImages });
+        const result = await axios[method](route, { ...state, images: uploadedImages });
         setOpenForm(false);
       }
     } catch (e) {

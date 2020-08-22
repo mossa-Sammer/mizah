@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import * as S from './style';
 import Section from '../../components/Layout/Section';
 import { Row, Col } from '../../components/Grid';
@@ -20,10 +21,10 @@ const Footer = () => {
     setMessage(old => ({ ...old, [name]: value }));
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     // here should send request with the data to the backend
-
+    await axios.post('/api/v1/message', message);
     setMessage({ name: '', email: '', phone: '', message: '' });
   };
   return (
