@@ -71,8 +71,12 @@ const Services = ({ classes }) => {
             { title: 'Title AR', field: 'title_ar' },
             { title: 'Description', field: 'description' },
             { title: 'Description AR', field: 'description_ar' },
+            {
+              title: 'Image',
+              field: 'image_url',
+              render: ({ image_url: imageUrl }) => <InlineImage src={imageUrl} />,
+            },
             RemoveRejoinCol({onDelete: (row) => {deleteRow(row, route)}}),
-            
           ]}
           // onRowClick={(e, rowData) => rowClick(rowData, route)}
         />
