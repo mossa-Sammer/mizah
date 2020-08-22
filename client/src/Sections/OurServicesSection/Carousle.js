@@ -42,7 +42,7 @@ const Carousel = ({ items, setActiveIndex, lang }) => {
           <LeftArrow width="22px" height="22px" to="next" color="#7e57b1" />
         </S.NextArrow>
       </S.Button>
-    )
+    ),
   };
 
   return (
@@ -51,11 +51,10 @@ const Carousel = ({ items, setActiveIndex, lang }) => {
         <div>
           <Slider {...settings}>
             {items &&
-              items.map(e => (
+              items.map((e, index) => (
                 <S.ButtonContainer
                   onClick={() => {
-                    console.log({e})
-                    setActiveIndex(e.service_id - 1);
+                    setActiveIndex(index);
                   }}
                 >
                   <Card item={e} lang={lang} />

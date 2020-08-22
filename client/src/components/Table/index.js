@@ -40,7 +40,7 @@ const Table = ({ columns, data, onRowClick, hideSearch, memberMobile, tabbedData
     fontSize: '0.875rem',
     borderBottom: `2px solid black`,
     display: memberMobile && 'none',
-    "border-right": '1px solid #253053'
+    borderRight: '1px solid #253053',
   };
 
   const style = {
@@ -49,7 +49,7 @@ const Table = ({ columns, data, onRowClick, hideSearch, memberMobile, tabbedData
     width: '100%',
     color: '#fff',
     padding: '0 30px',
-    boxSizing: 'border-box'
+    boxSizing: 'border-box',
   };
 
   return (

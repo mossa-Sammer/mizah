@@ -1,9 +1,9 @@
 /* eslint-disable no-underscore-dangle */
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import * as S from './styled';
 import TitleIcon from '../../components/SVG/titleIcon';
 import Carousel from './Carousle';
-import axios from 'axios';
 
 import Section from '../../components/Layout/Section';
 import { Row, Col } from '../../components/Grid';
@@ -49,15 +49,15 @@ const _content = [
 ];
 
 const OurServicesSection = ({ lang }) => {
-  const [content, setContent] = useState(_content)
+  const [content, setContent] = useState(_content);
   useEffect(async () => {
     const { data } = await axios.get('/api/v1/service');
-    console.log({data})
+    console.log({ data });
     setContent(data);
-  }, [])
+  }, []);
   const [activeIndex, setActiveIndex] = useState(0);
   const _lang = lang || 'en';
-  console.log({content, activeIndex})
+  console.log({ content, activeIndex });
   return (
     <Section id="our-services">
       <Row>
@@ -72,22 +72,20 @@ const OurServicesSection = ({ lang }) => {
         </Col>
       </Row>
       <Row mt={3} jc={_lang === 'en' ? 'flex-start' : 'flex-end'}>
-        {
-          content.length > 0 && (
-            <Col w={[4, 5, 10]}>
-              <S.ActiveContent key={activeIndex} lang={_lang}>
-                <S.ActiveTitle lang={_lang}>
-                  {_lang === 'en' ? content[activeIndex].title : content[activeIndex].titleAr}
-                </S.ActiveTitle>
-                <S.Content lang={_lang}>
-                  {_lang === 'en'
-                    ? content[activeIndex].description
-                    : content[activeIndex].descriptionAr}
-                </S.Content>
-              </S.ActiveContent>
-            </Col>
-          )
-        }
+        {content.length > 0 && (
+          <Col w={[4, 5, 10]}>
+            <S.ActiveContent key={activeIndex} lang={_lang}>
+              <S.ActiveTitle lang={_lang}>
+                {_lang === 'en' ? content[activeIndex].title : content[activeIndex].titleAr}
+              </S.ActiveTitle>
+              <S.Content lang={_lang}>
+                {_lang === 'en'
+                  ? content[activeIndex].description
+                  : content[activeIndex].descriptionAr}
+              </S.Content>
+            </S.ActiveContent>
+          </Col>
+        )}
       </Row>
       <Carousel items={content} setActiveIndex={setActiveIndex} lang={_lang} />
     </Section>

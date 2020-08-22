@@ -1,5 +1,5 @@
 import React from 'react';
-import RemoveRejoin from './RemoveRejoin';
+import TableActions from './TableActions';
 
 export const nameJoinDateCol = {
   title: 'Member / Join Date',
@@ -12,14 +12,21 @@ export const nameJoinDateCol = {
   ),
 };
 
-export const RemoveRejoinCol = ({onDelete}) => ({
+export const RemoveRejoinCol = ({ onDelete, onEdit }) => ({
   title: 'action',
   field: 'removeRejoin',
   disableClick: true,
   render: rowData => (
-    <RemoveRejoin
+    <TableActions
       type="Remove"
-      handleClick={() => onDelete(rowData)}
+      actions={{
+        onDelete: onDelete && {
+          handleClick: () => onDelete(rowData),
+        },
+        onEdit: onEdit && {
+          handleClick: () => onEdit(rowData),
+        },
+      }}
     />
   ),
 });

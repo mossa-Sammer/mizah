@@ -5,6 +5,7 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 // ICONS
 import Close from './icons/Close';
 import Copy from './icons/Copy';
+import Edit from '../../assets/edit.svg';
 
 const Icon = props => {
   // takes icon, color, width, height and customStyle as props
@@ -27,6 +28,7 @@ const Icon = props => {
   const iconMap = {
     close: Close,
     copy: Copy,
+    edit: () => <img src={Edit} alt="" style={{ height: 22, width: 22 }} />,
   };
 
   const IconMap = Object.keys(iconMap).reduce((accum, curr) => {
