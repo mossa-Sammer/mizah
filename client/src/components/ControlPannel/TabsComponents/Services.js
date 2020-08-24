@@ -19,9 +19,15 @@ const style = {
 
 const Services = ({ classes }) => {
   const [openForm, setOpenForm] = useState(false);
+  const [defaultValues, setFormDefaultValues] = useState(null);
+
   const [data, setData] = useState(null);
   const route = '/api/v1/service';
 
+  const editRow = (rowData, route) => {
+    setOpenForm(true);
+    setFormDefaultValues(rowData);
+  };
   const deleteRow = async (rowData, route) => {
     try {
       setData(old => old.filter(e => e.service_id !== rowData.service_id));
@@ -52,6 +58,7 @@ const Services = ({ classes }) => {
             color={openForm ? 'secondary' : 'primary'}
             onClick={() => {
               setOpenForm(old => !old);
+              setFormDefaultValues(null);
             }}
           >
             {openForm ? 'Back' : 'Add New'}
@@ -59,7 +66,12 @@ const Services = ({ classes }) => {
         </BtnContainer>
       </TitleContainer>
       {openForm ? (
-        <FormLayout page="services" route={route} setOpenForm={setOpenForm} />
+        <FormLayout
+          defaultValues={defaultValues}
+          page="services"
+          route={route}
+          setOpenForm={setOpenForm}
+        />
       ) : (
         <Table
           hideSearch
@@ -76,7 +88,14 @@ const Services = ({ classes }) => {
               field: 'image_url',
               render: ({ image_url: imageUrl }) => <InlineImage src={imageUrl} />,
             },
-            RemoveRejoinCol({onDelete: (row) => {deleteRow(row, route)}}),
+            RemoveRejoinCol({
+              onDelete: row => {
+                deleteRow(row, route);
+              },
+              onEdit: row => {
+                editRow(row);
+              },
+            }),
           ]}
           // onRowClick={(e, rowData) => rowClick(rowData, route)}
         />

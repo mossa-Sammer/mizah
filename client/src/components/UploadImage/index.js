@@ -61,18 +61,20 @@ const UploadFile = ({
   const removeFile = () => {
     setFiles(null);
   };
-  const thumbs = !!files.length && files.map( file => ((
-    <S.Thumb key={file.name}>
-      <S.ThumbInner image={file.preview}>
-        <S.ImageWrap>
-          <S.StyledImage src={file.preview || file.url} />
-        </S.ImageWrap>
-        <S.ActionButtons>
-          <S.DeleteBtn onClick={() => removeFile()}>DELETE</S.DeleteBtn>
-        </S.ActionButtons>
-      </S.ThumbInner>
-    </S.Thumb>
-  )))
+  const thumbs =
+    !!files.length &&
+    files.map(file => (
+      <S.Thumb key={file.name}>
+        <S.ThumbInner image={file.preview}>
+          <S.ImageWrap>
+            <S.StyledImage src={file.preview || file.url || file} />
+          </S.ImageWrap>
+          <S.ActionButtons>
+            <S.DeleteBtn onClick={() => removeFile()}>DELETE</S.DeleteBtn>
+          </S.ActionButtons>
+        </S.ThumbInner>
+      </S.Thumb>
+    ));
 
   return (
     <Dropzone

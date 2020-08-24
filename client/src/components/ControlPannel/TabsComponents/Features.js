@@ -9,7 +9,6 @@ import { BtnContainer, TitleContainer } from './styled';
 import Table from '../../Table';
 import { RemoveRejoinCol } from '../../Table/tableSharedData';
 
-
 const style = {
   title: {
     color: '#8368af',
@@ -19,35 +18,36 @@ const style = {
   },
 };
 
-
 const Features = ({ classes }) => {
   const [openForm, setOpenForm] = useState(false);
-  const [data, setData] = useState([])
+  const [defaultValues, setFormDefaultValues] = useState(null);
+  const [data, setData] = useState([]);
   const route = '/api/v1/feature';
 
+  const editRow = (rowData, route) => {
+    setOpenForm(true);
+    setFormDefaultValues(rowData);
+  };
   const deleteRow = async (rowData, route) => {
-    try{
-      setData(old => old.filter(e => e.feature_id !== rowData.feature_id))
-      const data = await axios.delete(`${route}/${rowData.feature_id}`)
-    } catch(e){
-      console.log(e)
+    try {
+      setData(old => old.filter(e => e.feature_id !== rowData.feature_id));
+      const data = await axios.delete(`${route}/${rowData.feature_id}`);
+    } catch (e) {
+      console.log(e);
     }
-  }
+  };
 
-
-  useEffect( () => {
+  useEffect(() => {
     (async () => {
       try {
-      
-      const data = await axios.get('/api/v1/feature')
-      console.log(data)
-      setData(data.data)
-    } catch(e) {
-      console.log(e)
-    }
-    })()
-  
-    }, [openForm])
+        const data = await axios.get('/api/v1/feature');
+        console.log(data);
+        setData(data.data);
+      } catch (e) {
+        console.log(e);
+      }
+    })();
+  }, [openForm]);
 
   return (
     <div style={{ paddingLeft: 320 }}>
@@ -66,7 +66,12 @@ const Features = ({ classes }) => {
         </BtnContainer>
       </TitleContainer>
       {openForm ? (
-        <FormLayout page="features" route={route} setOpenForm={setOpenForm}/>
+        <FormLayout
+          defaultValues={defaultValues}
+          page="features"
+          route={route}
+          setOpenForm={setOpenForm}
+        />
       ) : (
         <Table
           hideSearch
@@ -78,8 +83,14 @@ const Features = ({ classes }) => {
             { title: 'Title AR', field: 'title_ar' },
             { title: 'Description', field: 'description' },
             { title: 'Description AR', field: 'description_ar' },
-            RemoveRejoinCol({onDelete: (row) => {deleteRow(row, route)}}),
-            
+            RemoveRejoinCol({
+              onDelete: row => {
+                deleteRow(row, route);
+              },
+              onEdit: row => {
+                editRow(row);
+              },
+            }),
           ]}
           // onRowClick={(e, rowData) => rowClick(rowData, route) }
         />

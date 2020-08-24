@@ -4,11 +4,10 @@ import axios from 'axios';
 import { withStyles } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import FormLayout from '../FormLayout';
-import { BtnContainer, TitleContainer } from './styled';
+import { BtnContainer, TitleContainer, InlineImage } from './styled';
 
 import Table from '../../Table';
 import { RemoveRejoinCol } from '../../Table/tableSharedData';
-
 
 const style = {
   title: {
@@ -21,32 +20,34 @@ const style = {
 
 const Blog = ({ classes }) => {
   const [openForm, setOpenForm] = useState(false);
-  const [data, setData] = useState([])
+  const [defaultValues, setFormDefaultValues] = useState(null);
+  const [data, setData] = useState([]);
   const route = '/api/v1/blog';
 
+  const editRow = (rowData, route) => {
+    setOpenForm(true);
+    setFormDefaultValues(rowData);
+  };
   const deleteRow = async (rowData, route) => {
-    try{
-      setData(old => old.filter(e => e.blog_id !== rowData.blog_id))
-      const data = await axios.delete(`${route}/${rowData.blog_id}`)
-    } catch(e){
-      console.log(e)
+    try {
+      setData(old => old.filter(e => e.blog_id !== rowData.blog_id));
+      const data = await axios.delete(`${route}/${rowData.blog_id}`);
+    } catch (e) {
+      console.log(e);
     }
-  }
+  };
 
-
-  useEffect( () => {
+  useEffect(() => {
     (async () => {
       try {
-      
-      const data = await axios.get(route)
-      console.log(data)
-      setData(data.data)
-    } catch(e) {
-      console.log(e)
-    }
-    })()
-  
-    }, [openForm])
+        const data = await axios.get(route);
+        console.log(data);
+        setData(data.data);
+      } catch (e) {
+        console.log(e);
+      }
+    })();
+  }, [openForm]);
 
   return (
     <div style={{ paddingLeft: 320 }}>
@@ -58,6 +59,7 @@ const Blog = ({ classes }) => {
             color={openForm ? 'secondary' : 'primary'}
             onClick={() => {
               setOpenForm(old => !old);
+              setFormDefaultValues(null);
             }}
           >
             {openForm ? 'Back' : 'Add New'}
@@ -65,7 +67,12 @@ const Blog = ({ classes }) => {
         </BtnContainer>
       </TitleContainer>
       {openForm ? (
-        <FormLayout page="blog" route={route} setOpenForm={setOpenForm}/>
+        <FormLayout
+          defaultValues={defaultValues}
+          page="blog"
+          route={route}
+          setOpenForm={setOpenForm}
+        />
       ) : (
         <Table
           hideSearch
@@ -77,7 +84,19 @@ const Blog = ({ classes }) => {
             { title: 'Title AR', field: 'title_ar' },
             { title: 'Description', field: 'description' },
             { title: 'Description AR', field: 'description_ar' },
-            RemoveRejoinCol({onDelete: (row) => {deleteRow(row, route)}}),
+            {
+              title: 'Image',
+              field: 'image_url',
+              render: ({ image_url: imageUrl }) => <InlineImage src={imageUrl} />,
+            },
+            RemoveRejoinCol({
+              onDelete: row => {
+                deleteRow(row, route);
+              },
+              onEdit: row => {
+                editRow(row);
+              },
+            }),
           ]}
         />
       )}

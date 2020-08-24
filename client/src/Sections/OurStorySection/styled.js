@@ -62,5 +62,6 @@ export const Content = styled.div`
   // text-align: right;
   // padding-left: 50px;
   // padding-right: 50px;
+  justify-content: center;
   padding: ${({ lang }) => (lang === 'en' ? '0 0 0 50px' : '0 50px 0 0')};
 `;

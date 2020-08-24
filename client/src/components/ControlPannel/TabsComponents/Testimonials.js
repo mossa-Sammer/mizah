@@ -4,7 +4,7 @@ import axios from 'axios';
 import { withStyles } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import FormLayout from '../FormLayout';
-import { BtnContainer, TitleContainer } from './styled';
+import { BtnContainer, TitleContainer, InlineImage } from './styled';
 
 import Table from '../../Table';
 import { RemoveRejoinCol } from '../../Table/tableSharedData';
@@ -20,9 +20,14 @@ const style = {
 
 const Testimonials = ({ classes }) => {
   const [openForm, setOpenForm] = useState(false);
+  const [defaultValues, setFormDefaultValues] = useState(null);
   const [data, setData] = useState([]);
   const route = '/api/v1/testimonial';
 
+  const editRow = (rowData, route) => {
+    setOpenForm(true);
+    setFormDefaultValues(rowData);
+  };
   const deleteRow = async (rowData, route) => {
     try {
       setData(old => old.filter(e => e.testimonial_id !== rowData.testimonial_id));
@@ -54,6 +59,7 @@ const Testimonials = ({ classes }) => {
             color={openForm ? 'secondary' : 'primary'}
             onClick={() => {
               setOpenForm(old => !old);
+              setFormDefaultValues(null);
             }}
           >
             {openForm ? 'Back' : 'Add New'}
@@ -61,7 +67,12 @@ const Testimonials = ({ classes }) => {
         </BtnContainer>
       </TitleContainer>
       {openForm ? (
-        <FormLayout page="testimonial" route={route} setOpenForm={setOpenForm} />
+        <FormLayout
+          defaultValues={defaultValues}
+          page="testimonial"
+          route={route}
+          setOpenForm={setOpenForm}
+        />
       ) : (
         <Table
           hideSearch
@@ -73,8 +84,19 @@ const Testimonials = ({ classes }) => {
             { title: 'Name AR', field: 'name_ar' },
             { title: 'said', field: 'said' },
             { title: 'said AR', field: 'said_ar' },
-            RemoveRejoinCol({onDelete: (row) => {deleteRow(row, route)}}),
-            
+            {
+              title: 'Image',
+              field: 'image_url',
+              render: ({ image_url: imageUrl }) => <InlineImage src={imageUrl} />,
+            },
+            RemoveRejoinCol({
+              onDelete: row => {
+                deleteRow(row, route);
+              },
+              onEdit: row => {
+                editRow(row);
+              },
+            }),
           ]}
           // onRowClick={(e, rowData) => rowClick(rowData, route)}
         />
