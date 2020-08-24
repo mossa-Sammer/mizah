@@ -15,6 +15,7 @@ module.exports = async (req, res, next) => {
     description,
     descriptionAr,
   } = req.body;
+  console.log(req.body);
   try {
     const {
       rows: [websiteData],
