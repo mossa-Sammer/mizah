@@ -50,10 +50,12 @@ const _content = [
 
 const OurServicesSection = ({ lang }) => {
   const [content, setContent] = useState(_content);
-  useEffect(async () => {
-    const { data } = await axios.get('/api/v1/service');
-    console.log({ data });
-    setContent(data);
+  useEffect(() => {
+    (async () => {
+      const { data } = await axios.get('/api/v1/service');
+      console.log({ data });
+      setContent(data);
+    })();
   }, []);
   const [activeIndex, setActiveIndex] = useState(0);
   const _lang = lang || 'en';
