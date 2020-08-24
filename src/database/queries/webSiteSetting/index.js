@@ -21,7 +21,7 @@ const editWebSiteSetting = ({
   descriptionAr,
 }) =>
   connection.query(
-    'UPDATE website SET facebook_url=$1,twitter_url=$2,instagram_url=$3,google_url=$4,website_url=$5,email=$6,whatsapp_no=$7,whatsapp_link=$8,address=$9,address_ar=$10,description=$8,description_ar=$9 WHERE site_id=$10 RETURNING *',
+    'UPDATE website SET facebook_url=$1,twitter_url=$2,instagram_url=$3,google_url=$4,website_url=$5,email=$6,whatsapp_no=$7,whatsapp_link=$8,address=$9,address_ar=$10,description=$11,description_ar=$12 WHERE site_id=$13 RETURNING *',
     [
       facebook,
       twitter,
