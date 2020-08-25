@@ -41,7 +41,7 @@ const editWebSiteSetting = ({
 
 const getAboutUs = () =>
   connection.query(
-    'SELECT about_us_description as description,about_us_description_ar as description_ar,about_us_image_url as image_url WHERE site_id=$1',
+    'SELECT site_id as id, about_us_description as description,about_us_description_ar as description_ar,about_us_image_url as image_url FROM website WHERE site_id=$1',
     [1]
   );
 

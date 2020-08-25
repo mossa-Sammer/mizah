@@ -10,7 +10,7 @@ module.exports = async (req, res, next) => {
       descriptionAr,
       imageUrl,
     });
-    res.json(rows);
+    res.json({ msg: 'service added successfully', data: rows });
   } catch (e) {
     next(e);
   }
