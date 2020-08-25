@@ -8,13 +8,17 @@ import Carousel from './Carousle';
 import Section from '../../components/Layout/Section';
 import { Row, Col } from '../../components/Grid';
 
-const imgsrc = 'http://oldmizah.geeksteams.com/public/image/Services/1591344978.png';
+// const imgsrc = 'http://oldmizah.geeksteams.com/public/image/Services/1591344978.png';
+import S1 from '../../assets/s1.png';
+import S2 from '../../assets/s2.png';
+import S3 from '../../assets/s3.png';
+import S4 from '../../assets/s4.png';
 const _content = [
   {
     id: 0,
     title: 'first',
     titleAr: 'شسيي',
-    image_url: imgsrc,
+    image_url: S1,
     description: 'asdas asdas asdas asd asd asdasdasd asdas asdasdasdas  asdas',
     descriptionAr:
       'شسيشس شسيشيمكةلقثصلصنكةت  كشمنبلقصكمل ضيبمكضصن ض ضصكمن ضصي ضكمصينلثصكمنل ب كمضني ',
@@ -23,7 +27,7 @@ const _content = [
     id: 1,
     title: 'second',
     titleAr: 'سثصؤخىي',
-    image_url: imgsrc,
+    image_url: S2,
     description: 'affffsdas asdas asdas asd asd asdasdasd asdas asdasdasdas  asdas',
     descriptionAr:
       'شسيشس شسيشيمكةلقثصلصنكةت  كشمنبلقصكمل ضيبمكضصن ض ضصكمن ضصي ضكمصينلثصكمنل ب كمضني ',
@@ -32,7 +36,7 @@ const _content = [
     id: 2,
     title: 'third',
     titleAr: 'فاهقي',
-    image_url: imgsrc,
+    image_url: S3,
     description: 'qqqffsdas asdas asdas asd asd asdasdasd asdas asdasdasdas  asdas',
     descriptionAr:
       'شسيشس شسيشيمكةلقثصلصنكةت  كشمنبلقصكمل ضيبمكضصن ض ضصكمن ضصي ضكمصينلثصكمنل ب كمضني ',
@@ -41,7 +45,7 @@ const _content = [
     id: 3,
     title: 'fourth',
     titleAr: 'بخعقفغا',
-    image_url: imgsrc,
+    image_url: S4,
     description: 'qq4sadqffsdas asdas asdas asd asd asdasdasd asdas asdasdasdas  asdas',
     descriptionAr:
       'شسيشس شسيشيمكةلقثصلصنكةت  كشمنبلقصكمل ضيبمكضصن ض ضصكمن ضصي ضكمصينلثصكمنل ب كمضني ',
@@ -50,12 +54,12 @@ const _content = [
 
 const OurServicesSection = ({ lang }) => {
   const [content, setContent] = useState(_content);
-  useEffect(() => {
-    (async () => {
-      const { data } = await axios.get('/api/v1/service');
-      setContent(data);
-    })();
-  }, []);
+  // useEffect(() => {
+  //   (async () => {
+  //     const { data } = await axios.get('/api/v1/service');
+  //     setContent(data);
+  //   })();
+  // }, []);
   const [activeIndex, setActiveIndex] = useState(0);
   const _lang = lang || 'en';
   return (
