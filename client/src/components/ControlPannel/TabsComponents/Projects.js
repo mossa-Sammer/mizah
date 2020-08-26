@@ -41,7 +41,6 @@ const Projects = ({ classes }) => {
       try {
         const data = await axios.get('/api/v1/project');
         setData(data.data);
-        console.log(data.data)
       } catch (e) {
         console.log(e);
       }

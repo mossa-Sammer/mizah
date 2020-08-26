@@ -25,7 +25,6 @@ const Footer = () => {
     e.preventDefault();
     // here should send request with the data to the backend;
     await axios.post('/api/v1/message', message);
-    console.log('footer', message);
     setMessage({ name: '', email: '', phoneNo: '', body: '' });
   };
   return (

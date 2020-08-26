@@ -3,12 +3,7 @@ import Controls from '../../controls/Controls';
 import UploadImage from '../../UploadImage';
 
 export default function AboutUsForm({ values, handleInputChange, errors = {}, setImage, image }) {
-  let img;
-  if(image === null ){
-    setImage([])
-  }else {
-     img = image.length > 0 ? image : [{url: values.image_url,preview: values.image_url, name: 'about-us'}]
-  }
+    const img = image && image.length > 0 ? image : [{url: values.image_url, name: 'about us', preview: values.image_url}];
   return (
     <>
       <Controls.Input

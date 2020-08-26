@@ -41,7 +41,6 @@ const Testimonials = ({ classes }) => {
     (async () => {
       try {
         const data = await axios.get('/api/v1/testimonial');
-        console.log(data);
         setData(data.data);
       } catch (e) {
         console.log(e);

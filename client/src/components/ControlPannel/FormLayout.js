@@ -213,13 +213,10 @@ export default function FormLayout({ page, route, setOpenForm, defaultValues }) 
         }else if (page === 'aboutUs') {
           if(method === 'put'){
             if(uploadedImages[0]){
-              console.log(state)
               const result = await axios[method](route, { ...state, imageUrl: uploadedImages[0] });
-              console.log('rrrrrrrrrrrrrrrrrr', result)
             }else {
+              
               const result = await axios[method](route, { ...state, imageUrl:state.image_url });
-              console.log(state)
-              console.log('rrrrrrrrrrrrrrrrrr', result)
             }
             setStates({})
           }else {
@@ -244,7 +241,6 @@ export default function FormLayout({ page, route, setOpenForm, defaultValues }) 
           }
         }
          else {
-           console.log(method, route, state)
           const result = await axios[method](route, { ...state, images: uploadedImages });
         }
         

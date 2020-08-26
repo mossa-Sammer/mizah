@@ -41,7 +41,6 @@ const Blog = ({ classes }) => {
     (async () => {
       try {
         const data = await axios.get(route);
-        console.log(data);
         setData(data.data);
       } catch (e) {
         console.log(e);
