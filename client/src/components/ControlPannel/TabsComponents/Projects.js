@@ -7,7 +7,6 @@ import { BtnContainer, TitleContainer, InlineImage } from './styled';
 
 import Table from '../../Table';
 import { RemoveRejoinCol } from '../../Table/tableSharedData';
-import { rotate } from '../../IconsSection/keyframes';
 
 const style = {
   title: {
@@ -42,6 +41,7 @@ const Projects = ({ classes }) => {
       try {
         const data = await axios.get('/api/v1/project');
         setData(data.data);
+        console.log(data.data)
       } catch (e) {
         console.log(e);
       }
@@ -82,10 +82,11 @@ const Projects = ({ classes }) => {
             { title: 'Title AR', field: 'title_ar' },
             { title: 'Description', field: 'description' },
             { title: 'Description AR', field: 'description_ar' },
+            { title: 'Video Link', field: 'video_url' },
             {
               title: 'Image',
               field: 'image_url',
-              render: ({ image_url: imageUrl }) => <InlineImage src={imageUrl} />,
+              render: ({ project_images }) => project_images.length > 0 && project_images.map(e => <InlineImage src={e.image_url} />),
             },
             RemoveRejoinCol({
               onDelete: row => {
