@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import YouTube from 'react-youtube';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+
 import * as S from './styled';
 import ProjectHeaderBg from '../../assets/blog.png';
 import I1 from '../../assets/icon1.png';
@@ -14,6 +17,20 @@ import { Col, Row } from '../../components/Grid';
 
 const ProjectPage = ({ lang }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const tablet = useMediaQuery('(max-width:949px)');
+  const mobile = useMediaQuery('(max-width:449px)');
+  console.log(tablet, mobile)
+  let videoHeight = mobile ? '150' : tablet ? '200': '390';
+  let videoWidth = mobile ? '300' : tablet ? '450': '640';
+  const opts = {
+    height: videoHeight,
+    width: videoWidth,
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
+      autoplay: 1,
+    },
+  };
+
   const data = {
     title: 'Social Media Management For Mubadrah Company',
     titleAr: 'اداره حسابات التواصل الأجتماعي لشركة مبادرة',
@@ -67,6 +84,8 @@ const ProjectPage = ({ lang }) => {
         <Row>
           <Col w={[4, 6, 12]}>
             <h3>video placeholder</h3>
+            <YouTube videoId="2g811Eo7K8U" opts={opts} />
+
           </Col>
         </Row>
       </Section>
