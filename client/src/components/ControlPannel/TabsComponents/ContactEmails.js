@@ -33,7 +33,6 @@ const ContactEmails = ({ classes }) => {
     (async () => {
       const { data } = await axios.get('/api/v1/message');
       setEmails(data);
-      console.log(data);
     })();
   }, []);
   return (

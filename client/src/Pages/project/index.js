@@ -19,7 +19,6 @@ const ProjectPage = ({ lang }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const tablet = useMediaQuery('(max-width:949px)');
   const mobile = useMediaQuery('(max-width:449px)');
-  console.log(tablet, mobile)
   let videoHeight = mobile ? '150' : tablet ? '200': '390';
   let videoWidth = mobile ? '300' : tablet ? '450': '640';
   const opts = {

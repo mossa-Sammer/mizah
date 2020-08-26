@@ -9,7 +9,6 @@ export default function ServicesItemForm({
   setImage,
   image,
 }) {
-  console.log({ values, image });
   return (
     <>
       <Controls.Input
