@@ -75,7 +75,7 @@ function App() {
                 {/* <SliderContainer2 lang={lang} slide={slide} setSlide={setSlide} /> */}
                 {/* <SliderContainer slide={slide} setSlide={setSlide} /> */}
                 <Header lang={lang} setLang={setLang} />
-                <WhyUsSection lang={lang} />
+                <ProjectPage lang={lang} />
 
                 <div style={{ width: '100%', height: '100vh' }} />
                 <div style={{ width: '100%', height: '100vh' }} />

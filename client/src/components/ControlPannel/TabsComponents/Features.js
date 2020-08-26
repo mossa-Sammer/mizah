@@ -20,7 +20,7 @@ const style = {
 
 const Features = ({ classes }) => {
   const [openForm, setOpenForm] = useState(false);
-  const [defaultValues, setFormDefaultValues] = useState(null);
+  const [defaultValues, setFormDefaultValues] = useState({});
   const [data, setData] = useState([]);
   const route = '/api/v1/feature';
 
@@ -41,8 +41,9 @@ const Features = ({ classes }) => {
     (async () => {
       try {
         const data = await axios.get('/api/v1/feature');
-        console.log(data);
+
         setData(data.data);
+        setFormDefaultValues({});
       } catch (e) {
         console.log(e);
       }

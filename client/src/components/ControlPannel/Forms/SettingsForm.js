@@ -10,6 +10,7 @@ export default function SettingsForm({ values, handleInputChange, errors = {} })
         value={values.facebook}
         onChange={handleInputChange}
         error={errors.facebook}
+        required
       />
       <Controls.Input
         label="Twitter"
@@ -17,6 +18,7 @@ export default function SettingsForm({ values, handleInputChange, errors = {} })
         value={values.twitter}
         onChange={handleInputChange}
         error={errors.twitter}
+        required
       />
       <Controls.Input
         label="Instagram"
@@ -24,6 +26,7 @@ export default function SettingsForm({ values, handleInputChange, errors = {} })
         value={values.instagram}
         onChange={handleInputChange}
         error={errors.instagram}
+        required
       />
       <Controls.Input
         label="Google"
@@ -48,17 +51,17 @@ export default function SettingsForm({ values, handleInputChange, errors = {} })
       />
       <Controls.Input
         label="WhatsApp NO"
-        name="WhatsAppNo"
-        value={values.WhatsAppNo}
+        name="whatsAppNo"
+        value={values.whatsAppNo}
         onChange={handleInputChange}
-        error={errors.WhatsAppNo}
+        error={errors.whatsAppNo}
       />
       <Controls.Input
         label="WhatsApp Link"
-        name="WhatsAppLink"
-        value={values.WhatsAppLink}
+        name="whatsAppLink"
+        value={values.whatsAppLink}
         onChange={handleInputChange}
-        error={errors.WhatsAppLink}
+        error={errors.whatsAppLink}
       />
       <Controls.Input
         label="Address"

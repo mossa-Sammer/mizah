@@ -20,7 +20,7 @@ const style = {
 
 const Blog = ({ classes }) => {
   const [openForm, setOpenForm] = useState(false);
-  const [defaultValues, setFormDefaultValues] = useState(null);
+  const [defaultValues, setFormDefaultValues] = useState({});
   const [data, setData] = useState([]);
   const route = '/api/v1/blog';
 
@@ -59,7 +59,7 @@ const Blog = ({ classes }) => {
             color={openForm ? 'secondary' : 'primary'}
             onClick={() => {
               setOpenForm(old => !old);
-              setFormDefaultValues(null);
+              setFormDefaultValues({});
             }}
           >
             {openForm ? 'Back' : 'Add New'}

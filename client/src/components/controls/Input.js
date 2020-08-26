@@ -15,6 +15,8 @@ export default function Input(props) {
       rows={multiline && 4}
       {...(error && { error: true, helperText: error })}
       style={{ marginBottom: 30 }}
+      required
+      InputLabelProps={{ shrink: value && true }}
     />
   );
 }

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { withStyles } from '@material-ui/core';
 import FormLayout from '../FormLayout';
 
@@ -12,10 +13,23 @@ const style = {
 };
 
 const AboutUs = ({ classes }) => {
+  const [defaultValues, setFormDefaultValues] = useState({});
+  const route = '/api/v1/aboutus';
+  useEffect(() => {
+    (async () => {
+      try {
+        const data = await axios.get(route);
+        setFormDefaultValues(data.data);
+      } catch (e) {
+        console.log(e);
+      }
+    })();
+  }, []);
+
   return (
     <div style={{ paddingLeft: 320 }}>
       <h1 className={classes.title}>About Us Page :</h1>
-      <FormLayout page="aboutUs" />
+      <FormLayout page="aboutUs" defaultValues={defaultValues} route={route} />
     </div>
   );
 };

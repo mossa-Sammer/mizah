@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Paper, Grid } from '@material-ui/core';
 import axios from 'axios';
 import Controls from '../controls/Controls';
@@ -18,19 +18,41 @@ export default function FormLayout({ page, route, setOpenForm, defaultValues }) 
     defaultValues.descriptionAr = defaultValues.description_ar;
     defaultValues.titleAr = defaultValues.title_ar;
     defaultValues.nameAr = defaultValues.name_ar;
-    defaultValues.nameAr = defaultValues.name_ar;
     defaultValues.saidAr = defaultValues.said_ar;
     defaultValues.image = defaultValues.image_url;
+    defaultValues.facebook = defaultValues.facebook_url;
+    defaultValues.twitter = defaultValues.twitter_url;
+    defaultValues.instagram = defaultValues.instagram_url;
+    defaultValues.google = defaultValues.google_url;
+    defaultValues.website = defaultValues.website_url;
+    defaultValues.whatsAppNo = defaultValues.whatsapp_no;
+    defaultValues.whatsAppLink = defaultValues.whatsapp_link;
+    defaultValues.addressAr = defaultValues.address_ar;
+    defaultValues.videoUrl = defaultValues.video_url;
   }
-  const [state, setStates] = useState(defaultValues || {});
+
+  const [state, setStates] = useState({});
+  useEffect(() => {
+    setStates({ ...defaultValues });
+  }, [defaultValues]);
+  let defaultImage = [];
+  if(defaultValues){
+    if(defaultValues.image_url){
+      defaultImage = [defaultValues.image_url];
+    }
+    if(defaultValues.logo_url){
+      defaultImage = [defaultValues.logo_url]
+    }
+  }
   const [image, setImage] = useState(
-    defaultValues && defaultValues.image_url ? [defaultValues.image_url] : []
+    defaultImage
   );
   // const [errors, setErrors] = useState({});
-
   const handleInputChange = ({ target: { value, name } }) => {
     setStates(_state => ({ ..._state, [name]: value }));
   };
+
+  // const handleInputChange = () => {};
 
   let renderForm = null;
 
@@ -113,14 +135,17 @@ export default function FormLayout({ page, route, setOpenForm, defaultValues }) 
     e.preventDefault();
     const uploadedImages = [];
     try {
-      console.log({ state, page });
       let method = 'post';
       if (page === 'services' && state.service_id) method = 'put';
       if (page === 'testimonial' && state.testimonial_id) method = 'put';
+      if (page === 'customers' && state.customer_id) method = 'put';
       if (page === 'projects' && state.project_id) method = 'put';
       if (page === 'features' && state.feature_id) method = 'put';
       if (page === 'blog' && state.blog_id) method = 'put';
-      if (image.length) {
+      if (page === 'settings') method = 'put';
+      if (page === 'aboutUs') method = 'put';
+
+      if (image.length && image[0].type) {
         const promises = image.map(async img => {
           const { data } = await axios.post('/api/v1/upload', { type: img.type });
           uploadedImages.push(data.imageUrl);
@@ -131,12 +156,106 @@ export default function FormLayout({ page, route, setOpenForm, defaultValues }) 
           });
         });
         await Promise.all(promises);
-        const result = await axios[method](route, { ...state, images: uploadedImages });
-        setOpenForm(false);
-      } else {
-        const result = await axios[method](route, { ...state, images: uploadedImages });
-        setOpenForm(false);
       }
+
+        if(page === 'customers'){
+          if(method === 'put'){
+            if(uploadedImages[0]){
+              const result = await axios[method](route, { ...state, logoUrl: uploadedImages[0], id: state.customer_id });
+            }else {
+              const result = await axios[method](route, { ...state,logoUrl:state.logo_url, id: state.customer_id });
+            }
+            setStates({})
+          }else {
+            const result = await axios[method](route, { ...state, logoUrl: uploadedImages[0] });
+          }
+        }else if(page === 'features'){
+          if(method === 'put'){
+            const result = await axios[method](route, { ...state, id: state.feature_id });
+            setStates({})
+          }else {
+            const result = await axios[method](route, { ...state});
+            setStates({})
+          }
+        } else if (page === 'blog') {
+          if(method === 'put'){
+            if(uploadedImages[0]){
+              const result = await axios[method](route, { ...state, imageUrl: uploadedImages[0], id: state.blog_id });
+            }else {
+              const result = await axios[method](route, { ...state,imageUrl:state.image_url, id: state.blog_id });
+            }
+            setStates({})
+          }else {
+            const result = await axios[method](route, { ...state, imageUrl: uploadedImages[0] });
+          }
+        } else if (page === 'testimonial') {
+          if(method === 'put'){
+            if(uploadedImages[0]){
+              const result = await axios[method](route, { ...state, imageUrl: uploadedImages[0], id: state.testimonial_id });
+            }else {
+              const result = await axios[method](route, { ...state,imageUrl:state.image_url, id: state.testimonial_id });
+            }
+            setStates({})
+          }else {
+            const result = await axios[method](route, { ...state, imageUrl: uploadedImages[0] });
+          }
+        }else if (page === 'services') {
+          if(method === 'put'){
+            if(uploadedImages[0]){
+              const result = await axios[method](route, { ...state, imageUrl: uploadedImages[0], id: state.service_id });
+            }else {
+              const result = await axios[method](route, { ...state,imageUrl:state.image_url, id: state.service_id });
+            }
+            setStates({})
+          }else {
+            const result = await axios[method](route, { ...state, imageUrl: uploadedImages[0] });
+          }
+        }else if (page === 'aboutUs') {
+          if(method === 'put'){
+            if(uploadedImages[0]){
+              console.log(state)
+              const result = await axios[method](route, { ...state, imageUrl: uploadedImages[0] });
+              console.log('rrrrrrrrrrrrrrrrrr', result)
+            }else {
+              const result = await axios[method](route, { ...state, imageUrl:state.image_url });
+              console.log(state)
+              console.log('rrrrrrrrrrrrrrrrrr', result)
+            }
+            setStates({})
+          }else {
+            const result = await axios[method](route, { ...state, imageUrl: uploadedImages[0] });
+          }
+        }
+        else if (page === 'projects') {
+          if(method === 'put'){
+            if(uploadedImages[0] && state.project_images[0]){
+              const result = await axios[method](route, { ...state, imageUrl: [...state.project_images,...uploadedImages], id: state.project_id });
+            }else if(uploadedImages[0]){
+              const result = await axios[method](route, { ...state, imageUrl: uploadedImages, id: state.project_id });
+            }else if(state.project_images[0]){
+              const result = await axios[method](route, { ...state, imageUrl: state.project_images, id: state.project_id });
+            }
+            else {
+              const result = await axios[method](route, { ...state,imageUrl:[], id: state.project_id });
+            }
+            setStates({})
+          }else {
+            const result = await axios[method](route, { ...state, images: uploadedImages });
+          }
+        }
+         else {
+           console.log(method, route, state)
+          const result = await axios[method](route, { ...state, images: uploadedImages });
+        }
+        
+       
+        // if(method === 'put'){
+        //   const id = [state.service_id, state.testimonial_id, state.project_id, state.feature_id, state.blog_id].filter(e => e)[0]
+        //   const result = await axios[method](route, { ...state, images: uploadedImages, id });
+        // }
+        // const result = await axios[method](route, { ...state, images: uploadedImages });
+        if (typeof setOpenForm === 'function') setOpenForm(false);
+        setStates({})
     } catch (e) {
       console.log(e);
     }
