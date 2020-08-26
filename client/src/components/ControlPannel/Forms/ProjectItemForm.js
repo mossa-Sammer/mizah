@@ -41,8 +41,15 @@ export default function ProjectItemForm({
         error={errors.descriptionAr}
         multiline
       />
+      <Controls.Input
+        label="video Link"
+        name="videoUrl"
+        value={values.videoUrl}
+        onChange={handleInputChange}
+        error={errors.videoUrl}
+      />
       <div>
-        <UploadImage setFiles={setImage} files={image}/>  
+        <UploadImage setFiles={setImage} files={image} multiple/> 
       </div>
     </>
   );
