@@ -62,7 +62,7 @@ const UploadFile = ({
     setFiles(null);
   };
   const thumbs =
-    !!files.length &&
+    !!files && !!files.length &&
     files.map(file => (
       <S.Thumb key={file.name}>
         <S.ThumbInner image={file.preview}>
