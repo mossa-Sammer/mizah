@@ -29,18 +29,18 @@ const style = {
     fontSize: 18,
     fontWight: 'bold',
     transition: 'background-color .3s',
-    textTransform: 'capitalize', 
+    textTransform: 'capitalize',
     '&:hover': {
       backgroundColor: '#9767ec',
       cursor: 'pointer',
-    transition: 'background-color .3s'
+      transition: 'background-color .3s',
     },
     '&:first-child': {
-      marginTop: 0
+      marginTop: 0,
     },
     '&:last-child': {
-      marginBottom: 0
-    }
+      marginBottom: 0,
+    },
   },
 };
 
