@@ -143,6 +143,7 @@ export default function FormLayout({ page, route, setOpenForm, defaultValues }) 
       if (page === 'features' && state.feature_id) method = 'put';
       if (page === 'blog' && state.blog_id) method = 'put';
       if (page === 'settings') method = 'put';
+      if (page === 'aboutUs') method = 'put';
 
       if (image.length && image[0].type) {
         const promises = image.map(async img => {
@@ -212,9 +213,13 @@ export default function FormLayout({ page, route, setOpenForm, defaultValues }) 
         }else if (page === 'aboutUs') {
           if(method === 'put'){
             if(uploadedImages[0]){
-              const result = await axios[method](route, { ...state, imageUrl: uploadedImages[0], id: state.service_id });
+              console.log(state)
+              const result = await axios[method](route, { ...state, imageUrl: uploadedImages[0] });
+              console.log('rrrrrrrrrrrrrrrrrr', result)
             }else {
-              const result = await axios[method](route, { ...state,imageUrl:state.image_url, id: state.service_id });
+              const result = await axios[method](route, { ...state, imageUrl:state.image_url });
+              console.log(state)
+              console.log('rrrrrrrrrrrrrrrrrr', result)
             }
             setStates({})
           }else {
@@ -242,7 +247,7 @@ export default function FormLayout({ page, route, setOpenForm, defaultValues }) 
            console.log(method, route, state)
           const result = await axios[method](route, { ...state, images: uploadedImages });
         }
-        setOpenForm(false);
+        
        
         // if(method === 'put'){
         //   const id = [state.service_id, state.testimonial_id, state.project_id, state.feature_id, state.blog_id].filter(e => e)[0]
