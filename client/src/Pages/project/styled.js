@@ -129,3 +129,8 @@ export const SingleImage = styled.div`
   background-repeat: no-repeat;
   background-image: ${({ bg }) => `url(${bg})`};
 `;
+
+export const VideoContainer = styled.div`
+  height: 700px;
+  width: 640px;
+`;
