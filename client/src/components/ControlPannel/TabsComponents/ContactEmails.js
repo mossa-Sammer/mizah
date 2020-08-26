@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { withStyles } from '@material-ui/core';
+import axios from 'axios';
 
 import { TitleContainer } from './styled';
 
@@ -27,6 +28,14 @@ export const earnGroupMembersData = [
 ];
 
 const ContactEmails = ({ classes }) => {
+  const [emails, setEmails] = useState([]);
+  useEffect(() => {
+    (async () => {
+      const { data } = await axios.get('/api/v1/message');
+      setEmails(data);
+      console.log(data);
+    })();
+  }, []);
   return (
     <div style={{ paddingLeft: 320 }}>
       <TitleContainer>
@@ -36,7 +45,7 @@ const ContactEmails = ({ classes }) => {
       <Table
         hideSearch
         color="blue"
-        data={earnGroupMembersData}
+        data={emails}
         showPagination={false}
         columns={[
           { title: 'Name', field: 'name' },
