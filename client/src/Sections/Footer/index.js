@@ -23,9 +23,10 @@ const Footer = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    // here should send request with the data to the backend
+    // here should send request with the data to the backend;
     await axios.post('/api/v1/message', message);
-    setMessage({ name: '', email: '', phone: '', message: '' });
+    console.log('footer', message);
+    setMessage({ name: '', email: '', phoneNo: '', body: '' });
   };
   return (
     <>
@@ -80,8 +81,8 @@ const Footer = () => {
                   <S.Input
                     type="text"
                     placeholder="Enter your Phone No .."
-                    name="phone"
-                    value={message.phone}
+                    name="phoneNo"
+                    value={message.phoneNo}
                     onChange={handleChange}
                   />
                 </S.Label>
@@ -93,8 +94,8 @@ const Footer = () => {
                     rows="4"
                     type="text"
                     placeholder="Enter your message .."
-                    name="message"
-                    value={message.message}
+                    name="body"
+                    value={message.body}
                     onChange={handleChange}
                   />
                 </S.Label>
