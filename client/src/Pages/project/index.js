@@ -27,6 +27,12 @@ const ProjectPage = ({ lang, setLang }) => {
     })()
   }, [])
 
+  function youTubeGetID(url){
+    url = url.split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
+    return (url[2] !== undefined) ? url[2].split(/[^0-9a-z_\-]/i)[0] : url[0];
+ }
+
+ const videoId = projectData && projectData.video_url && youTubeGetID(projectData.video_url)
   const tablet = useMediaQuery('(max-width:949px)');
   const mobile = useMediaQuery('(max-width:449px)');
   let videoHeight = mobile ? '150' : tablet ? '200': '390';
@@ -82,14 +88,16 @@ const ProjectPage = ({ lang, setLang }) => {
             </S.ImagesContainer>
           </Col>
         </Row>
-        <Row>
+        { videoId && (
+          <Row>
           <Col w={[4, 6, 12]}>
             <div style={{marginTop: 30}}>
-            <YouTube videoId="kBsycvSU6r8" opts={opts} />
+            <YouTube videoId={videoId} opts={opts} />
             </div>
 
           </Col>
         </Row>
+        )}
       </Section>
       <Footer lang={lang} />
     </>
