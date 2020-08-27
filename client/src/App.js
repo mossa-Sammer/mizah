@@ -66,7 +66,7 @@ function App() {
               )
             }
           />
-          <Route path="/project/:id" exact component={ProjectPage} />
+          <Route path="/project/:id" exact render={() => <ProjectPage lang={lang} setLang={setLang}/>} />
           <Route
             path="/test"
             exact
