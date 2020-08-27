@@ -28,7 +28,7 @@ function App() {
   const [slide, setSlide] = useState('left');
   const [lang, setLang] = useState('en');
   // this should be false just for testing
-  const [isAuth, setIsAuth] = useState(true);
+  const [isAuth, setIsAuth] = useState(false);
   return (
     <div className="App">
       <Router>

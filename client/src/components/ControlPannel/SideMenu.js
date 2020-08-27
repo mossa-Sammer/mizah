@@ -47,15 +47,15 @@ const style = {
 const SideMenu = props => {
   const { classes, setCurrentTab } = props;
   const tabs = [
-    { tab: 'slider', title: 'Slider' },
+    // { tab: 'slider', title: 'Slider' },
     { tab: 'aboutUs', title: 'About Us' },
     { tab: 'services', title: 'Services' },
     { tab: 'testimonials', title: 'Testimonials' },
     { tab: 'projects', title: 'Projects' },
-    { tab: 'customers', title: 'Customers' },
+    // { tab: 'customers', title: 'Customers' },
     { tab: 'features', title: 'Features' },
     { tab: 'settings', title: 'Settings' },
-    { tab: 'blog', title: 'Blog' },
+    // { tab: 'blog', title: 'Blog' },
     { tab: 'contactEmails', title: 'Contact Emails' },
   ];
   return (
