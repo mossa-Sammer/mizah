@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
 import Slider from 'react-slick';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import * as S from './styled';
@@ -17,35 +18,22 @@ import TitleIcon from '../../components/SVG/titleIcon';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const data = [
-  {
-    id: 1,
-    image: Img1,
-    title: 'SOCIAL MEDIA MANAGEMENT FOR MUBADRAH COMPANY',
-    titleAr: 'اداره حسابات التواصل الأجتماعي لشركة مبادرة',
-  },
-  {
-    id: 2,
-    image: Img2,
-    title: 'MOTION GRAPHICS "MUBADARAH"',
-    titleAr: 'موشن جرافيك "مبادرة"',
-  },
-  {
-    id: 3,
-    image: Img1,
-    title: 'SOCIAL MEDIA MANAGEMENT FOR MUBADRAH COMPANY',
-    titleAr: 'اداره حسابات التواصل الأجتماعي لشركة مبادرة',
-  },
-  {
-    id: 4,
-    image: Img,
-    title: 'MOTION GRAPHICS "MUBADARAH"',
-    titleAr: 'موشن جرافيك "مبادرة"',
-  },
-];
 
 const ProjectsSection = ({ lang }) => {
-  let numberOfItems = 3;
+  const [data, setData] = useState([]);
+  const route = '/api/v1/project';
+  useEffect(() => {
+    (async () => {
+      try {
+        const data = await axios.get('/api/v1/project');
+        setData(data.data);
+      } catch (e) {
+        console.log(e);
+      }
+    })();
+  }, []);
+
+  let numberOfItems = 3 <= data.length ? 3 : data.length;
   const tablet = useMediaQuery('(max-width:1140px) and (min-width:650px)');
   const mobile = useMediaQuery('(max-width:650px)');
   if (tablet) {

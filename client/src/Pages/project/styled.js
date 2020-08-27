@@ -89,8 +89,10 @@ export const Text = styled.p`
 
 export const ShowImage = styled.div`
   width: 80%;
+  @media (max-width: 925px) {
+    width: 100%;
+  }
   height: 300px;
-  background: red;
 
   vertical-align: middle;
   background-size: 100%;
@@ -101,7 +103,9 @@ export const ShowImage = styled.div`
 
 export const ImagesContainer = styled.div`
   width: 80%;
-  background: green;
+  @media (max-width: 925px) {
+    width: 100%;
+  }
   margin-top: 30px;
   display: flex;
   flex-wrap: wrap;
@@ -114,6 +118,7 @@ export const ImageContainer = styled.button`
   border: none;
   box-shadow: none;
   outline: none;
+  cursor: pointer;
 `;
 
 export const SingleImage = styled.div`
@@ -122,7 +127,6 @@ export const SingleImage = styled.div`
   margin: 5px 10px;
   width: 100px;
   height: 100px;
-  background: red;
   vertical-align: middle;
   background-size: 100%;
   background-position: 50% 50%;
