@@ -12,7 +12,7 @@ export const Container = styled.div`
   z-index: 11;
   -webkit-box-shadow: 0 0 5px #000;
   box-shadow: 0 0 5px #000;
-
+  background-position: 50%;
   &:hover .overlay {
     opacity: 1;
     & .head {
