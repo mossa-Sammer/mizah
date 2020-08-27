@@ -3,7 +3,7 @@ import React from 'react';
 import { TextField } from '@material-ui/core';
 
 export default function Input(props) {
-  const { name, label, value, error = null, onChange, multiline } = props;
+  const { name, label, value, error = null, onChange, multiline, required } = props;
   return (
     <TextField
       variant="outlined"
@@ -15,7 +15,7 @@ export default function Input(props) {
       rows={multiline && 4}
       {...(error && { error: true, helperText: error })}
       style={{ marginBottom: 30 }}
-      required
+      required={required}
       InputLabelProps={{ shrink: value && true }}
     />
   );
