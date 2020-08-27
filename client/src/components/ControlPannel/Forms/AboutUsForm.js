@@ -13,6 +13,7 @@ export default function AboutUsForm({ values, handleInputChange, errors = {}, se
         onChange={handleInputChange}
         error={errors.description}
         multiline
+        required
       />
       <div>
         <UploadImage setFiles={setImage} files={img} />
@@ -24,6 +25,7 @@ export default function AboutUsForm({ values, handleInputChange, errors = {}, se
         onChange={handleInputChange}
         error={errors.descriptionAr}
         multiline
+        required
       />
     </>
   );

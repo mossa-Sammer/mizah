@@ -10,6 +10,7 @@ export default function SliderItemForm({ values, handleInputChange, errors = {} 
         value={values.titleEn}
         onChange={handleInputChange}
         error={errors.titleEn}
+        required
       />
       <Controls.Input
         label="Description EN"
@@ -18,6 +19,7 @@ export default function SliderItemForm({ values, handleInputChange, errors = {} 
         onChange={handleInputChange}
         error={errors.descriptionEn}
         multiline
+        required
       />
       <Controls.Input
         name="btnName"
@@ -25,6 +27,7 @@ export default function SliderItemForm({ values, handleInputChange, errors = {} 
         value={values.btnNameEn}
         onChange={handleInputChange}
         error={errors.btnNameEn}
+        required
       />
       <Controls.Input
         name="titleAr"
@@ -32,6 +35,7 @@ export default function SliderItemForm({ values, handleInputChange, errors = {} 
         value={values.titleAr}
         onChange={handleInputChange}
         error={errors.titleAr}
+        required
       />
       <Controls.Input
         label="Description AR"
@@ -40,6 +44,7 @@ export default function SliderItemForm({ values, handleInputChange, errors = {} 
         onChange={handleInputChange}
         error={errors.descriptionAr}
         multiline
+        required
       />
       <Controls.Input
         name="btnNameAr"
@@ -47,6 +52,7 @@ export default function SliderItemForm({ values, handleInputChange, errors = {} 
         value={values.btnNameAr}
         onChange={handleInputChange}
         error={errors.btnNameAr}
+        required
       />
       <Controls.Input
         name="btnLink"
@@ -54,6 +60,7 @@ export default function SliderItemForm({ values, handleInputChange, errors = {} 
         value={values.btnLink}
         onChange={handleInputChange}
         error={errors.btnLink}
+        required
       />
     </>
   );

@@ -17,6 +17,7 @@ export default function ServicesItemForm({
         value={values.title}
         onChange={handleInputChange}
         error={errors.title}
+        required
       />
       <Controls.Input
         name="titleAr"
@@ -24,6 +25,7 @@ export default function ServicesItemForm({
         value={values.titleAr}
         onChange={handleInputChange}
         error={errors.titleAr}
+        required
       />
       <Controls.Input
         label="Description"
@@ -32,6 +34,7 @@ export default function ServicesItemForm({
         onChange={handleInputChange}
         error={errors.description}
         multiline
+        required
       />
       <Controls.Input
         label="Description AR"
@@ -40,6 +43,7 @@ export default function ServicesItemForm({
         onChange={handleInputChange}
         error={errors.descriptionAr}
         multiline
+        required
       />
       <div>
         <UploadImage setFiles={setImage} files={image} />

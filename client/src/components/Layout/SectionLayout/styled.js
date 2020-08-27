@@ -4,7 +4,7 @@ import theme from '../../../utils/theme';
 const SectionWrapper = styled.div`
   width: '100%';
   position: relative;
-  z-index: ${({ footer }) => footer && 9999};
+  // z-index: ${({ footer }) => footer && 9999};
   background-color: ${({ bgcolor }) => theme.colors[bgcolor] || bgcolor};
   background-image: ${({ bgcolor, bgimg, isGradient }) =>
     (bgimg && `url(${bgimg})`) || (isGradient && bgcolor && theme.colors[bgcolor])};
