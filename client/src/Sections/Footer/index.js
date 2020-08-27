@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import * as S from './style';
 import Section from '../../components/Layout/Section';
@@ -16,6 +16,26 @@ import Email from '../../assets/email.png';
 
 const Footer = () => {
   const [message, setMessage] = useState({});
+  const [info, setInfo] = useState({
+    instagram_url: '#',
+    facebook_url: '#',
+    twitter_url: '#',
+    google_url: '#',
+    address: '',
+    whatsapp_no:'',
+    website_url:'',
+    email:'',
+
+  });
+  useEffect(() => {
+    (async () => {
+      const result = await axios.get('/api/v1/setting');
+      if (result.data) {
+        setInfo(result.data);
+        console.log(result.data)
+      }
+    })();
+  }, []);
 
   const handleChange = ({ target: { name, value } }) => {
     setMessage(old => ({ ...old, [name]: value }));
@@ -32,16 +52,16 @@ const Footer = () => {
       {/* <Section bgimg={FooterBg} bgcolor="footerBg" footer id="footer"> */}
       <Section bgcolor="footerBg" footer id="footer">
         <S.SocialContainer>
-          <S.SocialLink href="#">
+          <S.SocialLink href={info.twitter_url} target="_blank">
             <Twitter icon="twitter" width="80%" height="80%" color="#755e9e" />
           </S.SocialLink>
-          <S.SocialLink href="#">
+          <S.SocialLink href={info.facebook_url} target="_blank">
             <Facebook icon="Facebook" width="80%" height="80%" color="#755e9e" />
           </S.SocialLink>
-          <S.SocialLink href="#">
+          <S.SocialLink href={info.google_url} target="_blank">
             <GooglePlus icon="GooglePlus" width="80%" height="80%" color="#755e9e" />
           </S.SocialLink>
-          <S.SocialLink href="#">
+          <S.SocialLink href={info.instagram_url} target="_blank">
             <Instagram icon="Instagram" width="80%" height="80%" color="#755e9e" />
           </S.SocialLink>
         </S.SocialContainer>
@@ -114,7 +134,7 @@ const Footer = () => {
                     <img src={Location} alt="Location" style={{ width: '70%', height: '70%' }} />
                   </S.ImgContainer>
                 </S.LeftSideAddress>
-                <S.P16>Palestine</S.P16>
+                <S.P16>{info.address}</S.P16>
               </S.ListItem>
               <S.ListItem>
                 <S.LeftSideAddress>
@@ -123,7 +143,7 @@ const Footer = () => {
                     <img src={Whatsapp} alt="Whatsapp" style={{ width: '70%', height: '70%' }} />
                   </S.ImgContainer>
                 </S.LeftSideAddress>
-                <S.P16 color="gray4">029 2056 6132</S.P16>
+                <S.P16 color="gray4">{info.whatsapp_no}</S.P16>
               </S.ListItem>
               <S.ListItem>
                 <S.LeftSideAddress>
@@ -132,7 +152,7 @@ const Footer = () => {
                     <img src={Website} alt="Website" style={{ width: '70%', height: '70%' }} />
                   </S.ImgContainer>
                 </S.LeftSideAddress>
-                <S.P16 color="gray4">www.mizah.com</S.P16>
+                <S.P16 color="gray4">{info.website_url}</S.P16>
               </S.ListItem>
               <S.ListItem>
                 <S.LeftSideAddress>
@@ -141,7 +161,7 @@ const Footer = () => {
                     <img src={Email} alt="Email" style={{ width: '70%', height: '70%' }} />
                   </S.ImgContainer>
                 </S.LeftSideAddress>
-                <S.P16>hello@wearetempo.org</S.P16>
+                <S.P16>{info.email}</S.P16>
               </S.ListItem>
             </S.ContactList>
           </Col>
