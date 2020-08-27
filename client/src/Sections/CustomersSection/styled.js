@@ -29,9 +29,10 @@ export const Slide = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-left: 20px;
-
+  
   @media (max-width: 700px) {
     flex-direction: column;
+    margin-left: 0px;
   }
 `;
 
