@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Collapse from '@material-ui/core/Collapse';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import * as S from './styled';
@@ -19,14 +20,21 @@ const content = [
 ];
 
 const Header = ({ lang, setLang }) => {
+  const history = useHistory();
   const [isOpen, setIsOpen] = useState(false);
   const tablet = useMediaQuery('(max-width:1150px)');
   const headerLinks = lang === 'ar' ? [...content].reverse() : content;
+  const handleClick = () => {
+    if(history.location.pathname !== '/'){
+      history.push('/')
+    }
+    setIsOpen(o => !o)
+  }
   return tablet ? (
     <>
       <S.HeaderContainer lang={lang}>
         <S.Nav lang={lang}>
-          <S.MenuBtn type="button" onClick={() => setIsOpen(o => !o)}>
+          <S.MenuBtn type="button" onClick={handleClick}>
             {isOpen ? <Close color="white" /> : <Menu color="white" />}
           </S.MenuBtn>
         </S.Nav>
@@ -65,7 +73,7 @@ const Header = ({ lang, setLang }) => {
                 const text = lang === 'en' ? elm.title : elm.arTitle;
                 return (
                   <S.ListItem>
-                    <S.MenuLink href={elm.link} onClick={() => setIsOpen(false)}>
+                    <S.MenuLink href={elm.link} onClick={handleClick}>
                       {text}
                     </S.MenuLink>
                   </S.ListItem>
@@ -84,7 +92,7 @@ const Header = ({ lang, setLang }) => {
             const text = lang === 'en' ? elm.title : elm.arTitle;
             return (
               <S.ListItem>
-                <S.Link href={elm.link}>{text}</S.Link>
+                <S.Link href={elm.link} onClick={handleClick}>{text}</S.Link>
               </S.ListItem>
             );
           })}
