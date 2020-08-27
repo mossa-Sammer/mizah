@@ -19,14 +19,10 @@ const style = {
 
 const Projects = ({ classes }) => {
   const [openForm, setOpenForm] = useState(false);
-  const [defaultValues, setFormDefaultValues] = useState(null);
+  const [defaultValues, setFormDefaultValues] = useState({});
   const [data, setData] = useState([]);
   const route = '/api/v1/project';
 
-  const editRow = (rowData, route) => {
-    setOpenForm(true);
-    setFormDefaultValues(rowData);
-  };
   const deleteRow = async (rowData, route) => {
     try {
       setData(old => old.filter(e => e.project_id !== rowData.project_id));
@@ -85,14 +81,11 @@ const Projects = ({ classes }) => {
             {
               title: 'Image',
               field: 'image_url',
-              render: ({ project_images }) => project_images.length > 0 && project_images.map(e => <InlineImage src={e.image_url} />),
+              render: ({ project_images }) => project_images.length > 0 && project_images.map(e => e && <InlineImage src={e.image_url} />),
             },
             RemoveRejoinCol({
               onDelete: row => {
                 deleteRow(row, route);
-              },
-              onEdit: row => {
-                editRow(row);
               },
             }),
           ]}
