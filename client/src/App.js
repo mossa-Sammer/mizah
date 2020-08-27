@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
 // sections
 import OurStorySection from './Sections/OurStorySection';
@@ -82,6 +82,7 @@ function App() {
               </>
             )}
           />
+           <Route render={() => <Redirect to="/" />} />
         </Switch>
       </Router>
     </div>
