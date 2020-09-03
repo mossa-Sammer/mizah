@@ -100,7 +100,14 @@ CREATE TABLE website (
     logo_url VARCHAR,
     about_us_description VARCHAR,
     about_us_description_ar VARCHAR,
-    about_us_image_url VARCHAR
+    about_us_image_url VARCHAR,
+    video_url VARCHAR,
+    our_values VARCHAR,
+    our_values_ar VARCHAR,
+    our_mission VARCHAR,
+    our_mission_ar VARCHAR,
+    our_vision VARCHAR,
+    our_vision_ar VARCHAR
 );  
 
 create table project_image (

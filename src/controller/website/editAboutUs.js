@@ -1,7 +1,18 @@
 const { editAboutUs } = require('../../database/queries/webSiteSetting');
 
 module.exports = async (req, res, next) => {
-  const { description, descriptionAr, imageUrl } = req.body;
+  const {
+    description,
+    descriptionAr,
+    imageUrl,
+    ourMission,
+    ourMissionAr,
+    ourValues,
+    ourValuesAr,
+    ourVision,
+    ourVisionAr,
+    videoUrl,
+  } = req.body;
   try {
     const {
       rows: [websiteAboutUs],
@@ -9,6 +20,13 @@ module.exports = async (req, res, next) => {
       description,
       descriptionAr,
       imageUrl,
+      ourMission,
+      ourMissionAr,
+      ourValues,
+      ourValuesAr,
+      ourVision,
+      ourVisionAr,
+      videoUrl,
     });
     res.json(websiteAboutUs);
   } catch (e) {
