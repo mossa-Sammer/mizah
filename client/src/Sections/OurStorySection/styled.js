@@ -32,14 +32,16 @@ export const TitleContainer = styled.div`
   width: 100%;
   flex-direction: ${({ lang }) => (lang === 'en' ? 'row' : ' row-reverse')};
   align-items: center;
+  justify-content: center;
+
 `;
 
 export const TitleSubContainer = styled.div`
   display: flex;
   flex-direction: ${({ lang }) => (lang === 'en' ? 'row' : ' row-reverse')};
   align-items: center;
-  margin-right: ${({ lang }) => (lang === 'ar' ? 50 : 0)};
-  margin-left: ${({ lang }) => (lang === 'en' ? 50 : 0)};
+  // margin-right: ${({ lang }) => (lang === 'ar' ? 50 : 0)};
+  // margin-left: ${({ lang }) => (lang === 'en' ? 50 : 0)};
 `;
 
 export const Title = styled.h1`
@@ -59,9 +61,9 @@ export const Content = styled.div`
   color: #777;
   font-size: 20px;
   text-align: ${({ lang }) => (lang === 'en' ? 'left' : 'right')};
-  // text-align: right;
-  // padding-left: 50px;
-  // padding-right: 50px;
   justify-content: center;
   padding: ${({ lang }) => (lang === 'en' ? '0 0 0 50px' : '0 50px 0 0')};
+  @media(max-width: 500px) {
+    padding: 0 10px;
+  }
 `;

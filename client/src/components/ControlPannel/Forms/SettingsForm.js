@@ -10,6 +10,7 @@ export default function SettingsForm({ values, handleInputChange, errors = {} })
         value={values.facebook}
         onChange={handleInputChange}
         error={errors.facebook}
+        required
       />
       <Controls.Input
         label="Twitter"
@@ -17,6 +18,7 @@ export default function SettingsForm({ values, handleInputChange, errors = {} })
         value={values.twitter}
         onChange={handleInputChange}
         error={errors.twitter}
+        required
       />
       <Controls.Input
         label="Instagram"
@@ -24,6 +26,7 @@ export default function SettingsForm({ values, handleInputChange, errors = {} })
         value={values.instagram}
         onChange={handleInputChange}
         error={errors.instagram}
+        required
       />
       <Controls.Input
         label="Google"
@@ -31,6 +34,7 @@ export default function SettingsForm({ values, handleInputChange, errors = {} })
         value={values.google}
         onChange={handleInputChange}
         error={errors.google}
+        required
       />
       <Controls.Input
         label="Website"
@@ -38,6 +42,7 @@ export default function SettingsForm({ values, handleInputChange, errors = {} })
         value={values.website}
         onChange={handleInputChange}
         error={errors.website}
+        required
       />
       <Controls.Input
         label="Email"
@@ -45,20 +50,23 @@ export default function SettingsForm({ values, handleInputChange, errors = {} })
         value={values.email}
         onChange={handleInputChange}
         error={errors.email}
+        required
       />
       <Controls.Input
         label="WhatsApp NO"
-        name="WhatsAppNo"
-        value={values.WhatsAppNo}
+        name="whatsAppNo"
+        value={values.whatsAppNo}
         onChange={handleInputChange}
-        error={errors.WhatsAppNo}
+        error={errors.whatsAppNo}
+        required
       />
       <Controls.Input
         label="WhatsApp Link"
-        name="WhatsAppLink"
-        value={values.WhatsAppLink}
+        name="whatsAppLink"
+        value={values.whatsAppLink}
         onChange={handleInputChange}
-        error={errors.WhatsAppLink}
+        error={errors.whatsAppLink}
+        required
       />
       <Controls.Input
         label="Address"
@@ -66,6 +74,7 @@ export default function SettingsForm({ values, handleInputChange, errors = {} })
         value={values.address}
         onChange={handleInputChange}
         error={errors.address}
+        required
       />
       <Controls.Input
         label="Address Ar"
@@ -73,6 +82,7 @@ export default function SettingsForm({ values, handleInputChange, errors = {} })
         value={values.addressAr}
         onChange={handleInputChange}
         error={errors.addressAr}
+        required
       />
       <Controls.Input
         label="Description"
@@ -81,6 +91,7 @@ export default function SettingsForm({ values, handleInputChange, errors = {} })
         onChange={handleInputChange}
         error={errors.description}
         multiline
+        required
       />
       <Controls.Input
         label="DescriptionAr"
@@ -89,6 +100,7 @@ export default function SettingsForm({ values, handleInputChange, errors = {} })
         onChange={handleInputChange}
         error={errors.descriptionAr}
         multiline
+        required
       />
     </>
   );

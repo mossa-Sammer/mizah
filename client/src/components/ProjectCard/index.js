@@ -7,8 +7,8 @@ const ProjectCard = ({ item, lang }) => {
   return (
     <S.Container
       className="container"
-      bg={item.image}
-      onClick={() => history.push(`/project/${item.id}`)}
+      bg={item.project_images[0].image_url}
+      onClick={() => history.push(`/project/${item.project_id}`)}
     >
       <S.Overlay className="overlay">
         <S.Items className="items" />

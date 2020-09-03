@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
 // sections
 import OurStorySection from './Sections/OurStorySection';
@@ -28,7 +28,7 @@ function App() {
   const [slide, setSlide] = useState('left');
   const [lang, setLang] = useState('en');
   // this should be false just for testing
-  const [isAuth, setIsAuth] = useState(true);
+  const [isAuth, setIsAuth] = useState(false);
   return (
     <div className="App">
       <Router>
@@ -66,7 +66,7 @@ function App() {
               )
             }
           />
-          <Route path="/project/:id" exact component={ProjectPage} />
+          <Route path="/project/:id" exact render={() => <ProjectPage lang={lang} setLang={setLang}/>} />
           <Route
             path="/test"
             exact
@@ -75,13 +75,14 @@ function App() {
                 {/* <SliderContainer2 lang={lang} slide={slide} setSlide={setSlide} /> */}
                 {/* <SliderContainer slide={slide} setSlide={setSlide} /> */}
                 <Header lang={lang} setLang={setLang} />
-                <WhyUsSection lang={lang} />
+                <ProjectPage lang={lang} />
 
                 <div style={{ width: '100%', height: '100vh' }} />
                 <div style={{ width: '100%', height: '100vh' }} />
               </>
             )}
           />
+           <Route render={() => <Redirect to="/" />} />
         </Switch>
       </Router>
     </div>

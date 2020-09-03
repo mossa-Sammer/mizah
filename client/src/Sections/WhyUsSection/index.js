@@ -1,14 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+
 import * as S from './styled';
 import TitleIcon from '../../components/SVG/titleIcon';
-import items, { title } from './dummyData';
 
 import Section from '../../components/Layout/Section';
 import { Row, Col } from '../../components/Grid';
 
 const WhyUsSection = ({ lang }) => {
+  const [content, setContent ] = useState(null)
+  const [title, setTitle] = useState(null);
+  useEffect(() => {
+    try{
+      ( async () => {
+        const title = await axios.get('/api/v1/setting');
+        const result = await axios.get('/api/v1/feature');
+        setTitle(title.data)
+        setContent(result.data)
+      } )()
+    }catch(e){
+      console.log(e)
+    }
+  }, [])
   return (
-    <Section id="why-us">
+    <Section bgcolor="sectionBackground" id="why-us">
       <Row>
         <Col w={[4, 6, 12]}>
           <S.SectionTitle lang={lang}>
@@ -23,20 +38,20 @@ const WhyUsSection = ({ lang }) => {
       <Row mt={3} jc={lang === 'en' ? 'flex-start' : 'flex-end'}>
         <Col w={[4, 6, 12]}>
           <S.MainTitleContainer lang={lang}>
-            <S.Title lang={lang}>{lang === 'en' ? title.en : title.ar}</S.Title>
+            {title && <S.Title lang={lang}>{lang === 'en' ? title.description : title.description_ar}</S.Title>}
             <S.TitleSpan style={{ marginTop: 15 }} />
           </S.MainTitleContainer>
         </Col>
       </Row>
       <Row>
-        {items.map(e => (
+        {content && content.map(e => (
           <Col w={[4, 6, 12]}>
             <S.Card>
               <S.ItemTitleContainer lang={lang}>
-                <S.SubTitle lang={lang}>{lang === 'en' ? e.title : e.titleAr}</S.SubTitle>
+                <S.SubTitle lang={lang}>{lang === 'en' ? e.title : e.title_ar}</S.SubTitle>
                 <S.SubTitleSpan />
               </S.ItemTitleContainer>
-              <S.TextContent lang={lang}>{lang === 'en' ? e.content : e.contentAr}</S.TextContent>
+              <S.TextContent lang={lang}>{lang === 'en' ? e.description : e.description_ar}</S.TextContent>
             </S.Card>
           </Col>
         ))}

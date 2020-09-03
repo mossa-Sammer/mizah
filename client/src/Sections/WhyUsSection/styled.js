@@ -30,12 +30,21 @@ export const MainTitleContainer = styled.div`
   display: flex;
   align-items: ${({ lang }) => (lang === 'en' ? 'flex-start' : 'flex-end')};
   flex-direction: column;
+  @media(max-width: 500px) {
+    align-items: center;
+  }
 `;
 
 export const Title = styled.h2`
   font-size: 32px;
   color: #8368af;
+  padding: 0;
   text-align: ${({ lang }) => (lang === 'en' ? 'left' : 'right')};
+  @media (max-width: 500px) {
+    text-align: center;
+    font-size: 24px;
+    padding: 0 10px;
+  } 
 `;
 export const TitleSpan = styled.span`
   width: 250px;
@@ -83,6 +92,9 @@ export const Card = styled.div`
   box-shadow: 5px 10px 20px -8px #000;
   &:hover {
     transform: translateY(-5px);
+  }
+  @media(max-width: 500px){
+    width: 90%;
   }
   transition: 0.3s;
 `;

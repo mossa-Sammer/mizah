@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { withStyles } from '@material-ui/core';
+import axios from 'axios';
 
 import { TitleContainer } from './styled';
 
@@ -17,16 +18,23 @@ const style = {
   },
 };
 
-export const earnGroupMembersData = [
-  {
-    name: 'fadi oamr',
-    email: 'fadeomar2015@gmail.com',
-    phoneNo: '21341465',
-    body: 'sasd asd asd asa',
-  },
-];
-
 const ContactEmails = ({ classes }) => {
+  const [emails, setEmails] = useState([]);
+  const route = '/api/v1/message';
+  const deleteRow = async (rowData, route) => {
+    try{
+      setEmails(old => old.filter(e => e.message_id !== rowData.message_id))
+      await axios.delete(`${route}/${rowData.message_id}`)
+    } catch(e){
+      console.log(e)
+    }
+  }
+  useEffect(() => {
+    (async () => {
+      const { data } = await axios.get('/api/v1/message');
+      setEmails(data);
+    })();
+  }, []);
   return (
     <div style={{ paddingLeft: 320 }}>
       <TitleContainer>
@@ -36,14 +44,15 @@ const ContactEmails = ({ classes }) => {
       <Table
         hideSearch
         color="blue"
-        data={earnGroupMembersData}
+        data={emails}
         showPagination={false}
         columns={[
           { title: 'Name', field: 'name' },
           { title: 'Email', field: 'email' },
-          { title: 'Phone No', field: 'phoneNo' },
+          { title: 'Phone No', field: 'phone_no' },
           { title: 'Body', field: 'body' },
-          RemoveRejoinCol,
+          RemoveRejoinCol({onDelete: (row) => {deleteRow(row, route)},
+     }),
         ]}
         onRowClick={rowClick}
       />

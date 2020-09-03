@@ -92,7 +92,7 @@ export const vars = {
   sectionPaddingRightD: '10%',
   sectionPaddingTopT: '3rem',
   sectionPaddingBottomT: '3rem',
-  sectionPaddingLeftT: '7%',
+  sectionPaddingLeftT: '3%',
   sectionPaddingRightT: '7%',
   sectionPaddingTopM: '2rem',
   sectionPaddingBottomM: '2rem',

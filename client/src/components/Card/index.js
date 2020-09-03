@@ -10,8 +10,8 @@ const Card = ({ item, lang }) => {
           <S.Img src={item.image_url} />
         </S.ImageContainer>
         <div>
-          <S.Title>{lang === 'en' ? item.title : item.titleAr}</S.Title>
-          <S.Body>{trimText(lang === 'en' ? item.description : item.descriptionAr)}</S.Body>
+          <S.Title>{lang === 'en' ? item.title : item.title_ar}</S.Title>
+          <S.Body>{trimText(lang === 'en' ? item.description : item.description_ar)}</S.Body>
         </div>
       </S.CardContainer>
     </div>
