@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { useEffect } from 'react';
 import Slider from 'react-slick';
 import * as S from './styled';
@@ -68,10 +69,10 @@ const OurPeapoleSection = ({ lang }) => {
   };
 
   useEffect(() => {
-    const btns = document.querySelectorAll('.slick-dots li button');
+    const btns = document.querySelectorAll('#slider-wrapper div .slick-dots li button');
     btns.forEach((btn, i) => {
       const img = document.createElement('img');
-      img.src = data[i].image;
+      img.src = data[i] && data[i].image;
       img.style.width = '90%';
       img.style.height = '90%';
       img.style.borderRadius = '50%';
@@ -94,9 +95,9 @@ const OurPeapoleSection = ({ lang }) => {
           </Col>
         </Row>
         {!!data.length && (
-          <Row jc="center" jcM="flex-end" jc="flex-end">
+          <Row jcM="flex-end" jc="flex-end">
             <Col w={[4, 6, 8]}>
-              <S.SliderWrapper>
+              <S.SliderWrapper id="slider-wrapper">
                 <Slider {...settings} style={{ position: 'relative', zIndex: 999 }}>
                   {data.map(
                     elem =>
