@@ -17,6 +17,7 @@ export default function testimonialItemForm({
         value={values.name}
         onChange={handleInputChange}
         error={errors.name}
+        required
       />
       <Controls.Input
         name="nameAr"
@@ -24,6 +25,7 @@ export default function testimonialItemForm({
         value={values.nameAr}
         onChange={handleInputChange}
         error={errors.nameAr}
+        required
       />
       <Controls.Input
         label="said"
@@ -32,6 +34,7 @@ export default function testimonialItemForm({
         onChange={handleInputChange}
         error={errors.said}
         multiline
+        required
       />
       <Controls.Input
         label="said Ar"
@@ -40,6 +43,7 @@ export default function testimonialItemForm({
         onChange={handleInputChange}
         error={errors.saidAr}
         multiline
+        required
       />
 
       <div>

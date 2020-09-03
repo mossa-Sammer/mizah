@@ -104,8 +104,8 @@ export const SocialContainer = styled.div`
   }
   @media (max-width: 500px) {
     top: auto;
-    bottom: 0;
-    right: 60%;
+    bottom: 5px;
+    right: 49%;
   }
 `;
 

@@ -61,9 +61,9 @@ export const Content = styled.div`
   color: #777;
   font-size: 20px;
   text-align: ${({ lang }) => (lang === 'en' ? 'left' : 'right')};
-  // text-align: right;
-  // padding-left: 50px;
-  // padding-right: 50px;
   justify-content: center;
   padding: ${({ lang }) => (lang === 'en' ? '0 0 0 50px' : '0 50px 0 0')};
+  @media(max-width: 500px) {
+    padding: 0 10px;
+  }
 `;

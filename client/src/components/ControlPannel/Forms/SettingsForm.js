@@ -34,6 +34,7 @@ export default function SettingsForm({ values, handleInputChange, errors = {} })
         value={values.google}
         onChange={handleInputChange}
         error={errors.google}
+        required
       />
       <Controls.Input
         label="Website"
@@ -41,6 +42,7 @@ export default function SettingsForm({ values, handleInputChange, errors = {} })
         value={values.website}
         onChange={handleInputChange}
         error={errors.website}
+        required
       />
       <Controls.Input
         label="Email"
@@ -48,6 +50,7 @@ export default function SettingsForm({ values, handleInputChange, errors = {} })
         value={values.email}
         onChange={handleInputChange}
         error={errors.email}
+        required
       />
       <Controls.Input
         label="WhatsApp NO"
@@ -55,6 +58,7 @@ export default function SettingsForm({ values, handleInputChange, errors = {} })
         value={values.whatsAppNo}
         onChange={handleInputChange}
         error={errors.whatsAppNo}
+        required
       />
       <Controls.Input
         label="WhatsApp Link"
@@ -62,6 +66,7 @@ export default function SettingsForm({ values, handleInputChange, errors = {} })
         value={values.whatsAppLink}
         onChange={handleInputChange}
         error={errors.whatsAppLink}
+        required
       />
       <Controls.Input
         label="Address"
@@ -69,6 +74,7 @@ export default function SettingsForm({ values, handleInputChange, errors = {} })
         value={values.address}
         onChange={handleInputChange}
         error={errors.address}
+        required
       />
       <Controls.Input
         label="Address Ar"
@@ -76,6 +82,7 @@ export default function SettingsForm({ values, handleInputChange, errors = {} })
         value={values.addressAr}
         onChange={handleInputChange}
         error={errors.addressAr}
+        required
       />
       <Controls.Input
         label="Description"
@@ -84,6 +91,7 @@ export default function SettingsForm({ values, handleInputChange, errors = {} })
         onChange={handleInputChange}
         error={errors.description}
         multiline
+        required
       />
       <Controls.Input
         label="DescriptionAr"
@@ -92,6 +100,7 @@ export default function SettingsForm({ values, handleInputChange, errors = {} })
         onChange={handleInputChange}
         error={errors.descriptionAr}
         multiline
+        required
       />
     </>
   );

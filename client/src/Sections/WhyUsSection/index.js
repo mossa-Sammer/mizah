@@ -3,7 +3,6 @@ import axios from 'axios';
 
 import * as S from './styled';
 import TitleIcon from '../../components/SVG/titleIcon';
-import items, { title } from './dummyData';
 
 import Section from '../../components/Layout/Section';
 import { Row, Col } from '../../components/Grid';
