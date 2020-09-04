@@ -96,7 +96,6 @@ CREATE TABLE website (
     address_ar VARCHAR,
     description VARCHAR,
     description_ar VARCHAR,
-    image_url VARCHAR,
     logo_url VARCHAR,
     about_us_description VARCHAR,
     about_us_description_ar VARCHAR,

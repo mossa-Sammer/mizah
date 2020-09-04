@@ -41,14 +41,13 @@ const editWebSiteSetting = ({
 
 const getAboutUs = () =>
   connection.query(
-    'SELECT site_id as id, about_us_description as description,about_us_description_ar as description_ar,about_us_image_url as image_url, video_url, our_values,our_values_ar,our_mission, our_mission_ar,our_vision,our_vision_ar FROM website WHERE site_id=$1',
+    'SELECT site_id as id, about_us_description as description,about_us_description_ar as description_ar, video_url, our_values,our_values_ar,our_mission, our_mission_ar,our_vision,our_vision_ar FROM website WHERE site_id=$1',
     [1]
   );
 
 const editAboutUs = ({
   description,
   descriptionAr,
-  imageUrl,
   videoUrl,
   ourValues,
   ourValuesAr,
@@ -58,11 +57,10 @@ const editAboutUs = ({
   ourVisionAr,
 }) =>
   connection.query(
-    'UPDATE website SET about_us_description=$1,about_us_description_ar=$2, about_us_image_url=$3, video_Url=$4, our_values=$5,our_values_ar=$6,our_mission=$7,our_mission_ar=$8, our_vision=$9, our_vision_ar=10',
+    'UPDATE website SET about_us_description=$1,about_us_description_ar=$2,video_Url=$3, our_values=$4,our_values_ar=$5,our_mission=$6,our_mission_ar=$7, our_vision=$8, our_vision_ar=9',
     [
       description,
       descriptionAr,
-      imageUrl,
       videoUrl,
       ourValues,
       ourValuesAr,

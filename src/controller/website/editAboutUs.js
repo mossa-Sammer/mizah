@@ -4,7 +4,6 @@ module.exports = async (req, res, next) => {
   const {
     description,
     descriptionAr,
-    imageUrl,
     ourMission,
     ourMissionAr,
     ourValues,
@@ -19,7 +18,6 @@ module.exports = async (req, res, next) => {
     } = await editAboutUs({
       description,
       descriptionAr,
-      imageUrl,
       ourMission,
       ourMissionAr,
       ourValues,
