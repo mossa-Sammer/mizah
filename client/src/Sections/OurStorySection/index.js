@@ -21,7 +21,6 @@ const OurStorySection = ({ lang }) => {
     (async () => {
       const result = await axios.get('/api/v1/aboutus');
       setAboutUs(result.data);
-      console.log('sssss', result.data)
     })();
   }, []);
 
