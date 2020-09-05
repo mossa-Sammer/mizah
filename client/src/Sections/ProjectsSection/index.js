@@ -69,34 +69,36 @@ const ProjectsSection = ({ lang }) => {
     slidesToScroll: 1,
   };
 
-  return (
-    <>
-      <SectionLayout id="our-people" bgcolor="sectionBackground" addPaddingY>
-        <Row>
-          <Col w={[4, 6, 12]}>
-            <S.TitleContainer lang={lang} style={{ position: 'relative', zIndex: 999 }}>
-              <S.TitleSubContainer lang={lang}>
-                <TitleIcon />
-                <S.Title>{lang === 'en' ? 'Our Projects' : 'مشاريعنا '}</S.Title>
-                <TitleIcon />
-              </S.TitleSubContainer>
-            </S.TitleContainer>
-          </Col>
-        </Row>
-        {!!data.length && (
-          <Row jc="center" jcM="flex-end">
-            <Col w={[4, 6, 11.5]} mt="30px">
-              <S.SliderWrapper>
-                <Slider {...settings}>
-                  {data.map(elem => elem && <ProjectCard item={elem} lang={lang} />)}
-                </Slider>
-              </S.SliderWrapper>
-            </Col>
-          </Row>
-        )}
-      </SectionLayout>
-    </>
-  );
+  return <h1>project section</h1>
+
+  // return (
+  //   <>
+  //     <SectionLayout id="our-people" bgcolor="sectionBackground" addPaddingY>
+  //       <Row>
+  //         <Col w={[4, 6, 12]}>
+  //           <S.TitleContainer lang={lang} style={{ position: 'relative', zIndex: 999 }}>
+  //             <S.TitleSubContainer lang={lang}>
+  //               <TitleIcon />
+  //               <S.Title>{lang === 'en' ? 'Our Projects' : 'مشاريعنا '}</S.Title>
+  //               <TitleIcon />
+  //             </S.TitleSubContainer>
+  //           </S.TitleContainer>
+  //         </Col>
+  //       </Row>
+  //       {!!data.length && (
+  //         <Row jc="center" jcM="flex-end">
+  //           <Col w={[4, 6, 11.5]} mt="30px">
+  //             <S.SliderWrapper>
+  //               <Slider {...settings}>
+  //                 {data.map(elem => elem && <ProjectCard item={elem} lang={lang} />)}
+  //               </Slider>
+  //             </S.SliderWrapper>
+  //           </Col>
+  //         </Row>
+  //       )}
+  //     </SectionLayout>
+  //   </>
+  // );
 };
 
 export default ProjectsSection;
