@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable react/jsx-props-no-spreading */
+import React, { useEffect } from 'react';
 import Slider from 'react-slick';
 import * as S from './styled';
 import { Col, Row } from '../../components/Grid';
@@ -12,6 +13,20 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const data = [
+  {
+    image: Img,
+    name: 'fadi O.',
+    nameAr: 'فادي عمر',
+    textAr: 'هذا النص تجريبي لملئ مكان حتى يتم تعبئته بشكل مناسيب وافضل ',
+    text: 'ass as a as bas m ajbn alh a;jlkahs a;las lahs ajlkh ajkl;h a kajhs ssa',
+  },
+  {
+    image: Img,
+    name: 'fadi O.',
+    nameAr: 'فادي عمر',
+    textAr: 'هذا النص تجريبي لملئ مكان حتى يتم تعبئته بشكل مناسيب وافضل ',
+    text: 'ass as a as bas m ajbn alh a;jlkahs a;las lahs ajlkh ajkl;h a kajhs ssa',
+  },
   {
     image: Img,
     name: 'fadi O.',
@@ -53,6 +68,18 @@ const OurPeapoleSection = ({ lang }) => {
     slidesToScroll: 1,
   };
 
+  useEffect(() => {
+    const btns = document.querySelectorAll('#slider-wrapper div .slick-dots li button');
+    btns.forEach((btn, i) => {
+      const img = document.createElement('img');
+      img.src = data[i] && data[i].image;
+      img.style.width = '90%';
+      img.style.height = '90%';
+      img.style.borderRadius = '50%';
+
+      btn.appendChild(img);
+    });
+  }, []);
   return (
     <>
       <SectionLayout id="our-people" bgcolor="sectionBackground" addPaddingY>
@@ -68,9 +95,9 @@ const OurPeapoleSection = ({ lang }) => {
           </Col>
         </Row>
         {!!data.length && (
-          <Row jc="center" jcM="flex-end">
-            <Col w={[4, 6, 11.5]}>
-              <S.SliderWrapper>
+          <Row jcM="flex-end" jc="flex-end">
+            <Col w={[4, 6, 8]}>
+              <S.SliderWrapper id="slider-wrapper">
                 <Slider {...settings} style={{ position: 'relative', zIndex: 999 }}>
                   {data.map(
                     elem =>

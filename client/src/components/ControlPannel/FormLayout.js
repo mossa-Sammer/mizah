@@ -29,6 +29,12 @@ export default function FormLayout({ page, route, setOpenForm, defaultValues }) 
     defaultValues.whatsAppLink = defaultValues.whatsapp_link;
     defaultValues.addressAr = defaultValues.address_ar;
     defaultValues.videoUrl = defaultValues.video_url;
+    defaultValues.ourMission = defaultValues.our_mission;
+    defaultValues.ourMissionAr = defaultValues.our_mission_ar;
+    defaultValues.ourValues = defaultValues.our_values;
+    defaultValues.ourValuesAr = defaultValues.our_values_ar;
+    defaultValues.ourVision = defaultValues.our_vision;
+    defaultValues.ourVisionAr = defaultValues.our_vision_ar;
   }
 
   const [state, setStates] = useState({});
@@ -36,17 +42,15 @@ export default function FormLayout({ page, route, setOpenForm, defaultValues }) 
     setStates({ ...defaultValues });
   }, [defaultValues]);
   let defaultImage = [];
-  if(defaultValues){
-    if(defaultValues.image_url){
+  if (defaultValues) {
+    if (defaultValues.image_url) {
       defaultImage = [defaultValues.image_url];
     }
-    if(defaultValues.logo_url){
-      defaultImage = [defaultValues.logo_url]
+    if (defaultValues.logo_url) {
+      defaultImage = [defaultValues.logo_url];
     }
   }
-  const [image, setImage] = useState(
-    defaultImage
-  );
+  const [image, setImage] = useState(defaultImage);
   // const [errors, setErrors] = useState({});
   const handleInputChange = ({ target: { value, name } }) => {
     setStates(_state => ({ ..._state, [name]: value }));
@@ -158,100 +162,143 @@ export default function FormLayout({ page, route, setOpenForm, defaultValues }) 
         await Promise.all(promises);
       }
 
-        if(page === 'customers'){
-          if(method === 'put'){
-            if(uploadedImages[0]){
-              const result = await axios[method](route, { ...state, logoUrl: uploadedImages[0], id: state.customer_id });
-            }else {
-              const result = await axios[method](route, { ...state,logoUrl:state.logo_url, id: state.customer_id });
-            }
-            setStates({})
-          }else {
-            const result = await axios[method](route, { ...state, logoUrl: uploadedImages[0] });
+      if (page === 'customers') {
+        if (method === 'put') {
+          if (uploadedImages[0]) {
+            const result = await axios[method](route, {
+              ...state,
+              logoUrl: uploadedImages[0],
+              id: state.customer_id,
+            });
+          } else {
+            const result = await axios[method](route, {
+              ...state,
+              logoUrl: state.logo_url,
+              id: state.customer_id,
+            });
           }
-        }else if(page === 'features'){
-          if(method === 'put'){
-            const result = await axios[method](route, { ...state, id: state.feature_id });
-            setStates({})
-          }else {
-            const result = await axios[method](route, { ...state});
-            setStates({})
-          }
-        } else if (page === 'blog') {
-          if(method === 'put'){
-            if(uploadedImages[0]){
-              const result = await axios[method](route, { ...state, imageUrl: uploadedImages[0], id: state.blog_id });
-            }else {
-              const result = await axios[method](route, { ...state,imageUrl:state.image_url, id: state.blog_id });
-            }
-            setStates({})
-          }else {
-            const result = await axios[method](route, { ...state, imageUrl: uploadedImages[0] });
-          }
-        } else if (page === 'testimonial') {
-          if(method === 'put'){
-            if(uploadedImages[0]){
-              const result = await axios[method](route, { ...state, imageUrl: uploadedImages[0], id: state.testimonial_id });
-            }else {
-              const result = await axios[method](route, { ...state,imageUrl:state.image_url, id: state.testimonial_id });
-            }
-            setStates({})
-          }else {
-            const result = await axios[method](route, { ...state, imageUrl: uploadedImages[0] });
-          }
-        }else if (page === 'services') {
-          if(method === 'put'){
-            if(uploadedImages[0]){
-              const result = await axios[method](route, { ...state, imageUrl: uploadedImages[0], id: state.service_id });
-            }else {
-              const result = await axios[method](route, { ...state,imageUrl:state.image_url, id: state.service_id });
-            }
-            setStates({})
-          }else {
-            const result = await axios[method](route, { ...state, imageUrl: uploadedImages[0] });
-          }
-        }else if (page === 'aboutUs') {
-          if(method === 'put'){
-            if(uploadedImages[0]){
-              const result = await axios[method](route, { ...state, imageUrl: uploadedImages[0] });
-            }else {
-              
-              const result = await axios[method](route, { ...state, imageUrl:state.image_url });
-            }
-            setStates({})
-          }else {
-            const result = await axios[method](route, { ...state, imageUrl: uploadedImages[0] });
-          }
+          setStates({});
+        } else {
+          const result = await axios[method](route, { ...state, logoUrl: uploadedImages[0] });
         }
-        else if (page === 'projects') {
-          if(method === 'put'){
-            if(uploadedImages[0] && state.project_images[0]){
-              const result = await axios[method](route, { ...state, imageUrl: [...state.project_images,...uploadedImages], id: state.project_id });
-            }else if(uploadedImages[0]){
-              const result = await axios[method](route, { ...state, imageUrl: uploadedImages, id: state.project_id });
-            }else if(state.project_images[0]){
-              const result = await axios[method](route, { ...state, imageUrl: state.project_images, id: state.project_id });
-            }
-            else {
-              const result = await axios[method](route, { ...state,imageUrl:[], id: state.project_id });
-            }
-            setStates({})
-          }else {
-            const result = await axios[method](route, { ...state, images: uploadedImages });
-          }
+      } else if (page === 'features') {
+        if (method === 'put') {
+          const result = await axios[method](route, { ...state, id: state.feature_id });
+          setStates({});
+        } else {
+          const result = await axios[method](route, { ...state });
+          setStates({});
         }
-         else {
+      } else if (page === 'blog') {
+        if (method === 'put') {
+          if (uploadedImages[0]) {
+            const result = await axios[method](route, {
+              ...state,
+              imageUrl: uploadedImages[0],
+              id: state.blog_id,
+            });
+          } else {
+            const result = await axios[method](route, {
+              ...state,
+              imageUrl: state.image_url,
+              id: state.blog_id,
+            });
+          }
+          setStates({});
+        } else {
+          const result = await axios[method](route, { ...state, imageUrl: uploadedImages[0] });
+        }
+      } else if (page === 'testimonial') {
+        if (method === 'put') {
+          if (uploadedImages[0]) {
+            const result = await axios[method](route, {
+              ...state,
+              imageUrl: uploadedImages[0],
+              id: state.testimonial_id,
+            });
+          } else {
+            const result = await axios[method](route, {
+              ...state,
+              imageUrl: state.image_url,
+              id: state.testimonial_id,
+            });
+          }
+          setStates({});
+        } else {
+          const result = await axios[method](route, { ...state, imageUrl: uploadedImages[0] });
+        }
+      } else if (page === 'services') {
+        if (method === 'put') {
+          if (uploadedImages[0]) {
+            const result = await axios[method](route, {
+              ...state,
+              imageUrl: uploadedImages[0],
+              id: state.service_id,
+            });
+          } else {
+            const result = await axios[method](route, {
+              ...state,
+              imageUrl: state.image_url,
+              id: state.service_id,
+            });
+          }
+          setStates({});
+        } else {
+          const result = await axios[method](route, { ...state, imageUrl: uploadedImages[0] });
+        }
+      } else if (page === 'aboutUs') {
+        if (method === 'put') {
+          if (uploadedImages[0]) {
+            const result = await axios[method](route, { ...state, imageUrl: uploadedImages[0] });
+          } else {
+            const result = await axios[method](route, { ...state, imageUrl: state.image_url });
+          }
+          setStates({});
+        } else {
+          const result = await axios[method](route, { ...state, imageUrl: uploadedImages[0] });
+        }
+      } else if (page === 'projects') {
+        if (method === 'put') {
+          if (uploadedImages[0] && state.project_images[0]) {
+            const result = await axios[method](route, {
+              ...state,
+              imageUrl: [...state.project_images, ...uploadedImages],
+              id: state.project_id,
+            });
+          } else if (uploadedImages[0]) {
+            const result = await axios[method](route, {
+              ...state,
+              imageUrl: uploadedImages,
+              id: state.project_id,
+            });
+          } else if (state.project_images[0]) {
+            const result = await axios[method](route, {
+              ...state,
+              imageUrl: state.project_images,
+              id: state.project_id,
+            });
+          } else {
+            const result = await axios[method](route, {
+              ...state,
+              imageUrl: [],
+              id: state.project_id,
+            });
+          }
+          setStates({});
+        } else {
           const result = await axios[method](route, { ...state, images: uploadedImages });
         }
-        
-       
-        // if(method === 'put'){
-        //   const id = [state.service_id, state.testimonial_id, state.project_id, state.feature_id, state.blog_id].filter(e => e)[0]
-        //   const result = await axios[method](route, { ...state, images: uploadedImages, id });
-        // }
-        // const result = await axios[method](route, { ...state, images: uploadedImages });
-        if (typeof setOpenForm === 'function') setOpenForm(false);
-        setStates({})
+      } else {
+        const result = await axios[method](route, { ...state, images: uploadedImages });
+      }
+
+      // if(method === 'put'){
+      //   const id = [state.service_id, state.testimonial_id, state.project_id, state.feature_id, state.blog_id].filter(e => e)[0]
+      //   const result = await axios[method](route, { ...state, images: uploadedImages, id });
+      // }
+      // const result = await axios[method](route, { ...state, images: uploadedImages });
+      if (typeof setOpenForm === 'function') setOpenForm(false);
+      setStates({});
     } catch (e) {
       console.log(e);
     }

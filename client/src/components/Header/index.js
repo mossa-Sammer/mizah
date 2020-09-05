@@ -1,10 +1,11 @@
+/* eslint-disable import/no-useless-path-segments */
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Collapse from '@material-ui/core/Collapse';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import * as S from './styled';
 
-import Logo from '../../assets/logo-white.png';
+import Logo from '../../../src/assets/logo.png';
 import Menu from '../SVG/Menu';
 import Close from '../SVG/Close';
 
@@ -25,11 +26,11 @@ const Header = ({ lang, setLang }) => {
   const tablet = useMediaQuery('(max-width:1150px)');
   const headerLinks = lang === 'ar' ? [...content].reverse() : content;
   const handleClick = () => {
-    if(history.location.pathname !== '/'){
-      history.push('/')
+    if (history.location.pathname !== '/') {
+      history.push('/');
     }
-    setIsOpen(o => !o)
-  }
+    setIsOpen(o => !o);
+  };
   return tablet ? (
     <>
       <S.HeaderContainer lang={lang}>
@@ -92,7 +93,9 @@ const Header = ({ lang, setLang }) => {
             const text = lang === 'en' ? elm.title : elm.arTitle;
             return (
               <S.ListItem>
-                <S.Link href={elm.link} onClick={handleClick}>{text}</S.Link>
+                <S.Link href={elm.link} onClick={handleClick}>
+                  {text}
+                </S.Link>
               </S.ListItem>
             );
           })}

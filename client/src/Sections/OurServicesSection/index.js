@@ -17,8 +17,7 @@ const _content = [
     titleAr: 'loading..',
     image_url: S1,
     description: 'loading..',
-    description_ar:
-      'loading..',
+    description_ar: 'loading..',
   },
   {
     id: 1,
@@ -26,8 +25,7 @@ const _content = [
     titleAr: 'loading..',
     image_url: S1,
     description: 'loading..',
-    description_ar:
-      'loading..',
+    description_ar: 'loading..',
   },
   {
     id: 2,
@@ -35,8 +33,7 @@ const _content = [
     titleAr: 'loading..',
     image_url: S1,
     description: 'loading..',
-    description_ar:
-      'loading..',
+    description_ar: 'loading..',
   },
   {
     id: 3,
@@ -44,8 +41,7 @@ const _content = [
     titleAr: 'loading..',
     image_url: S1,
     description: 'loading..',
-    description_ar:
-      'loading..',
+    description_ar: 'loading..',
   },
 ];
 

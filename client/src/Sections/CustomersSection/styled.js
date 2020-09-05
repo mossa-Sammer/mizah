@@ -1,3 +1,4 @@
+/* eslint-disable import/no-named-as-default-member */
 import styled from '@emotion/styled';
 import theme from '../../utils/theme';
 
@@ -96,21 +97,66 @@ export const SliderWrapper = styled.div`
   & * {
     outline: none;
   }
+
+  & .slick-initialized {
+    display: flex;
+  }
+
+  & .slick-dots {
+    // position: relative;
+    display: flex !important;
+    flex-wrap: wrap;
+    left: -60%;
+    width: 50%;
+    bottom: auto;
+    max-height: 360px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    @media (max-width: 970px) {
+      left: 0;
+      top: -100px;
+      width: 100%;
+      justify-content: center;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  }
+
   & .slick-dots li button:before {
     content: '';
+  }
+
+  & .slick-dots li {
+    width: 7.5rem;
+    height: 7.5rem;
+    @media (max-width: 540px) {
+      width: 4.5rem;
+      height: 4.5rem;
+    }
   }
 
   & .slick-dots li button {
     position: absolute;
     background: ${() => theme.colors.gray7};
     border: 1px solid white;
-    width: 0.5rem;
+    width: 7.5rem;
+    height: 7.5rem;
     border-radius: 50%;
-    height: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: 540px) {
+      width: 4.5rem;
+      height: 4.5rem;
+    }
   }
 
   & .slick-dots li.slick-active button {
     background: ${() => theme.colors.pink};
+  }
+  @media (max-width: 970px) {
+    margin-top: 100px;
   }
 `;
 

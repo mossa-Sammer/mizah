@@ -1,6 +1,9 @@
 /* eslint-disable no-underscore-dangle */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import YouTube from 'react-youtube';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+
 import * as S from './styled';
 import TitleIcon from '../../components/SVG/titleIcon';
 import Section from '../../components/Layout/Section';
@@ -12,38 +15,110 @@ const content = {
 };
 
 const OurStorySection = ({ lang }) => {
-  const [aboutUs, setAboutUs] = useState({})
+  const [aboutUs, setAboutUs] = useState({});
   const _lang = lang || 'en';
   useEffect(() => {
     (async () => {
-      const result = await axios.get('/api/v1/aboutus')
-      setAboutUs(result.data)
-    })()
-  },[])
+      const result = await axios.get('/api/v1/aboutus');
+      setAboutUs(result.data);
+    })();
+  }, []);
+
+  function youTubeGetID(url) {
+    const videoId = url.split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
+    return videoId[2] !== undefined ? videoId[2].split(/[^0-9a-z_\-]/i)[0] : videoId[0];
+  }
+
+  // const videoId = projectData && projectData.video_url && youTubeGetID(projectData.video_url);
+  const videoId = youTubeGetID('https://www.youtube.com/watch?v=7sDalxXRJ1k');
+
+  const tablet = useMediaQuery('(max-width:949px)');
+  const mobile = useMediaQuery('(max-width:449px)');
+  const videoHeight = mobile ? '150' : tablet ? '200' : '390';
+  const videoWidth = mobile ? '300' : tablet ? '450' : '640';
+  const opts = {
+    height: videoHeight,
+    width: videoWidth,
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
+      autoplay: 1,
+    },
+  };
+
   return (
     <Section bgcolor="#f5ebfe" id="our-story" customBg>
       <Row mrT={6}>
-        <Col w={[4, 5, 12]}>
+        <Col w={[4, 6, 12]}>
           <S.TitleContainer lang={_lang}>
             <S.TitleSubContainer lang={_lang}>
               <TitleIcon />
               <S.Title>{lang === 'en' ? content.title : content.titleAr}</S.Title>
+              <TitleIcon />
             </S.TitleSubContainer>
           </S.TitleContainer>
         </Col>
       </Row>
-      { aboutUs.description &&     <Row mt={4} mtT={4} mtM={2}>
-        <Col w={[4, 5, 12]}>
-          <S.Content lang={_lang}>
-            {lang === 'en' ? aboutUs.description : aboutUs.description_ar}
-          </S.Content>
+      {aboutUs.description && (
+        <Row mt={4} mtT={4} mtM={2}>
+          <Col w={[4, 5, 6]}>
+            <S.Content lang={_lang}>
+              {lang === 'en' ? aboutUs.description : aboutUs.description_ar}
+            </S.Content>
+          </Col>
+          {/* <Col w={[4, 6, 6]} style={{ display: 'flex', justifyContent: 'center' }}>
+            <S.ImageContainer>
+              <img src={aboutUs.image_url} alt="our story" style={{ width: '100%' }} />
+            </S.ImageContainer>
+          </Col> */}
+          {videoId && (
+            <Col w={[4, 6, 6]}>
+              <div style={{ marginTop: 30 }}>
+                <YouTube videoId={videoId} opts={opts} />
+              </div>
+            </Col>
+          )}
+        </Row>
+      )}
+      <Row mt={6}>
+        <Col w={[4, 3, 4]} mt={0} mtT={4}>
+          <S.TextContainer>
+            <S.TitleWrapper>
+              <S.SubTitle lang={_lang}>{_lang === 'en' ? 'Our Values' : 'قيمنا'}</S.SubTitle>
+              <S.SubTitleSpan />
+            </S.TitleWrapper>
+            <S.TextContent lang={_lang}>
+              {_lang === 'en'
+                ? aboutUs.our_values
+                : aboutUs.our_values_ar}
+            </S.TextContent>
+          </S.TextContainer>
         </Col>
-        <Col w={[4, 6, 12]} style={{ display: 'flex', justifyContent: 'center' }}>
-          <S.ImageContainer>
-            <img src={aboutUs.image_url} alt="our story" style={{ width: '100%' }} />
-          </S.ImageContainer>
+        <Col w={[4, 3, 4]} mt={0} mtT={4}>
+          <S.TextContainer>            
+            <S.TitleWrapper>
+              <S.SubTitle lang={_lang}>{_lang === 'en' ? 'Our Mission' : 'مهمتنا'}</S.SubTitle>
+              <S.SubTitleSpan />
+            </S.TitleWrapper>
+            <S.TextContent lang={_lang}>
+              {_lang === 'en'
+                ? aboutUs.our_mission
+                : aboutUs.our_mission_ar}
+            </S.TextContent></S.TextContainer>
         </Col>
-      </Row>}
+        <Col w={[4, 3, 4]} mt={0} mtT={4}>
+          <S.TextContainer>
+          <S.TitleWrapper>
+              <S.SubTitle lang={_lang}>{_lang === 'en' ? 'Our Vision' : 'رؤيتنا'}</S.SubTitle>
+              <S.SubTitleSpan />
+            </S.TitleWrapper>
+            <S.TextContent lang={_lang}>
+              {_lang === 'en'
+                ? aboutUs.our_vision
+                : aboutUs.our_vision_ar}
+            </S.TextContent>
+          </S.TextContainer>
+        </Col>
+      </Row>
     </Section>
   );
 };

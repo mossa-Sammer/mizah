@@ -33,7 +33,6 @@ export const TitleContainer = styled.div`
   flex-direction: ${({ lang }) => (lang === 'en' ? 'row' : ' row-reverse')};
   align-items: center;
   justify-content: center;
-
 `;
 
 export const TitleSubContainer = styled.div`
@@ -63,7 +62,47 @@ export const Content = styled.div`
   text-align: ${({ lang }) => (lang === 'en' ? 'left' : 'right')};
   justify-content: center;
   padding: ${({ lang }) => (lang === 'en' ? '0 0 0 50px' : '0 50px 0 0')};
-  @media(max-width: 500px) {
-    padding: 0 10px;
+  @media (max-width: 500px) {
+    padding: 0 30px;
   }
+`;
+
+export const TextContainer = styled.div`
+  width: 95%;
+  border: 1px solid gray;
+  border-radius: 5px;
+`;
+
+export const TitleWrapper = styled.div`
+  width: '100%';
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const SubTitle = styled.h5`
+  text-align: ${({ lang }) => (lang === 'en' ? 'left' : 'right')};
+  padding: 10px 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  color: #8368af;
+  font-size: 20px;
+`;
+export const SubTitleSpan = styled.span`
+  width: 80px;
+  height: 5px;
+  background: #cea380;
+  display: block;
+  margin: 0;
+`;
+
+export const TextContent = styled.p`
+  text-align: ${({ lang }) => (lang === 'en' ? 'left' : 'right')};
+  padding: 10px 20px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  color: gray;
+  font-size: 18px;
 `;
