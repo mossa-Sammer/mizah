@@ -41,12 +41,12 @@ function App() {
                 <Header lang={lang} setLang={setLang} />
                 <SliderContainer slide={slide} setSlide={setSlide} />
                 <OurStorySection lang={lang} />
-                {/* <OurServicesSection lang={lang} />
+                <OurServicesSection lang={lang} />
                 <WhyUsSection lang={lang} />
                 <CustomersSection lang={lang} />
                 <ProjectsSection lang={lang} />
                 <Footer lang={lang} />
-                <IconsSection slide={slide} /> */}
+                <IconsSection slide={slide} />
               </div>
             )}
           />
