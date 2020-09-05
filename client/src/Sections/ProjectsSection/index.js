@@ -25,8 +25,11 @@ const ProjectsSection = ({ lang }) => {
   useEffect(() => {
     (async () => {
       try {
+        console.log('pppppppppppppppppppppppp')
         const data = await axios.get('/api/v1/project');
+        console.log(data)
         setData(data.data);
+
       } catch (e) {
         console.log(e);
       }
