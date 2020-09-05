@@ -5,7 +5,7 @@ import * as S from './styled';
 const ProjectCard = ({ item, lang }) => {
   const history = useHistory();
   return (
-    item && item.project_images[0] && item.project_images.image_url ? 
+    item && item.project_images[0] && item.project_images[0].image_url ? 
       (<S.Container
       className="container"
       bg={item.project_images[0].image_url}
