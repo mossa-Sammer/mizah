@@ -77,24 +77,27 @@ const ProjectPage = ({ lang, setLang }) => {
             style={{ display: 'flex', alignItems: 'flex-end', flexDirection: 'column' }}
             w={[4, 6, 6]}
           >
-            <S.ShowImage
-              bg={
+            {
                 projectData &&
                 projectData.project_image &&
+                projectData.project_image[activeIndex].image_url &&
+                <S.ShowImage
+              bg={
                 projectData.project_image[activeIndex].image_url
               }
             />
+}
             <S.ImagesContainer>
               {projectData &&
                 projectData.project_image &&
                 projectData.project_image.map((elm, i) =>
                   i === activeIndex ? (
                     <S.ImageContainer onClick={() => setActiveIndex(i)}>
-                      <S.SingleImage active bg={elm.image_url} />
+                      {elm && elm.image_url &&  <S.SingleImage active bg={elm.image_url} />}
                     </S.ImageContainer>
                   ) : (
                     <S.ImageContainer onClick={() => setActiveIndex(i)}>
-                      <S.SingleImage bg={elm.image_url} />
+                      {elm && elm.image_url && <S.SingleImage bg={elm.image_url} />}
                     </S.ImageContainer>
                   )
                 )}
