@@ -5,7 +5,7 @@ import Collapse from '@material-ui/core/Collapse';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import * as S from './styled';
 
-import Logo from '../../../src/assets/logo.png';
+import Logo from './logo.png';
 import Menu from '../SVG/Menu';
 import Close from '../SVG/Close';
 
@@ -14,7 +14,7 @@ const content = [
   { title: 'our services', arTitle: 'خدماتنا', link: '#our-services' },
   { title: 'why us?', arTitle: 'من نحن ', link: '#why-us' },
   { title: 'Customers', arTitle: ' عملاؤنا', link: '#our-people' },
-  // { title: 'review', arTitle: 'قالو عنا', link: '#review' },
+  { title: 'review', arTitle: 'قالو عنا', link: '#our-customers' },
   { title: 'our projects', arTitle: 'آخر مشاريعنا ', link: '#our-projects' },
   { title: 'for uniquenss contact us', arTitle: 'تواصل معنا', link: '#footer' },
   // { title: 'blog', arTitle: 'المدونة', link: '#blog' },

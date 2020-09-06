@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
+
 import { Paper, Grid } from '@material-ui/core';
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
+
 import axios from 'axios';
 import Controls from '../controls/Controls';
 import { Form } from '../controls/useForm';
@@ -12,6 +16,10 @@ import CustomerItemForm from './Forms/CustomerItemForm';
 import FeatureItemForm from './Forms/FeatureItemForm';
 import SettingsForm from './Forms/SettingsForm';
 import BlogItemForm from './Forms/BlogItemForm';
+
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 export default function FormLayout({ page, route, setOpenForm, defaultValues }) {
   if (defaultValues) {
@@ -36,8 +44,16 @@ export default function FormLayout({ page, route, setOpenForm, defaultValues }) 
     defaultValues.ourVision = defaultValues.our_vision;
     defaultValues.ourVisionAr = defaultValues.our_vision_ar;
   }
-
+  const [openNotification, setOpenNotification] = useState(false);
   const [state, setStates] = useState({});
+
+  const handleNotifiCationClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpenNotification(false);
+  };
   useEffect(() => {
     setStates({ ...defaultValues });
   }, [defaultValues]);
@@ -297,6 +313,7 @@ export default function FormLayout({ page, route, setOpenForm, defaultValues }) 
       //   const result = await axios[method](route, { ...state, images: uploadedImages, id });
       // }
       // const result = await axios[method](route, { ...state, images: uploadedImages });
+      setOpenNotification(true)
       if (typeof setOpenForm === 'function') setOpenForm(false);
       setStates({});
     } catch (e) {
@@ -319,6 +336,11 @@ export default function FormLayout({ page, route, setOpenForm, defaultValues }) 
           </Grid>
         </Form>
       </Paper>
+      <Snackbar open={openNotification} autoHideDuration={2000} onClose={handleNotifiCationClose}  anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
+        <Alert onClose={handleNotifiCationClose} severity="success">
+          Done !!
+        </Alert>
+      </Snackbar>
     </>
   );
 }

@@ -15,6 +15,7 @@ import Login from './components/Login';
 import ControlPannel from './components/ControlPannel';
 import CustomersSection from './Sections/CustomersSection';
 import ProjectsSection from './Sections/ProjectsSection';
+import ClintsSection from './Sections/ClintsSection';
 import Footer from './Sections/Footer';
 
 // pages
@@ -45,6 +46,7 @@ function App() {
                 <WhyUsSection lang={lang} />
                 <CustomersSection lang={lang} />
                 <ProjectsSection lang={lang} />
+                <ClintsSection lang={lang} />
                 <Footer lang={lang} />
                 <IconsSection slide={slide} />
               </div>
@@ -79,7 +81,9 @@ function App() {
                 {/* <SliderContainer2 lang={lang} slide={slide} setSlide={setSlide} /> */}
                 {/* <SliderContainer slide={slide} setSlide={setSlide} /> */}
                 {/* <Header lang={lang} setLang={setLang} /> */}
-                <OurServicesSection lang={lang} />
+                <Header lang={lang} setLang={setLang} />
+
+
 
                 <div style={{ width: '100%', height: '100vh' }} />
                 <div style={{ width: '100%', height: '100vh' }} />

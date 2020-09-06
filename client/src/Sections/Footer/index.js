@@ -8,11 +8,10 @@ import Facebook from '../../components/SVG/Facebook';
 import Instagram from '../../components/SVG/Instagram';
 import GooglePlus from '../../components/SVG/googlePlus';
 
-import FooterBg from '../../components/SVG/footer.svg';
-import Location from '../../assets/location.png';
-import Whatsapp from '../../assets/whatsapp.png';
-import Website from '../../assets/website.png';
-import Email from '../../assets/email.png';
+import Location from './location.png';
+import Whatsapp from './whatsapp.png';
+import Website from './website.png';
+import Email from './email.png';
 
 const Footer = () => {
   const [message, setMessage] = useState({});
@@ -32,7 +31,6 @@ const Footer = () => {
       const result = await axios.get('/api/v1/setting');
       if (result.data) {
         setInfo(result.data);
-        console.log(result.data)
       }
     })();
   }, []);

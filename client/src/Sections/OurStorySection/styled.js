@@ -27,7 +27,6 @@ export const ContentContainer = styled.div`
 
 export const TitleContainer = styled.div`
   display: flex;
-  // margin-left: 30px;
   padding-right: 60px;
   width: 100%;
   flex-direction: ${({ lang }) => (lang === 'en' ? 'row' : ' row-reverse')};
@@ -39,8 +38,6 @@ export const TitleSubContainer = styled.div`
   display: flex;
   flex-direction: ${({ lang }) => (lang === 'en' ? 'row' : ' row-reverse')};
   align-items: center;
-  // margin-right: ${({ lang }) => (lang === 'ar' ? 50 : 0)};
-  // margin-left: ${({ lang }) => (lang === 'en' ? 50 : 0)};
 `;
 
 export const Title = styled.h1`
@@ -57,11 +54,11 @@ export const Title = styled.h1`
 `;
 
 export const Content = styled.div`
-  color: #777;
+  color: #333;
   font-size: 20px;
   text-align: ${({ lang }) => (lang === 'en' ? 'left' : 'right')};
   justify-content: center;
-  padding: ${({ lang }) => (lang === 'en' ? '0 0 0 50px' : '0 50px 0 0')};
+  padding: ${({ lang }) => (lang === 'en' ? '0' : '0 50px 0 0')};
   @media (max-width: 500px) {
     padding: 0 30px;
   }
