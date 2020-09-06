@@ -67,11 +67,13 @@ export const List = styled.ul`
 
 export const ListItem = styled.li`
   height: 30px;
-  margin-left: 30px;
+  margin-left: 10px;
   margin-top: auto;
-  padding: 10px 0px;
+  padding: 5px 20px;
   cursor: pointer;
-  s :hover {
+  background:rgba(0,0,0,0.1);
+  border-radius: 15px;
+  &:hover {
     animation: ${bounce} 0.7s;
   }
 `;
@@ -87,7 +89,7 @@ export const MenuBtn = styled.button`
 
 export const Link = styled.a`
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: bolder;
   font-family: 'Poppins';
   color: #f3c691;
