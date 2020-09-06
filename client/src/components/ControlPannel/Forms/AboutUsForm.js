@@ -39,7 +39,7 @@ export default function AboutUsForm({ values, handleInputChange, errors = {}, se
         required
       />
       <Controls.Input
-        label="Enter Data EN"
+        label="Our Mission EN"
         name="ourMission"
         value={values.ourMission}
         onChange={handleInputChange}
@@ -48,7 +48,7 @@ export default function AboutUsForm({ values, handleInputChange, errors = {}, se
         required
       />
       <Controls.Input
-        label="Enter Data EN"
+        label="Our Mission AR"
         name="ourMissionAr"
         value={values.ourMissionAr}
         onChange={handleInputChange}
