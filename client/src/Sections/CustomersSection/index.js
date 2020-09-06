@@ -1,49 +1,51 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import Slider from 'react-slick';
 import * as S from './styled';
 import { Col, Row } from '../../components/Grid';
 import LeftArrow from '../../components/SVG/LeftArrow';
 import SectionLayout from '../../components/Layout/SectionLayout';
 
-import Img from '../../assets/ourStory.png';
+// import Img from '../../assets/ourStory.png';
 import TitleIcon from '../../components/SVG/titleIcon';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const data = [
-  {
-    image: Img,
-    name: 'fadi O.',
-    nameAr: 'فادي عمر',
-    textAr: 'هذا النص تجريبي لملئ مكان حتى يتم تعبئته بشكل مناسيب وافضل ',
-    text: 'ass as a as bas m ajbn alh a;jlkahs a;las lahs ajlkh ajkl;h a kajhs ssa',
-  },
-  {
-    image: Img,
-    name: 'fadi O.',
-    nameAr: 'فادي عمر',
-    textAr: 'هذا النص تجريبي لملئ مكان حتى يتم تعبئته بشكل مناسيب وافضل ',
-    text: 'ass as a as bas m ajbn alh a;jlkahs a;las lahs ajlkh ajkl;h a kajhs ssa',
-  },
-  {
-    image: Img,
-    name: 'fadi O.',
-    nameAr: 'فادي عمر',
-    textAr: 'هذا النص تجريبي لملئ مكان حتى يتم تعبئته بشكل مناسيب وافضل ',
-    text: 'ass as a as bas m ajbn alh a;jlkahs a;las lahs ajlkh ajkl;h a kajhs ssa',
-  },
-  {
-    image: Img,
-    name: 'fadi O.',
-    nameAr: 'فادي عمر',
-    textAr: 'هذا النص تجريبي لملئ مكان حتى يتم تعبئته بشكل مناسيب وافضل ',
-    text: 'ass as a as bas m ajbn alh a;jlkahs a;las lahs ajlkh ajkl;h a kajhs ssa',
-  },
-];
+// const dammydata = [
+//   {
+//     image: Img,
+//     name: 'fadi O.',
+//     nameAr: 'فادي عمر',
+//     textAr: 'هذا النص تجريبي لملئ مكان حتى يتم تعبئته بشكل مناسيب وافضل ',
+//     text: 'ass as a as bas m ajbn alh a;jlkahs a;las lahs ajlkh ajkl;h a kajhs ssa',
+//   },
+//   {
+//     image: Img,
+//     name: 'fadi O.',
+//     nameAr: 'فادي عمر',
+//     textAr: 'هذا النص تجريبي لملئ مكان حتى يتم تعبئته بشكل مناسيب وافضل ',
+//     text: 'ass as a as bas m ajbn alh a;jlkahs a;las lahs ajlkh ajkl;h a kajhs ssa',
+//   },
+//   {
+//     image: Img,
+//     name: 'fadi O.',
+//     nameAr: 'فادي عمر',
+//     textAr: 'هذا النص تجريبي لملئ مكان حتى يتم تعبئته بشكل مناسيب وافضل ',
+//     text: 'ass as a as bas m ajbn alh a;jlkahs a;las lahs ajlkh ajkl;h a kajhs ssa',
+//   },
+//   {
+//     image: Img,
+//     name: 'fadi O.',
+//     nameAr: 'فادي عمر',
+//     textAr: 'هذا النص تجريبي لملئ مكان حتى يتم تعبئته بشكل مناسيب وافضل ',
+//     text: 'ass as a as bas m ajbn alh a;jlkahs a;las lahs ajlkh ajkl;h a kajhs ssa',
+//   },
+// ];
 
 const OurPeapoleSection = ({ lang }) => {
+  const [data, setData] = useState(null);
   const settings = {
     dots: true,
     infinite: true,
@@ -69,17 +71,28 @@ const OurPeapoleSection = ({ lang }) => {
   };
 
   useEffect(() => {
+    ( async () => {
+      try{
+        const result = await axios.get('/api/v1/testimonial');
+        setData(result.data)
+      }catch(e){
+        console.log(e)
+      }
+    })()
+  }, [])
+
+  useEffect(() => {
     const btns = document.querySelectorAll('#slider-wrapper div .slick-dots li button');
     btns.forEach((btn, i) => {
       const img = document.createElement('img');
-      img.src = data[i] && data[i].image;
+      img.src = data[i] && data[i].image_url;
       img.style.width = '90%';
       img.style.height = '90%';
       img.style.borderRadius = '50%';
 
       btn.appendChild(img);
     });
-  }, []);
+  }, [data]);
   return (
     <>
       <SectionLayout id="our-people" bgcolor="sectionBackground" addPaddingY>
@@ -94,7 +107,7 @@ const OurPeapoleSection = ({ lang }) => {
             </S.TitleContainer>
           </Col>
         </Row>
-        {!!data.length && (
+        {!!data && !!data.length && (
           <Row jcM="flex-end" jc="flex-end">
             <Col w={[4, 6, 8]}>
               <S.SliderWrapper id="slider-wrapper">
@@ -107,7 +120,7 @@ const OurPeapoleSection = ({ lang }) => {
                             <S.Slide lang={lang} style={{ cursor: 'grab' }}>
                               <S.ImgContainer>
                                 <img
-                                  src={elem.image}
+                                  src={elem.image_url}
                                   style={{
                                     width: 200,
                                     height: 200,
@@ -117,12 +130,12 @@ const OurPeapoleSection = ({ lang }) => {
                                   alt="img"
                                 />
                                 <S.H5Font16 color="midnight">
-                                  {lang === 'en' ? elem.name : elem.nameAr}
+                                  {lang === 'en' ? elem.name : elem.name_ar}
                                 </S.H5Font16>
                               </S.ImgContainer>
                               <S.TextContainer>
                                 <S.Body16 color="gray5" lang={lang}>
-                                  {lang === 'en' ? elem.text : elem.textAr}
+                                  {lang === 'en' ? elem.said : elem.said_ar}
                                 </S.Body16>
                               </S.TextContainer>
                             </S.Slide>
