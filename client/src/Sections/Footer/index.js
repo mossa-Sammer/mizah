@@ -138,7 +138,7 @@ const Footer = () => {
                 <S.LeftSideAddress>
                   {/* <S.P16 color="gray4">Whatsapp:</S.P16> */}
                   <S.ImgContainer>
-                    <img src={Whatsapp} alt="Whatsapp" style={{ width: '70%', height: '70%' }} />
+                    <img src="https://i.ibb.co/ypYdKKX/whatsapp.png" alt="Whatsapp" style={{ width: '70%', height: '70%' }} />
                   </S.ImgContainer>
                 </S.LeftSideAddress>
                 <S.P16 color="gray4">{info.whatsapp_no}</S.P16>
@@ -147,7 +147,7 @@ const Footer = () => {
                 <S.LeftSideAddress>
                   {/* <S.P16 color="gray4">website:</S.P16> */}
                   <S.ImgContainer>
-                    <img src={Website} alt="Website" style={{ width: '70%', height: '70%' }} />
+                    <img src="https://i.ibb.co/rbVxtHr/website.png" alt="Website" style={{ width: '70%', height: '70%' }} />
                   </S.ImgContainer>
                 </S.LeftSideAddress>
                 <S.P16 color="gray4">{info.website_url}</S.P16>
