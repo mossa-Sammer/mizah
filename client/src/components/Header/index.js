@@ -103,7 +103,7 @@ const Header = ({ lang, setLang }) => {
       </S.Nav>
       <S.LogoContainer lang={lang}>
         <S.ImgContainer>
-          <S.Img src={Logo} />
+          <S.Img src="https://i.ibb.co/42p6xj2/logo.png" />
         </S.ImgContainer>
         <S.Span />
         <S.Lang onClick={() => setLang(old => (old === 'en' ? 'ar' : 'en'))}>

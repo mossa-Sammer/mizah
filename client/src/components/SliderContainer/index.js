@@ -8,7 +8,8 @@ const SliderContainer = ({ slide, setSlide }) => {
   const [rightHover, setRightHover] = useState(false);
   const [leftClick, setLeftClick] = useState(false);
   const [rightClick, setRightClick] = useState(false);
-  const [colors, setColors] = useState({ main: '#483569', second: '#daaf82' });
+  // const [colors, setColors] = useState({ main: '#483569', second: '#daaf82' });
+  const [colors, setColors] = useState({ main: '#350f68', second: '#f4c179' });
   let autoSlid;
   useEffect(() => {
     return () => {
