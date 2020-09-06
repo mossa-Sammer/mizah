@@ -25,12 +25,13 @@ const OurStorySection = ({ lang }) => {
   }, []);
 
   function youTubeGetID(url) {
+    if(!url) return null;
     const videoId = url.split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
     return videoId[2] !== undefined ? videoId[2].split(/[^0-9a-z_\-]/i)[0] : videoId[0];
   }
 
-  // const videoId = projectData && projectData.video_url && youTubeGetID(projectData.video_url);
-  const videoId = youTubeGetID('https://www.youtube.com/watch?v=7sDalxXRJ1k');
+  const videoId =youTubeGetID(aboutUs.video_url);
+  // const videoId = youTubeGetID('https://www.youtube.com/watch?v=7sDalxXRJ1k');
 
   const tablet = useMediaQuery('(max-width:949px)');
   const mobile = useMediaQuery('(max-width:449px)');
@@ -70,13 +71,11 @@ const OurStorySection = ({ lang }) => {
               <img src={aboutUs.image_url} alt="our story" style={{ width: '100%' }} />
             </S.ImageContainer>
           </Col> */}
-          {videoId && (
             <Col w={[4, 6, 6]}>
               <div style={{ marginTop: 30 }}>
                 <YouTube videoId={videoId} opts={opts} />
               </div>
             </Col>
-          )}
         </Row>
       )}
       <Row mt={6}>
