@@ -2,10 +2,6 @@ import React from 'react';
 
 import SectionWrapper from '../SectionLayout/styled';
 
-// initialises smooth-scroll which is used to scroll to in-page links
-// used for FAQs and about-us pages in mobile view, e.g. /FAQs#how-tc-work
-// offset value is set to overcome navbar height
-
 const Section = ({ children, bgimg, addPaddingY = true, bgcolor, ...props }) => {
   const isGradient = bgcolor && bgcolor.includes('Grad');
   return (
