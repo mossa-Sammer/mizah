@@ -71,7 +71,7 @@ const ProjectsSection = ({ lang }) => {
 
   return (
     <>
-      <SectionLayout id="our-people" bgcolor="sectionBackground" addPaddingY>
+      <SectionLayout id="our-projects" bgcolor="sectionBackground" addPaddingY>
         <Row>
           <Col w={[4, 6, 12]}>
             <S.TitleContainer lang={lang} style={{ position: 'relative', zIndex: 999 }}>
