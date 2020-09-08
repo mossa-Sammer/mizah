@@ -6,13 +6,6 @@ import SectionWrapper from '../SectionLayout/styled';
 // used for FAQs and about-us pages in mobile view, e.g. /FAQs#how-tc-work
 // offset value is set to overcome navbar height
 
-if (typeof window !== 'undefined') {
-  // eslint-disable-next-line global-require
-  require('smooth-scroll')('a[href*="#"]', {
-    offset: 30,
-  });
-}
-
 const Section = ({ children, bgimg, addPaddingY = true, bgcolor, ...props }) => {
   const isGradient = bgcolor && bgcolor.includes('Grad');
   return (
