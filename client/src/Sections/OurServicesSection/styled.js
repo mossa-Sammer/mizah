@@ -131,11 +131,10 @@ export const NextArrow = styled.div`
   z-index: 999999;
   position: absolute;
   top: -200%;
-  right: auto;
+  right: 35px;
 
   ${() => theme.media.mobile} {
     top: 100%;
-    right: 10px;
   }
 
   @media (max-width: 700px) {
