@@ -66,6 +66,7 @@ export const TitleSubContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: ${({lang}) => lang === 'en' ? 'row' : 'row-reverse'};
   width: 100%;
   margin-top: 60px;
 `;
@@ -132,4 +133,11 @@ export const TextContent = styled.p`
   margin-top: 0;
   color: gray;
   font-size: 18px;
+`;
+
+export const TitleImg = styled.img`
+  width: 80px;
+  height: 80px;
+  margin-right: ${({lang}) => lang === 'en' ? '-20px' : 0};
+  margin-left: ${({lang}) => lang === 'ar' ? '-20px' : 0};
 `;
