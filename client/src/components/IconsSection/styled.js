@@ -53,7 +53,6 @@ export const SecondLeftIconContainer = styled.div`
   position: absolute;
   top: 14vh;
   right: 25vw;
-  // border: 1px solid red;
   transform: ${({ origin }) => (origin ? 'translate(18vw, -20vh)' : 'translate(0%, 0%)')};
   transition: 2s;
   @media (max-width: 960px) {
@@ -105,14 +104,14 @@ export const FourthLeftIconContainer = styled.div`
 `;
 
 export const Icon1 = styled.img`
-  width: 150px;
+  width: 230px;
   height: 150px;
   position: absolute;
   top: -50px;
-  left: -50px;
-  animation: ${wobble} 2s linear infinite;
+  left: -85px;
+  animation: ${rubberBand} 2s linear infinite;
   @media (max-width: 750px) {
-    width: 80px;
+    width: 170px;
     height: 110px;
   }
 `;

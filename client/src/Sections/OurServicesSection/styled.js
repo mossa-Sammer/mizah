@@ -59,7 +59,7 @@ export const ActiveTitle = styled.h3`
   margin-right: 50px;
   font-weight: 900;
   // color: #f3c691;
-  color: rgb(255, 177, 86);
+  color: rgba(223, 157, 77, 1);
   margin-bottom: 16px;
   font-size: 28px;
 `;
