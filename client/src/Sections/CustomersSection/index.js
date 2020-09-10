@@ -8,7 +8,7 @@ import LeftArrow from '../../components/SVG/LeftArrow';
 import SectionLayout from '../../components/Layout/SectionLayout';
 
 // import Img from '../../assets/ourStory.png';
-import TitleIcon from '../../components/SVG/titleIcon';
+import TitlePoints from '../../assets/titlePoints.png';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -100,9 +100,8 @@ const OurPeapoleSection = ({ lang }) => {
           <Col w={[4, 6, 12]}>
             <S.TitleContainer lang={lang} style={{ position: 'relative', zIndex: 999 }}>
               <S.TitleSubContainer lang={lang}>
-                <TitleIcon />
+                <S.TitleImg src={TitlePoints} lang={lang}/>
                 <S.Title>{lang === 'en' ? 'Customer Testimonials' : 'شهادات العملاء'}</S.Title>
-                <TitleIcon />
               </S.TitleSubContainer>
             </S.TitleContainer>
           </Col>
