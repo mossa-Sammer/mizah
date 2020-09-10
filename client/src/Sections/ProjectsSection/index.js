@@ -6,14 +6,9 @@ import * as S from './styled';
 import { Col, Row } from '../../components/Grid';
 import LeftArrow from '../../components/SVG/LeftArrow';
 import SectionLayout from '../../components/Layout/SectionLayout';
+import TitlePoints from '../../assets/titlePoints.png';
 
 import ProjectCard from '../../components/ProjectCard';
-
-import Img from '../../assets/ourStory.png';
-import Img1 from '../../assets/project1.png';
-import Img2 from '../../assets/project2.png';
-
-import TitleIcon from '../../components/SVG/titleIcon';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -25,9 +20,7 @@ const ProjectsSection = ({ lang }) => {
   useEffect(() => {
     (async () => {
       try {
-        console.log('pppppppppppppppppppppppp')
         const data = await axios.get('/api/v1/project');
-        console.log(data)
         setData(data.data);
 
       } catch (e) {
@@ -76,9 +69,8 @@ const ProjectsSection = ({ lang }) => {
           <Col w={[4, 6, 12]}>
             <S.TitleContainer lang={lang} style={{ position: 'relative', zIndex: 999 }}>
               <S.TitleSubContainer lang={lang}>
-                <TitleIcon />
+                <S.TitleImg src={TitlePoints} lang={lang}/>
                 <S.Title>{lang === 'en' ? 'Our Projects' : 'مشاريعنا '}</S.Title>
-                <TitleIcon />
               </S.TitleSubContainer>
             </S.TitleContainer>
           </Col>
