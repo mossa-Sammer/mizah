@@ -105,8 +105,8 @@ export const FourthLeftIconContainer = styled.div`
 `;
 
 export const Icon1 = styled.img`
-  width: 100px;
-  height: 130px;
+  width: 150px;
+  height: 150px;
   position: absolute;
   top: -50px;
   left: -50px;
@@ -131,8 +131,8 @@ export const Icon6 = styled.img`
 `;
 
 export const Icon2 = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 110px;
+  height: 110px;
   position: absolute;
   top: -40px;
   right: -50px;
@@ -159,8 +159,8 @@ export const Icon8 = styled.img`
 `;
 
 export const Icon3 = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   position: absolute;
   top: -40px;
   left: -50px;
@@ -185,8 +185,8 @@ export const Icon7 = styled.img`
 `;
 
 export const Icon4 = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 130px;
   position: absolute;
   top: -40px;
   right: -50px;
