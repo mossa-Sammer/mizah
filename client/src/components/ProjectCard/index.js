@@ -5,7 +5,8 @@ import * as S from './styled';
 const ProjectCard = ({ item, lang }) => {
   const history = useHistory();
   return (
-    <S.Container
+    item && item.project_images[0] && item.project_images[0].image_url ? 
+      (<S.Container
       className="container"
       bg={item.project_images[0].image_url}
       onClick={() => history.push(`/project/${item.project_id}`)}
@@ -20,7 +21,7 @@ const ProjectCard = ({ item, lang }) => {
           <span>click to go</span>
         </S.ItemsCart>
       </S.Overlay>
-    </S.Container>
+    </S.Container>) : <h2>Loading..</h2>
   );
 };
 

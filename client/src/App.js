@@ -15,6 +15,7 @@ import Login from './components/Login';
 import ControlPannel from './components/ControlPannel';
 import CustomersSection from './Sections/CustomersSection';
 import ProjectsSection from './Sections/ProjectsSection';
+import ClintsSection from './Sections/ClintsSection';
 import Footer from './Sections/Footer';
 
 // pages
@@ -45,6 +46,7 @@ function App() {
                 <WhyUsSection lang={lang} />
                 <CustomersSection lang={lang} />
                 <ProjectsSection lang={lang} />
+                <ClintsSection lang={lang} />
                 <Footer lang={lang} />
                 <IconsSection slide={slide} />
               </div>
@@ -66,7 +68,11 @@ function App() {
               )
             }
           />
-          <Route path="/project/:id" exact render={() => <ProjectPage lang={lang} setLang={setLang}/>} />
+          <Route
+            path="/project/:id"
+            exact
+            render={() => <ProjectPage lang={lang} setLang={setLang} />}
+          />
           <Route
             path="/test"
             exact
@@ -74,15 +80,17 @@ function App() {
               <>
                 {/* <SliderContainer2 lang={lang} slide={slide} setSlide={setSlide} /> */}
                 {/* <SliderContainer slide={slide} setSlide={setSlide} /> */}
+                {/* <Header lang={lang} setLang={setLang} /> */}
                 <Header lang={lang} setLang={setLang} />
-                <ProjectPage lang={lang} />
+
+
 
                 <div style={{ width: '100%', height: '100vh' }} />
                 <div style={{ width: '100%', height: '100vh' }} />
               </>
             )}
           />
-           <Route render={() => <Redirect to="/" />} />
+          <Route render={() => <Redirect to="/" />} />
         </Switch>
       </Router>
     </div>

@@ -81,7 +81,7 @@ const Projects = ({ classes }) => {
             {
               title: 'Image',
               field: 'image_url',
-              render: ({ project_images }) => project_images.length > 0 && project_images.map(e => e && <InlineImage src={e.image_url} />),
+              render: ({ project_images }) => project_images.length > 0 && project_images.map(e => e && e.image_url && <InlineImage src={e.image_url} />),
             },
             RemoveRejoinCol({
               onDelete: row => {

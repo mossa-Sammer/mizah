@@ -1,4 +1,3 @@
-/* eslint-disable import/no-named-as-default-member */
 import styled from '@emotion/styled';
 import theme from '../../utils/theme';
 
@@ -30,10 +29,9 @@ export const Slide = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-left: 20px;
-  
+
   @media (max-width: 700px) {
     flex-direction: column;
-    margin-left: 0px;
   }
 `;
 
@@ -94,87 +92,26 @@ export const NextArrow = styled.div`
 `;
 
 export const SliderWrapper = styled.div`
+  position: relative;
+  z-index: 2;
   & * {
     outline: none;
   }
-
-  & .slick-initialized {
-    display: flex;
-  }
-
-  & .slick-dots {
-    // position: relative;
-    display: flex !important;
-    flex-wrap: wrap;
-    left: -60%;
-    width: 50%;
-    bottom: auto;
-    max-height: 360px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    @media (max-width: 970px) {
-      left: 0;
-      top: -100px;
-      width: 100%;
-      justify-content: center;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      overflow-y: hidden;
-    }
-  }
-
   & .slick-dots li button:before {
     content: '';
-  }
-
-  & .slick-dots li {
-    width: 7.5rem;
-    height: 7.5rem;
-    @media (max-width: 540px) {
-      width: 4.5rem;
-      height: 4.5rem;
-    }
   }
 
   & .slick-dots li button {
     position: absolute;
     background: ${() => theme.colors.gray7};
     border: 1px solid white;
-    width: 7.5rem;
-    height: 7.5rem;
+    width: 0.5rem;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    @media (max-width: 540px) {
-      width: 4.5rem;
-      height: 4.5rem;
-    }
+    height: 0.5rem;
   }
 
   & .slick-dots li.slick-active button {
     background: ${() => theme.colors.pink};
-  }
-  @media (max-width: 970px) {
-    margin-top: 100px;
-  }
-`;
-
-export const ImgContainer = styled.div`
-  width: 25%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 0 1.5rem;
-  min-width: 200px;
-
-  @media (max-width: 700px) {
-    margin-bottom: 2rem;
-  }
-
-  img {
-    margin-bottom: 1rem;
   }
 `;
 
@@ -239,7 +176,6 @@ export const TitleSubContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-top: 60px;
 `;
 
 export const Title = styled.h1`

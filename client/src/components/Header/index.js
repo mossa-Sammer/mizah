@@ -1,10 +1,11 @@
+/* eslint-disable import/no-useless-path-segments */
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Collapse from '@material-ui/core/Collapse';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import * as S from './styled';
 
-import Logo from '../../assets/logo-white.png';
+import Logo from './logo.png';
 import Menu from '../SVG/Menu';
 import Close from '../SVG/Close';
 
@@ -13,7 +14,7 @@ const content = [
   { title: 'our services', arTitle: 'خدماتنا', link: '#our-services' },
   { title: 'why us?', arTitle: 'من نحن ', link: '#why-us' },
   { title: 'Customers', arTitle: ' عملاؤنا', link: '#our-people' },
-  // { title: 'review', arTitle: 'قالو عنا', link: '#review' },
+  { title: 'review', arTitle: 'قالو عنا', link: '#our-customers' },
   { title: 'our projects', arTitle: 'آخر مشاريعنا ', link: '#our-projects' },
   { title: 'for uniquenss contact us', arTitle: 'تواصل معنا', link: '#footer' },
   // { title: 'blog', arTitle: 'المدونة', link: '#blog' },
@@ -25,11 +26,11 @@ const Header = ({ lang, setLang }) => {
   const tablet = useMediaQuery('(max-width:1150px)');
   const headerLinks = lang === 'ar' ? [...content].reverse() : content;
   const handleClick = () => {
-    if(history.location.pathname !== '/'){
-      history.push('/')
+    if (history.location.pathname !== '/') {
+      history.push('/');
     }
-    setIsOpen(o => !o)
-  }
+    setIsOpen(o => !o);
+  };
   return tablet ? (
     <>
       <S.HeaderContainer lang={lang}>
@@ -92,7 +93,9 @@ const Header = ({ lang, setLang }) => {
             const text = lang === 'en' ? elm.title : elm.arTitle;
             return (
               <S.ListItem>
-                <S.Link href={elm.link} onClick={handleClick}>{text}</S.Link>
+                <S.Link href={elm.link} onClick={handleClick}>
+                  {text}
+                </S.Link>
               </S.ListItem>
             );
           })}
@@ -100,7 +103,7 @@ const Header = ({ lang, setLang }) => {
       </S.Nav>
       <S.LogoContainer lang={lang}>
         <S.ImgContainer>
-          <S.Img src={Logo} />
+          <S.Img src="https://i.ibb.co/42p6xj2/logo.png" />
         </S.ImgContainer>
         <S.Span />
         <S.Lang onClick={() => setLang(old => (old === 'en' ? 'ar' : 'en'))}>

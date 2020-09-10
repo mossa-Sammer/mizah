@@ -8,20 +8,20 @@ import Section from '../../components/Layout/Section';
 import { Row, Col } from '../../components/Grid';
 
 const WhyUsSection = ({ lang }) => {
-  const [content, setContent ] = useState(null)
+  const [content, setContent] = useState(null);
   const [title, setTitle] = useState(null);
   useEffect(() => {
-    try{
-      ( async () => {
+    try {
+      (async () => {
         const title = await axios.get('/api/v1/setting');
         const result = await axios.get('/api/v1/feature');
-        setTitle(title.data)
-        setContent(result.data)
-      } )()
-    }catch(e){
-      console.log(e)
+        setTitle(title.data);
+        setContent(result.data);
+      })();
+    } catch (e) {
+      console.log(e);
     }
-  }, [])
+  }, []);
   return (
     <Section bgcolor="sectionBackground" id="why-us">
       <Row>
@@ -38,23 +38,30 @@ const WhyUsSection = ({ lang }) => {
       <Row mt={3} jc={lang === 'en' ? 'flex-start' : 'flex-end'}>
         <Col w={[4, 6, 12]}>
           <S.MainTitleContainer lang={lang}>
-            {title && <S.Title lang={lang}>{lang === 'en' ? title.description : title.description_ar}</S.Title>}
+            {title && (
+              <S.Title lang={lang}>
+                {lang === 'en' ? title.description : title.description_ar}
+              </S.Title>
+            )}
             <S.TitleSpan style={{ marginTop: 15 }} />
           </S.MainTitleContainer>
         </Col>
       </Row>
       <Row>
-        {content && content.map(e => (
-          <Col w={[4, 6, 12]}>
-            <S.Card>
-              <S.ItemTitleContainer lang={lang}>
-                <S.SubTitle lang={lang}>{lang === 'en' ? e.title : e.title_ar}</S.SubTitle>
-                <S.SubTitleSpan />
-              </S.ItemTitleContainer>
-              <S.TextContent lang={lang}>{lang === 'en' ? e.description : e.description_ar}</S.TextContent>
-            </S.Card>
-          </Col>
-        ))}
+        {content &&
+          content.map(e => (
+            <Col w={[4, 6, 12]}>
+              <S.Card>
+                <S.ItemTitleContainer lang={lang}>
+                  <S.SubTitle lang={lang}>{lang === 'en' ? e.title : e.title_ar}</S.SubTitle>
+                  <S.SubTitleSpan />
+                </S.ItemTitleContainer>
+                <S.TextContent lang={lang}>
+                  {lang === 'en' ? e.description : e.description_ar}
+                </S.TextContent>
+              </S.Card>
+            </Col>
+          ))}
       </Row>
     </Section>
   );

@@ -7,7 +7,7 @@ const Card = ({ item, lang }) => {
     <div style={{ width: 300, padding: 30 }}>
       <S.CardContainer>
         <S.ImageContainer>
-          <S.Img src={item.image_url} />
+          {item && item.image_url && <S.Img src={item.image_url} />}
         </S.ImageContainer>
         <div>
           <S.Title>{lang === 'en' ? item.title : item.title_ar}</S.Title>

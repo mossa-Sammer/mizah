@@ -52,7 +52,7 @@ const SideMenu = props => {
     { tab: 'services', title: 'Services' },
     { tab: 'testimonials', title: 'Testimonials' },
     { tab: 'projects', title: 'Projects' },
-    // { tab: 'customers', title: 'Customers' },
+    { tab: 'customers', title: 'Customers' },
     { tab: 'features', title: 'Features' },
     { tab: 'settings', title: 'Settings' },
     // { tab: 'blog', title: 'Blog' },
