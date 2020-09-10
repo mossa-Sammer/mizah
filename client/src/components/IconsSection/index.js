@@ -93,7 +93,7 @@ const IconsSection = ({ slide }) => {
         </S.SecondLeftIconContainer>
         {/* third Icon */}
         <S.ThirdLeftIconContainer origin={origin}>
-          <S.Icon3 src={Icon3} alt="icon3" />
+          <S.Icon3 src={Icon3} alt="icon3"/>
         </S.ThirdLeftIconContainer>
         {/* fourth Icon */}
         <S.FourthLeftIconContainer origin={origin}>
