@@ -45,11 +45,11 @@ export const Title = styled.h1`
   color: #52387f;
   margin:0;
   padding 0 10px;
-  @media (max-width: 380px) {
+  @media (max-width: 500px) {
     font-size: 38px;
   }
   @media (max-width: 300px) {
-    font-size: 28px;
+    font-size: 24px;
   }
 `;
 
@@ -58,15 +58,16 @@ export const Content = styled.div`
   font-size: 20px;
   text-align: ${({ lang }) => (lang === 'en' ? 'left' : 'right')};
   justify-content: center;
-  padding: ${({ lang }) => (lang === 'en' ? '0' : '0 50px 0 0')};
+  padding: ${({ lang }) => (lang === 'en' ? '32px 0 0 64px' : '32px 64px 0 0')};
   @media (max-width: 500px) {
     padding: 0 30px;
+    text-align: center;
   }
 `;
 
 export const TextContainer = styled.div`
   width: 95%;
-  border: 1px solid gray;
+
   border-radius: 5px;
 `;
 
@@ -96,10 +97,21 @@ export const SubTitleSpan = styled.span`
 
 export const TextContent = styled.p`
   text-align: ${({ lang }) => (lang === 'en' ? 'left' : 'right')};
-  padding: 10px 20px;
+  padding: 10px 48px;
   margin-bottom: 0;
   padding-bottom: 0;
   margin-top: 0;
   color: gray;
   font-size: 18px;
+  @media (max-width: 500px) {
+    text-align: center;
+    padding: 10px 20px;
+  }
+`;
+
+export const TitleImg = styled.img`
+  width: 80px;
+  height: 80px;
+  margin-right: ${({lang}) => lang === 'en' ? '-20px' : 0};
+  margin-left: ${({lang}) => lang === 'ar' ? '-20px' : 0};
 `;
