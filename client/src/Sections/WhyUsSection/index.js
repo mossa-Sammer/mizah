@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import * as S from './styled';
-import TitleIcon from '../../components/SVG/titleIcon';
-
+import TitlePoints from '../../assets/titlePoints.png';
 import Section from '../../components/Layout/Section';
 import { Row, Col } from '../../components/Grid';
 
@@ -28,9 +27,8 @@ const WhyUsSection = ({ lang }) => {
         <Col w={[4, 6, 12]}>
           <S.SectionTitle lang={lang}>
             <S.TitleSubContainer lang={lang}>
-              <TitleIcon />
-              <S.TitleText>{lang === 'en' ? 'WHY US ?' : 'لماذا نحن ؟'}</S.TitleText>
-              <TitleIcon />
+              <S.TitleImg src={TitlePoints} lang={lang}/>
+              <S.TitleText>{lang === 'en' ? 'Why Mizha ?' : 'لماذا نحن ؟'}</S.TitleText>
             </S.TitleSubContainer>
           </S.SectionTitle>
         </Col>
