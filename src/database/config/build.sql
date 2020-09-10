@@ -101,6 +101,7 @@ CREATE TABLE website (
     about_us_description_ar VARCHAR,
     about_us_image_url VARCHAR,
     video_url VARCHAR,
+    video_url_ar VARCHAR,
     our_values VARCHAR,
     our_values_ar VARCHAR,
     our_mission VARCHAR,
