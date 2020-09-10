@@ -23,6 +23,7 @@ export const TitleSubContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: ${({ lang }) => (lang === 'en' ? 'row' : ' row-reverse')};
   width: 100%;
   margin-top: 60px;
 `;
@@ -140,4 +141,12 @@ export const NextArrow = styled.div`
   @media (max-width: 700px) {
     top: 95%;
   }
+`;
+
+
+export const TitleImg = styled.img`
+  width: 80px;
+  height: 80px;
+  margin-right: ${({lang}) => lang === 'en' ? '-20px' : 0};
+  margin-left: ${({lang}) => lang === 'ar' ? '-20px' : 0};
 `;
