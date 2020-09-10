@@ -58,7 +58,8 @@ export const ActiveTitle = styled.h3`
   padding: ${({ lang }) => (lang === 'en' ? '0 0 0 50px' : '0 50px 0 0')};
   margin-right: 50px;
   font-weight: 900;
-  color: #f3c691;
+  // color: #f3c691;
+  color: rgb(255, 177, 86);
   margin-bottom: 16px;
   font-size: 28px;
 `;
