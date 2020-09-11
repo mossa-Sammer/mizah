@@ -11,6 +11,7 @@ module.exports = async (req, res, next) => {
     ourVision,
     ourVisionAr,
     videoUrl,
+    videoUrlAr,
   } = req.body;
   try {
     const {
@@ -25,6 +26,7 @@ module.exports = async (req, res, next) => {
       ourVision,
       ourVisionAr,
       videoUrl,
+      videoUrlAr,
     });
     res.json(websiteAboutUs);
   } catch (e) {
