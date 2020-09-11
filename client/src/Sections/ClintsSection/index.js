@@ -59,7 +59,7 @@ const ClintsSection = ({ lang }) => {
             <S.TitleContainer lang={lang} style={{ position: 'relative', zIndex: 999 }}>
               <S.TitleSubContainer lang={lang}>
                 <S.TitleImg src={TitlePoints} lang={lang}/>
-                <S.Title>{lang === 'en' ? 'Our Customers' : 'عملاءنا '}</S.Title>
+                <S.Title>{lang === 'en' ? 'Clients Who Trust Us' : 'عملاءنا '}</S.Title>
               </S.TitleSubContainer>
             </S.TitleContainer>
           </Col>
