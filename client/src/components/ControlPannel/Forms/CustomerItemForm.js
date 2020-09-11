@@ -11,22 +11,6 @@ export default function CustomerItemForm({
 }) {
   return (
     <>
-      <Controls.Input
-        name="name"
-        label="Customer Name"
-        value={values.name}
-        onChange={handleInputChange}
-        error={errors.name}
-        required
-      />
-      <Controls.Input
-        name="nameAr"
-        label="Customer Name Ar"
-        value={values.nameAr}
-        onChange={handleInputChange}
-        error={errors.nameAr}
-        required
-      />
       <div>
         <UploadImage setFiles={setImage} files={image} />
       </div>
