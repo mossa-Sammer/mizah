@@ -44,7 +44,7 @@ export const Title = styled.h1`
 export const Content = styled.div`
   color: #777;
   font-size: 20px;
-  text-align: ${({ lang }) => (lang === 'en' ? 'left' : 'right')};
+  direction: ${({ lang }) => (lang === 'en' ? 'ltr' : 'rtl')};
   // text-align: right;
   // padding-left: 50px;
   // padding-right: 50px;
@@ -62,7 +62,6 @@ export const Content = styled.div`
 export const ActiveTitle = styled.h3`
   text-align: ${({ lang }) => (lang === 'en' ? 'left' : 'right')};
   padding: ${({ lang }) => (lang === 'en' ? '0 0 0 50px' : '0 50px 0 0')};
-  margin-right: 50px;
   font-weight: 900;
   // color: #f3c691;
   color: rgba(223, 157, 77, 1);
@@ -162,4 +161,8 @@ export const TitleImg = styled.img`
   height: 80px;
   margin-right: ${({lang}) => lang === 'en' ? '-20px' : 0};
   margin-left: ${({lang}) => lang === 'ar' ? '-20px' : 0};
+  @media (max-width: 500px) {
+    width: 50px;
+    height: 50px;
+  }
 `;
