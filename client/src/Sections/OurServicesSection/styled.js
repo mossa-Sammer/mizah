@@ -48,9 +48,15 @@ export const Content = styled.div`
   // text-align: right;
   // padding-left: 50px;
   // padding-right: 50px;
-  margin-right: 50px;
-
-  padding: ${({ lang }) => (lang === 'en' ? '0 0 0 50px' : '0 50px 0 0')};
+  // margin-right: 50px;
+  // padding: ${({ lang }) => (lang === 'en' ? '0 0 0 50px' : '0 50px 0 0')};
+  padding: 0 50px;
+  text-align: justify;
+  word-spacing: -2px;
+  @media (max-width: 500px) {
+    // padding: ${({ lang }) => (lang === 'en' ? '0 0 0 20px' : '0 20px 0 0')};
+    padding: 0 20px;
+  }
 `;
 
 export const ActiveTitle = styled.h3`
@@ -62,6 +68,9 @@ export const ActiveTitle = styled.h3`
   color: rgba(223, 157, 77, 1);
   margin-bottom: 16px;
   font-size: 28px;
+  @media (max-width: 500px) {
+    padding: ${({ lang }) => (lang === 'en' ? '0 0 0 20px' : '0 20px 0 0')};
+  }
 `;
 
 export const ButtonContainer = styled.button`
@@ -133,7 +142,10 @@ export const NextArrow = styled.div`
   z-index: 999999;
   position: absolute;
   top: -200%;
-  right: 35px;
+  right: 0;
+  @media (max-width: 500px) {
+    right: 35px;
+  }
 
   ${() => theme.media.mobile} {
     top: 100%;
