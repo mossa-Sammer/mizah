@@ -4,12 +4,11 @@ import theme from '../../../utils/theme';
 const SectionWrapper = styled.div`
   width: '100%';
   position: relative;
-  // z-index: ${({ footer }) => footer && 9999};
   background-color: ${({ bgcolor }) => theme.colors[bgcolor] || bgcolor};
   background-image: ${({ bgcolor, bgimg, isGradient }) =>
     (bgimg && `url(${bgimg})`) || (isGradient && bgcolor && theme.colors[bgcolor])};
-  padding-left: ${() => theme.vars.sectionPaddingLeftD};
-  padding-right: ${() => theme.vars.sectionPaddingRightD};
+  padding-left: ${({paddingLeft}) => paddingLeft ? paddingLeft : theme.vars.sectionPaddingLeftD};
+  padding-right: ${({paddingRight}) => paddingRight ? paddingRight : theme.vars.sectionPaddingRightD};
   padding-top: ${({ addPaddingY }) => (addPaddingY ? theme.vars.sectionPaddingTopD : 0)};
   padding-bottom: ${({ addPaddingY }) => (addPaddingY ? theme.vars.sectionPaddingBottomD : 0)};
 

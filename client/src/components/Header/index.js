@@ -5,7 +5,6 @@ import Collapse from '@material-ui/core/Collapse';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import * as S from './styled';
 
-import Logo from './logo.png';
 import Menu from '../SVG/Menu';
 import Close from '../SVG/Close';
 
@@ -41,7 +40,7 @@ const Header = ({ lang, setLang }) => {
         </S.Nav>
         <S.LogoContainer lang={lang}>
           <S.ImgContainer>
-            <S.Img src={Logo} />
+            <S.Img src='https://i.ibb.co/M9MP3Yw/logo-white.png' />
           </S.ImgContainer>
           <S.Span />
           <S.Lang onClick={() => setLang(old => (old === 'en' ? 'ar' : 'en'))}>
@@ -103,7 +102,7 @@ const Header = ({ lang, setLang }) => {
       </S.Nav>
       <S.LogoContainer lang={lang}>
         <S.ImgContainer>
-          <S.Img src="https://i.ibb.co/42p6xj2/logo.png" />
+          <S.Img src="https://i.ibb.co/M9MP3Yw/logo-white.png" />
         </S.ImgContainer>
         <S.Span />
         <S.Lang onClick={() => setLang(old => (old === 'en' ? 'ar' : 'en'))}>

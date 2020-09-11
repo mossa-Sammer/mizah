@@ -4,7 +4,8 @@ import * as S from './styled';
 import Logo from '../../assets/logo-white.png';
 
 // icons
-import Icon1 from '../../assets/icon1.png';
+// import Icon1 from '../../assets/icon1.png';
+import Icon1 from '../../assets/Ehotline3d.png';
 // import Icon2 from '../../assets/icon2.png';
 import Icon3 from '../../assets/icon3.png';
 import Icon4 from '../../assets/icon4.png';
@@ -93,7 +94,7 @@ const IconsSection = ({ slide }) => {
         </S.SecondLeftIconContainer>
         {/* third Icon */}
         <S.ThirdLeftIconContainer origin={origin}>
-          <S.Icon3 src={Icon3} alt="icon3" />
+          <S.Icon3 src={Icon3} alt="icon3"/>
         </S.ThirdLeftIconContainer>
         {/* fourth Icon */}
         <S.FourthLeftIconContainer origin={origin}>

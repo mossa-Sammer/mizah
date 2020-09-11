@@ -22,7 +22,7 @@ export default function AboutUsForm({ values, handleInputChange, errors = {}, se
         <UploadImage setFiles={setImage} files={img} />
       </div> */}
       <Controls.Input
-        label="Enter Data EN"
+        label="Enter Data AR"
         name="descriptionAr"
         value={values.descriptionAr}
         onChange={handleInputChange}
@@ -36,6 +36,14 @@ export default function AboutUsForm({ values, handleInputChange, errors = {}, se
         value={values.videoUrl}
         onChange={handleInputChange}
         error={errors.videoUrl}
+        required
+      />
+      <Controls.Input
+        label="Video Link AR"
+        name="videoUrlAr"
+        value={values.videoUrlAr}
+        onChange={handleInputChange}
+        error={errors.videoUrlAr}
         required
       />
       <Controls.Input

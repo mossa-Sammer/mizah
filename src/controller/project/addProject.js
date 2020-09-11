@@ -7,7 +7,7 @@ module.exports = async (req, res, next) => {
     titleAr,
     description,
     descriptionAr,
-    videoUrl,
+    videoUrl = null,
     images,
   } = req.body;
   try {
@@ -22,7 +22,7 @@ module.exports = async (req, res, next) => {
     });
 
     let addedImages = [];
-    if (images) {
+    if (images && images.length) {
       const { rows } = await project.addProjectImages(
         addedProject.project_id,
         images

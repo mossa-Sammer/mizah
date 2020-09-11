@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import * as S from './styled';
-import TitleIcon from '../../components/SVG/titleIcon';
 import Carousel from './Carousle';
+import TitlePoints from '../../assets/titlePoints.png';
 
 import Section from '../../components/Layout/Section';
 import { Row, Col } from '../../components/Grid';
@@ -45,7 +45,8 @@ const _content = [
   },
 ];
 
-const OurServicesSection = ({ lang }) => {
+const OurServicesSection = 
+({ lang }) => {
   const [content, setContent] = useState(_content);
   useEffect(() => {
     (async () => {
@@ -61,9 +62,8 @@ const OurServicesSection = ({ lang }) => {
         <Col w={[4, 6, 12]}>
           <S.TitleContainer lang={_lang}>
             <S.TitleSubContainer lang={_lang}>
-              <TitleIcon />
-              <S.Title>{_lang === 'en' ? 'Our Services' : 'خدماتنا '}</S.Title>
-              <TitleIcon />
+              <S.TitleImg src={TitlePoints} lang={_lang}/>
+              <S.Title>{_lang === 'en' ? 'Services' : 'خدماتنا '}</S.Title>
             </S.TitleSubContainer>
           </S.TitleContainer>
         </Col>

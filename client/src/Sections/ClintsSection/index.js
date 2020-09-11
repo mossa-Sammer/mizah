@@ -7,8 +7,7 @@ import { Col, Row } from '../../components/Grid';
 import SectionLayout from '../../components/Layout/SectionLayout';
 
 import CustomerCard from '../../components/CustomerCard';
-
-import TitleIcon from '../../components/SVG/titleIcon';
+import TitlePoints from '../../assets/titlePoints.png';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -59,9 +58,8 @@ const ClintsSection = ({ lang }) => {
           <Col w={[4, 6, 12]}>
             <S.TitleContainer lang={lang} style={{ position: 'relative', zIndex: 999 }}>
               <S.TitleSubContainer lang={lang}>
-                <TitleIcon />
-                <S.Title>{lang === 'en' ? 'Our Customers' : 'عملاءنا '}</S.Title>
-                <TitleIcon />
+                <S.TitleImg src={TitlePoints} lang={lang}/>
+                <S.Title>{lang === 'en' ? 'Clients Who Trust Us' : 'عملاءنا '}</S.Title>
               </S.TitleSubContainer>
             </S.TitleContainer>
           </Col>

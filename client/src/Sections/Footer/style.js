@@ -159,6 +159,10 @@ export const ColorButton = withStyles(() => ({
     '&:hover': {
       backgroundColor: '#f3c691',
     },
+    '@media (max-width: 500px)' : {
+      marginLeft: 10,
+      width: '95%',
+    }
   },
 }))(Button);
 
@@ -169,6 +173,9 @@ export const InputContainer = styled.div`
   margin-bottom: 20px;
   @media (max-width: 930px) {
     justify-content: center;
+  }
+  @media (max-width: 500px) {
+    width: 95%;
   }
 `;
 
