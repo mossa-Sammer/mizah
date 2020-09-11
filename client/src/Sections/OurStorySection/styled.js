@@ -46,28 +46,25 @@ export const Title = styled.h1`
   margin:0;
   padding 0 10px;
   @media (max-width: 500px) {
-    font-size: 38px;
-  }
-  @media (max-width: 300px) {
-    font-size: 24px;
+    font-size: 26px;
   }
 `;
 
 export const Content = styled.div`
   color: #333;
   font-size: 20px;
-  text-align: ${({ lang }) => (lang === 'en' ? 'left' : 'right')};
+  direction: ${({ lang }) => (lang === 'en' ? 'ltr' : 'rtl')};
+  text-align: justify;
+  word-spacing: -2px;
   justify-content: center;
   padding: ${({ lang }) => (lang === 'en' ? '32px 0 0 64px' : '32px 64px 0 0')};
   @media (max-width: 500px) {
     padding: 0 30px;
-    text-align: center;
   }
 `;
 
 export const TextContainer = styled.div`
   width: 95%;
-
   border-radius: 5px;
 `;
 
