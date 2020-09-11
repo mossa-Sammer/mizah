@@ -45,7 +45,8 @@ const _content = [
   },
 ];
 
-const OurServicesSection = ({ lang }) => {
+const OurServicesSection = 
+({ lang }) => {
   const [content, setContent] = useState(_content);
   useEffect(() => {
     (async () => {
