@@ -13,6 +13,7 @@ import TitleIcon from '../../components/SVG/titleIcon';
 import Section from '../../components/Layout/Section';
 import Footer from '../../Sections/Footer';
 import { Col, Row } from '../../components/Grid';
+import Placeholder from '../../assets/white-image.png'
 
 const ProjectPage = ({ lang, setLang }) => {
   const [projectData, setProjectData] = useState({});
@@ -80,12 +81,17 @@ const ProjectPage = ({ lang, setLang }) => {
             {
                 projectData &&
                 projectData.project_image &&
-                projectData.project_image[activeIndex].image_url &&
-                <S.ShowImage
+                projectData.project_image[activeIndex] &&
+                projectData.project_image[activeIndex].image_url ?
+                ( <S.ShowImage
               bg={
                 projectData.project_image[activeIndex].image_url
               }
-            />
+                /> ) : (
+                  <S.ShowImage
+                  bg={Placeholder}
+                    />
+                )
 }
             <S.ImagesContainer>
               {projectData &&
