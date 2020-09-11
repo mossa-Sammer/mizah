@@ -80,10 +80,12 @@ export const TextContainer = styled.div`
 `;
 
 export const Text = styled.p`
-  text-align: ${({ lang }) => (lang === 'en' ? 'left' : 'right')};
+  direction: ${({ lang }) => (lang === 'en' ? 'ltr' : 'rtl')};
   line-height: 50px;
   text-align: justify;
+  word-spacing: -2px;
   font-size: 20px;
+  padding: 0 10px;
   color: #212529;
 `;
 
