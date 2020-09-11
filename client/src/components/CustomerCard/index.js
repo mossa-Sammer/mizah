@@ -12,7 +12,7 @@ const CustomerCard = ({ item, lang }) => {
     </S.Container>
     </S.Wrapper>
       <S.Name>{lang === 'en'? item.name : item.name_ar}</S.Name>
-    </>) : <h2>Loading..</h2>
+    </>) : null
   );
 };
 
