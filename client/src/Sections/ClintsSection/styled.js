@@ -197,6 +197,10 @@ export const TitleImg = styled.img`
   height: 80px;
   margin-right: ${({lang}) => lang === 'en' ? '-20px' : 0};
   margin-left: ${({lang}) => lang === 'ar' ? '-20px' : 0};
+  @media (max-width: 500px) {
+    width: 50px;
+    height: 50px;
+  }
 `;
 
 
