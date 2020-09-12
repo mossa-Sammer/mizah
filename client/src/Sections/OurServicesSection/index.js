@@ -69,7 +69,7 @@ const OurServicesSection = ({ lang }) => {
       </Row>
       <Row mt={3} jc={_lang === 'en' ? 'flex-start' : 'flex-end'}>
         {content.length > 0 && (
-          <Col w={[4, 5, 10]}>
+          <Col w={[4, 5, 12]}>
             <S.ActiveContent key={activeIndex} lang={_lang}>
               <S.ActiveTitle lang={_lang}>
                 {_lang === 'en' ? content[activeIndex].title : content[activeIndex].title_ar}
