@@ -93,13 +93,15 @@ export const SubTitleSpan = styled.span`
 `;
 
 export const TextContent = styled.p`
-  text-align: ${({ lang }) => (lang === 'en' ? 'left' : 'right')};
+  direction: ${({ lang }) => (lang === 'en' ? 'ltr' : 'rtl')};
   padding: 10px 48px;
   margin-bottom: 0;
   padding-bottom: 0;
   margin-top: 0;
   color: gray;
   font-size: 18px;
+  text-align: justify;
+  word-spacing: -1px;
   @media (max-width: 500px) {
     text-align: center;
     padding: 10px 20px;
