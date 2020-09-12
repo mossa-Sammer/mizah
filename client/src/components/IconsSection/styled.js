@@ -158,10 +158,10 @@ export const Icon8 = styled.img`
 `;
 
 export const Icon3 = styled.img`
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   position: absolute;
-  top: -40px;
+  top: -10px;
   left: -50px;
   animation: ${tada} 2s linear infinite;
   @media (max-width: 750px) {
@@ -184,8 +184,8 @@ export const Icon7 = styled.img`
 `;
 
 export const Icon4 = styled.img`
-  width: 130px;
-  height: 130px;
+  width: 160px;
+  height: 160px;
   position: absolute;
   top: -40px;
   right: -50px;
