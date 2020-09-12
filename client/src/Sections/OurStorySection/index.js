@@ -10,7 +10,7 @@ import { Col, Row } from '../../components/Grid';
 import TitlePoints from '../../assets/titlePoints.png';
 
 const content = {
-  title: 'Mizah STORY',
+  title: 'Mizah Story',
   titleAr: 'من هي ميزة',
 };
 
