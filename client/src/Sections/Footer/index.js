@@ -9,8 +9,6 @@ import Instagram from '../../components/SVG/Instagram';
 import GooglePlus from '../../components/SVG/googlePlus';
 
 import Location from './location.png';
-import Whatsapp from './whatsapp.png';
-import Website from './website.png';
 import Email from './email.png';
 
 const Footer = () => {
@@ -21,10 +19,9 @@ const Footer = () => {
     twitter_url: '#',
     google_url: '#',
     address: '',
-    whatsapp_no:'',
-    website_url:'',
-    email:'',
-
+    whatsapp_no: '',
+    website_url: '',
+    email: '',
   });
   useEffect(() => {
     (async () => {
@@ -138,7 +135,11 @@ const Footer = () => {
                 <S.LeftSideAddress>
                   {/* <S.P16 color="gray4">Whatsapp:</S.P16> */}
                   <S.ImgContainer>
-                    <img src="https://i.ibb.co/ypYdKKX/whatsapp.png" alt="Whatsapp" style={{ width: '70%', height: '70%' }} />
+                    <img
+                      src="https://i.ibb.co/ypYdKKX/whatsapp.png"
+                      alt="Whatsapp"
+                      style={{ width: '70%', height: '70%' }}
+                    />
                   </S.ImgContainer>
                 </S.LeftSideAddress>
                 <S.P16 color="gray4">{info.whatsapp_no}</S.P16>
@@ -147,7 +148,11 @@ const Footer = () => {
                 <S.LeftSideAddress>
                   {/* <S.P16 color="gray4">website:</S.P16> */}
                   <S.ImgContainer>
-                    <img src="https://i.ibb.co/rbVxtHr/website.png" alt="Website" style={{ width: '70%', height: '70%' }} />
+                    <img
+                      src="https://i.ibb.co/rbVxtHr/website.png"
+                      alt="Website"
+                      style={{ width: '70%', height: '70%' }}
+                    />
                   </S.ImgContainer>
                 </S.LeftSideAddress>
                 <S.P16 color="gray4">{info.website_url}</S.P16>

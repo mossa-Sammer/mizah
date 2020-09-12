@@ -5,10 +5,9 @@ import YouTube from 'react-youtube';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 import * as S from './styled';
-import TitleIcon from '../../components/SVG/titleIcon';
 import Section from '../../components/Layout/Section';
 import { Col, Row } from '../../components/Grid';
-import TitlePoints from '../../assets/titlePoints.png'
+import TitlePoints from '../../assets/titlePoints.png';
 
 const content = {
   title: 'Mizah STORY',
@@ -26,7 +25,7 @@ const OurStorySection = ({ lang }) => {
   }, []);
 
   function youTubeGetID(url) {
-    if(!url) return null;
+    if (!url) return null;
     const videoId = url.split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
     return videoId[2] !== undefined ? videoId[2].split(/[^0-9a-z_\-]/i)[0] : videoId[0];
   }
@@ -50,19 +49,24 @@ const OurStorySection = ({ lang }) => {
   };
 
   return (
-    <Section bgcolor="#f5ebfe" id="our-story" customBg paddingRight="0" paddingLeft="0"> 
+    <Section bgcolor="#f5ebfe" id="our-story" customBg paddingRight="0" paddingLeft="0">
       <Row mrT={6}>
         <Col w={[4, 6, 12]}>
           <S.TitleContainer lang={_lang}>
             <S.TitleSubContainer lang={_lang}>
-              <S.TitleImg src={TitlePoints} lang={_lang}/> 
+              <S.TitleImg src={TitlePoints} lang={_lang} />
               <S.Title>{lang === 'en' ? content.title : content.titleAr}</S.Title>
             </S.TitleSubContainer>
           </S.TitleContainer>
         </Col>
       </Row>
       {aboutUs.description && (
-        <Row mt={4} mtT={4} mtM={2} style={{flexDirection: _lang === 'en' ? 'row': 'row-reverse'}}> 
+        <Row
+          mt={4}
+          mtT={4}
+          mtM={2}
+          style={{ flexDirection: _lang === 'en' ? 'row' : 'row-reverse' }}
+        >
           <Col w={[4, 5, 6]}>
             <S.Content lang={_lang}>
               {lang === 'en' ? aboutUs.description : aboutUs.description_ar}
@@ -73,11 +77,11 @@ const OurStorySection = ({ lang }) => {
               <img src={aboutUs.image_url} alt="our story" style={{ width: '100%' }} />
             </S.ImageContainer>
           </Col> */}
-            <Col w={[4, 6, 6]} >
-              <div style={{ marginTop: 30 }}>
-                <YouTube videoId={lang === 'en' ? videoId : videoIdAr} opts={opts} />
-              </div>
-            </Col>
+          <Col w={[4, 6, 6]}>
+            <div style={{ marginTop: 30 }}>
+              <YouTube videoId={lang === 'en' ? videoId : videoIdAr} opts={opts} />
+            </div>
+          </Col>
         </Row>
       )}
       <Row mt={6}>
@@ -88,35 +92,29 @@ const OurStorySection = ({ lang }) => {
               <S.SubTitleSpan />
             </S.TitleWrapper>
             <S.TextContent lang={_lang}>
-              {_lang === 'en'
-                ? aboutUs.our_values
-                : aboutUs.our_values_ar}
+              {_lang === 'en' ? aboutUs.our_values : aboutUs.our_values_ar}
             </S.TextContent>
           </S.TextContainer>
         </Col>
         <Col w={[4, 3, 4]} mt={0} mtT={4}>
-          <S.TextContainer>            
+          <S.TextContainer>
             <S.TitleWrapper>
               <S.SubTitle lang={_lang}>{_lang === 'en' ? 'Mission' : 'مهمتنا'}</S.SubTitle>
               <S.SubTitleSpan />
             </S.TitleWrapper>
             <S.TextContent lang={_lang}>
-              {_lang === 'en'
-                ? aboutUs.our_mission
-                : aboutUs.our_mission_ar}
+              {_lang === 'en' ? aboutUs.our_mission : aboutUs.our_mission_ar}
             </S.TextContent>
-            </S.TextContainer>
+          </S.TextContainer>
         </Col>
         <Col w={[4, 3, 4]} mt={0} mtT={4}>
           <S.TextContainer>
-          <S.TitleWrapper>
+            <S.TitleWrapper>
               <S.SubTitle lang={_lang}>{_lang === 'en' ? 'Vision' : 'رؤيتنا'}</S.SubTitle>
               <S.SubTitleSpan />
             </S.TitleWrapper>
             <S.TextContent lang={_lang}>
-              {_lang === 'en'
-                ? aboutUs.our_vision
-                : aboutUs.our_vision_ar}
+              {_lang === 'en' ? aboutUs.our_vision : aboutUs.our_vision_ar}
             </S.TextContent>
           </S.TextContainer>
         </Col>

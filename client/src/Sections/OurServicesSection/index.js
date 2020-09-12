@@ -45,8 +45,7 @@ const _content = [
   },
 ];
 
-const OurServicesSection = 
-({ lang }) => {
+const OurServicesSection = ({ lang }) => {
   const [content, setContent] = useState(_content);
   useEffect(() => {
     (async () => {
@@ -62,7 +61,7 @@ const OurServicesSection =
         <Col w={[4, 6, 12]}>
           <S.TitleContainer lang={_lang}>
             <S.TitleSubContainer lang={_lang}>
-              <S.TitleImg src={TitlePoints} lang={_lang}/>
+              <S.TitleImg src={TitlePoints} lang={_lang} />
               <S.Title>{_lang === 'en' ? 'Services' : 'خدماتنا '}</S.Title>
             </S.TitleSubContainer>
           </S.TitleContainer>

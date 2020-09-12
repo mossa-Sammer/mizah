@@ -27,7 +27,7 @@ const WhyUsSection = ({ lang }) => {
         <Col w={[4, 6, 12]}>
           <S.SectionTitle lang={lang}>
             <S.TitleSubContainer lang={lang}>
-              <S.TitleImg src={TitlePoints} lang={lang}/>
+              <S.TitleImg src={TitlePoints} lang={lang} />
               <S.TitleText>{lang === 'en' ? 'Why Mizha ?' : 'لماذا نحن ؟'}</S.TitleText>
             </S.TitleSubContainer>
           </S.SectionTitle>
