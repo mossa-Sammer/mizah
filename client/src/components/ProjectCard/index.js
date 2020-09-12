@@ -16,7 +16,7 @@ const ProjectCard = ({ item, lang }) => {
       <S.Overlay className="overlay">
         <S.Items className="items" />
         <S.ItemsHead className="items head">
-          <p>{lang === 'en' ? item.title : item.titleAr}</p>
+          <p>{lang === 'en' ? item.title : item.title_ar}</p>
           <hr />
         </S.ItemsHead>
         <S.ItemsCart className="items cart">

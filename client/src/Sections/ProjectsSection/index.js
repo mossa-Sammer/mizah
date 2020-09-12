@@ -20,7 +20,6 @@ const ProjectsSection = ({ lang }) => {
       try {
         const data = await axios.get('/api/v1/project');
         setData(data.data);
-        console.log('data : ' , data.data)
       } catch (e) {
         console.log(e);
       }
