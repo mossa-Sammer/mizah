@@ -106,13 +106,13 @@ export const MenuLink = styled.a`
 `;
 
 export const Img = styled.img`
-  width: 50px;
-  height: 50px;
+  width: 120px;
+  height: 120px;
 `;
 
 export const ImgContainer = styled.div`
-  padding-right: 20px;
-  width: 70px;
+  padding-right: 10px;
+  margin-top: -35px;
   // border-right: 2px solid white;
 `;
 
