@@ -71,15 +71,15 @@ const OurPeapoleSection = ({ lang }) => {
   };
 
   useEffect(() => {
-    ( async () => {
-      try{
+    (async () => {
+      try {
         const result = await axios.get('/api/v1/testimonial');
-        setData(result.data)
-      }catch(e){
-        console.log(e)
+        setData(result.data);
+      } catch (e) {
+        console.log(e);
       }
-    })()
-  }, [])
+    })();
+  }, []);
 
   useEffect(() => {
     const btns = document.querySelectorAll('#slider-wrapper div .slick-dots li button');
@@ -100,7 +100,7 @@ const OurPeapoleSection = ({ lang }) => {
           <Col w={[4, 6, 12]}>
             <S.TitleContainer lang={lang} style={{ position: 'relative', zIndex: 999 }}>
               <S.TitleSubContainer lang={lang}>
-                <S.TitleImg src={TitlePoints} lang={lang}/>
+                <S.TitleImg src={TitlePoints} lang={lang} />
                 <S.Title>{lang === 'en' ? 'Customer Testimonials' : 'شهادات العملاء'}</S.Title>
               </S.TitleSubContainer>
             </S.TitleContainer>

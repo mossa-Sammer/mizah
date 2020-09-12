@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Slider from 'react-slick';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -13,23 +13,20 @@ import ProjectCard from '../../components/ProjectCard';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-
 const ProjectsSection = ({ lang }) => {
   const [data, setData] = useState([]);
-  const route = '/api/v1/project';
   useEffect(() => {
     (async () => {
       try {
         const data = await axios.get('/api/v1/project');
         setData(data.data);
-
       } catch (e) {
         console.log(e);
       }
     })();
   }, []);
 
-  let numberOfItems = 3 <= data.length ? 3 : data.length;
+  let numberOfItems = data.length >= 3 ? 3 : data.length;
   const tablet = useMediaQuery('(max-width:1140px) and (min-width:650px)');
   const mobile = useMediaQuery('(max-width:650px)');
   if (tablet) {
@@ -69,7 +66,7 @@ const ProjectsSection = ({ lang }) => {
           <Col w={[4, 6, 12]}>
             <S.TitleContainer lang={lang} style={{ position: 'relative', zIndex: 999 }}>
               <S.TitleSubContainer lang={lang}>
-                <S.TitleImg src={TitlePoints} lang={lang}/>
+                <S.TitleImg src={TitlePoints} lang={lang} />
                 <S.Title>{lang === 'en' ? 'Our Projects' : 'مشاريعنا '}</S.Title>
               </S.TitleSubContainer>
             </S.TitleContainer>

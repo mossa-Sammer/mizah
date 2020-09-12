@@ -30,7 +30,7 @@ export const MainTitleContainer = styled.div`
   display: flex;
   align-items: ${({ lang }) => (lang === 'en' ? 'flex-start' : 'flex-end')};
   flex-direction: column;
-  @media(max-width: 500px) {
+  @media (max-width: 500px) {
     align-items: center;
   }
 `;
@@ -44,7 +44,7 @@ export const Title = styled.h2`
     text-align: center;
     font-size: 24px;
     padding: 0 10px;
-  } 
+  }
 `;
 export const TitleSpan = styled.span`
   width: 250px;
@@ -66,7 +66,7 @@ export const TitleSubContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: ${({lang}) => lang === 'en' ? 'row' : 'row-reverse'};
+  flex-direction: ${({ lang }) => (lang === 'en' ? 'row' : 'row-reverse')};
   width: 100%;
   margin-top: 60px;
 `;
@@ -94,7 +94,7 @@ export const Card = styled.div`
   &:hover {
     transform: translateY(-5px);
   }
-  @media(max-width: 500px){
+  @media (max-width: 500px) {
     width: 90%;
   }
   transition: 0.3s;
@@ -138,8 +138,8 @@ export const TextContent = styled.p`
 export const TitleImg = styled.img`
   width: 80px;
   height: 80px;
-  margin-right: ${({lang}) => lang === 'en' ? '-20px' : 0};
-  margin-left: ${({lang}) => lang === 'ar' ? '-20px' : 0};
+  margin-right: ${({ lang }) => (lang === 'en' ? '-20px' : 0)};
+  margin-left: ${({ lang }) => (lang === 'ar' ? '-20px' : 0)};
   @media (max-width: 500px) {
     width: 50px;
     height: 50px;

@@ -11,7 +11,6 @@ const CustomerCard = ({ item, lang }) => {
     >
     </S.Container>
     </S.Wrapper>
-      <S.Name>{lang === 'en'? item.name : item.name_ar}</S.Name>
     </>) : null
   );
 };

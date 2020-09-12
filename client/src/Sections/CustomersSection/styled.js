@@ -30,7 +30,7 @@ export const Slide = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-left: 20px;
-  
+
   @media (max-width: 700px) {
     flex-direction: column;
     margin-left: 0px;
@@ -256,12 +256,11 @@ export const Title = styled.h1`
   }
 `;
 
-
 export const TitleImg = styled.img`
   width: 80px;
   height: 80px;
-  margin-right: ${({lang}) => lang === 'en' ? '-20px' : 0};
-  margin-left: ${({lang}) => lang === 'ar' ? '-20px' : 0};
+  margin-right: ${({ lang }) => (lang === 'en' ? '-20px' : 0)};
+  margin-left: ${({ lang }) => (lang === 'ar' ? '-20px' : 0)};
   @media (max-width: 500px) {
     width: 50px;
     height: 50px;
