@@ -77,8 +77,6 @@ const Customers = ({ classes }) => {
           data={data}
           showPagination={false}
           columns={[
-            { title: 'Customer Name', field: 'name' },
-            { title: 'Customer Name AR', field: 'name_ar' },
             {
               title: 'Image',
               field: 'logo_url',

@@ -40,7 +40,8 @@ const Header = ({ lang, setLang }) => {
         </S.Nav>
         <S.LogoContainer lang={lang}>
           <S.ImgContainer>
-            <S.Img src='https://i.ibb.co/M9MP3Yw/logo-white.png' />
+            <S.Img src='https://i.ibb.co/Lrqcn7S/meza-whiate.png' />
+            {/* <S.Img src='https://i.ibb.co/M9MP3Yw/logo-white.png' /> */}
           </S.ImgContainer>
           <S.Span />
           <S.Lang onClick={() => setLang(old => (old === 'en' ? 'ar' : 'en'))}>
@@ -102,7 +103,7 @@ const Header = ({ lang, setLang }) => {
       </S.Nav>
       <S.LogoContainer lang={lang}>
         <S.ImgContainer>
-          <S.Img src="https://i.ibb.co/M9MP3Yw/logo-white.png" />
+          <S.Img src="https://i.ibb.co/Lrqcn7S/meza-whiate.png" />
         </S.ImgContainer>
         <S.Span />
         <S.Lang onClick={() => setLang(old => (old === 'en' ? 'ar' : 'en'))}>
