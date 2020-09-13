@@ -153,22 +153,19 @@ export const SocialLink = styled.a`
 export const ColorButton = withStyles(() => ({
   root: {
     color: '#000',
-    width: '90%',
-    marginLeft: 30,
+    width: '100%',
     backgroundColor: '#f4c081',
     '&:hover': {
       backgroundColor: '#f3c691',
     },
     '@media (max-width: 500px)' : {
-      marginLeft: 10,
-      width: '95%',
+      width: '85%',
     }
   },
 }))(Button);
 
 export const InputContainer = styled.div`
   display: flex;
-  justify-content: flex-start;
   width: 100%;
   margin-bottom: 20px;
   @media (max-width: 930px) {
@@ -180,8 +177,9 @@ export const InputContainer = styled.div`
 `;
 
 export const Input = styled.input`
-  width: 100%;
-  padding: 0.375rem 0.75rem;
+direction: ${({lang}) => lang === 'en' ? 'ltr' : 'rtl'};
+  width: 94%;
+  padding: 0.375rem 10px;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -192,8 +190,9 @@ export const Input = styled.input`
 `;
 
 export const TextArea = styled.textarea`
-  width: 100%;
-  padding: 0.375rem 0.75rem;
+direction: ${({lang}) => lang === 'en' ? 'ltr' : 'rtl'};
+  width: 94%;
+  padding: 0.375rem 10px;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -203,7 +202,7 @@ export const TextArea = styled.textarea`
 `;
 
 export const Label = styled.label`
-  text-align: left;
+  text-align: ${({lang}) => lang === 'en' ? 'left' : 'right'};
   width: 100%;
   color: white;
   font-weight: bold;
