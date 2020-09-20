@@ -9,13 +9,13 @@ import Menu from '../SVG/Menu';
 import Close from '../SVG/Close';
 
 const content = [
-  { title: 'home', arTitle: 'الرئيسية', link: '#home' },
-  { title: 'our services', arTitle: 'خدماتنا', link: '#our-services' },
-  { title: 'why us?', arTitle: 'من نحن ', link: '#why-us' },
-  { title: 'Customers', arTitle: ' عملاؤنا', link: '#our-customers' },
-  { title: 'review', arTitle: 'قالو عنا', link: '#our-people' },
+  { title: 'Home', arTitle: 'الرئيسية', link: '#home' },
+  { title: 'Services', arTitle: 'خدماتنا', link: '#our-services' },
+  { title: 'Why Mizha ?', arTitle: 'لماذا نحن', link: '#why-us' },
+  { title: 'Customer Testimonials', arTitle: 'شهادات العملاء', link: '#our-people' },
   { title: 'our projects', arTitle: 'آخر مشاريعنا ', link: '#our-projects' },
-  { title: 'for uniquenss contact us', arTitle: 'تواصل معنا', link: '#footer' },
+  { title: 'Clients Who Trust Us', arTitle: ' عملاءنا', link: '#our-customers' },
+  { title: 'For Uniquenss Contact Us', arTitle: 'تواصل معنا', link: '#footer' },
   // { title: 'blog', arTitle: 'المدونة', link: '#blog' },
 ];
 
