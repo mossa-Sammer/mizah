@@ -12,6 +12,7 @@ import ProjectCard from '../../components/ProjectCard';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import './style.css';
 
 const ProjectsSection = ({ lang }) => {
   const [data, setData] = useState([]);
@@ -39,17 +40,17 @@ const ProjectsSection = ({ lang }) => {
     dots: true,
     infinite: true,
     speed: 500,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 3000,
     prevArrow: (
-      <S.Button type="button" className="button button--text button--icon" aria-label="prev">
+      <S.Button type="button" id="project-button-left" className="button button--text button--icon" aria-label="prev">
         <S.PrevArrow>
           <LeftArrow width="22px" height="22px" to="prev" color="#7e57b1" />
         </S.PrevArrow>
       </S.Button>
     ),
     nextArrow: (
-      <S.Button type="button" className="button button--text button--icon" aria-label="next">
+      <S.Button type="button" id="project-button-right" className="button button--text button--icon" aria-label="next">
         <S.NextArrow>
           <LeftArrow width="22px" height="22px" to="next" color="#7e57b1" />
         </S.NextArrow>
