@@ -44,7 +44,7 @@ export const LogoContainer = styled.div`
 `;
 
 export const Nav = styled.nav`
-  flex: 3;
+  flex: 5; // origin 3
   display: flex;
   align-items: center;
   // justify-content: flex-end;
