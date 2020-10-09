@@ -30,6 +30,9 @@ export const Container = styled.div`
       opacity: 1;
     }
   }
+  @media (max-width: 500px) {
+    width: auto;
+  }
 `;
 
 export const Overlay = styled.div`

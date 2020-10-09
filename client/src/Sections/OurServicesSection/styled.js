@@ -23,6 +23,7 @@ export const TitleSubContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: ${({ lang }) => (lang === 'en' ? 'row' : ' row-reverse')};
   width: 100%;
   margin-top: 60px;
 `;
@@ -43,23 +44,32 @@ export const Title = styled.h1`
 export const Content = styled.div`
   color: #777;
   font-size: 20px;
-  text-align: ${({ lang }) => (lang === 'en' ? 'left' : 'right')};
+  direction: ${({ lang }) => (lang === 'en' ? 'ltr' : 'rtl')};
   // text-align: right;
   // padding-left: 50px;
   // padding-right: 50px;
-  margin-right: 50px;
-
-  padding: ${({ lang }) => (lang === 'en' ? '0 0 0 50px' : '0 50px 0 0')};
+  // margin-right: 50px;
+  // padding: ${({ lang }) => (lang === 'en' ? '0 0 0 50px' : '0 50px 0 0')};
+  padding: 0 50px;
+  text-align: justify;
+  word-spacing: -2px;
+  @media (max-width: 500px) {
+    // padding: ${({ lang }) => (lang === 'en' ? '0 0 0 20px' : '0 20px 0 0')};
+    padding: 0 20px;
+  }
 `;
 
 export const ActiveTitle = styled.h3`
   text-align: ${({ lang }) => (lang === 'en' ? 'left' : 'right')};
   padding: ${({ lang }) => (lang === 'en' ? '0 0 0 50px' : '0 50px 0 0')};
-  margin-right: 50px;
   font-weight: 900;
-  color: #f3c691;
+  // color: #f3c691;
+  color: rgba(223, 157, 77, 1);
   margin-bottom: 16px;
   font-size: 28px;
+  @media (max-width: 500px) {
+    padding: ${({ lang }) => (lang === 'en' ? '0 0 0 20px' : '0 20px 0 0')};
+  }
 `;
 
 export const ButtonContainer = styled.button`
@@ -131,14 +141,27 @@ export const NextArrow = styled.div`
   z-index: 999999;
   position: absolute;
   top: -200%;
-  right: auto;
+  right: 0;
+  @media (max-width: 500px) {
+    right: 35px;
+  }
 
   ${() => theme.media.mobile} {
     top: 100%;
-    right: 10px;
   }
 
   @media (max-width: 700px) {
     top: 95%;
+  }
+`;
+
+export const TitleImg = styled.img`
+  width: 80px;
+  height: 80px;
+  margin-right: ${({ lang }) => (lang === 'en' ? '-20px' : 0)};
+  margin-left: ${({ lang }) => (lang === 'ar' ? '-20px' : 0)};
+  @media (max-width: 500px) {
+    width: 50px;
+    height: 50px;
   }
 `;

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Slider from 'react-slick';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -6,37 +6,28 @@ import * as S from './styled';
 import { Col, Row } from '../../components/Grid';
 import LeftArrow from '../../components/SVG/LeftArrow';
 import SectionLayout from '../../components/Layout/SectionLayout';
+import TitlePoints from '../../assets/titlePoints.png';
 
 import ProjectCard from '../../components/ProjectCard';
 
-import Img from '../../assets/ourStory.png';
-import Img1 from '../../assets/project1.png';
-import Img2 from '../../assets/project2.png';
-
-import TitleIcon from '../../components/SVG/titleIcon';
-
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-
+import './style.css';
 
 const ProjectsSection = ({ lang }) => {
   const [data, setData] = useState([]);
-  const route = '/api/v1/project';
   useEffect(() => {
     (async () => {
       try {
-        console.log('pppppppppppppppppppppppp')
         const data = await axios.get('/api/v1/project');
-        console.log(data)
         setData(data.data);
-
       } catch (e) {
         console.log(e);
       }
     })();
   }, []);
 
-  let numberOfItems = 3 <= data.length ? 3 : data.length;
+  let numberOfItems = data.length >= 3 ? 3 : data.length;
   const tablet = useMediaQuery('(max-width:1140px) and (min-width:650px)');
   const mobile = useMediaQuery('(max-width:650px)');
   if (tablet) {
@@ -49,17 +40,17 @@ const ProjectsSection = ({ lang }) => {
     dots: true,
     infinite: true,
     speed: 500,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 3000,
     prevArrow: (
-      <S.Button type="button" className="button button--text button--icon" aria-label="prev">
+      <S.Button type="button" id="project-button-left" className="button button--text button--icon" aria-label="prev">
         <S.PrevArrow>
           <LeftArrow width="22px" height="22px" to="prev" color="#7e57b1" />
         </S.PrevArrow>
       </S.Button>
     ),
     nextArrow: (
-      <S.Button type="button" className="button button--text button--icon" aria-label="next">
+      <S.Button type="button" id="project-button-right" className="button button--text button--icon" aria-label="next">
         <S.NextArrow>
           <LeftArrow width="22px" height="22px" to="next" color="#7e57b1" />
         </S.NextArrow>
@@ -71,14 +62,13 @@ const ProjectsSection = ({ lang }) => {
 
   return (
     <>
-      <SectionLayout id="our-people" bgcolor="sectionBackground" addPaddingY>
+      <SectionLayout id="our-projects" bgcolor="sectionBackground" addPaddingY>
         <Row>
           <Col w={[4, 6, 12]}>
             <S.TitleContainer lang={lang} style={{ position: 'relative', zIndex: 999 }}>
               <S.TitleSubContainer lang={lang}>
-                <TitleIcon />
+                <S.TitleImg src={TitlePoints} lang={lang} />
                 <S.Title>{lang === 'en' ? 'Our Projects' : 'مشاريعنا '}</S.Title>
-                <TitleIcon />
               </S.TitleSubContainer>
             </S.TitleContainer>
           </Col>

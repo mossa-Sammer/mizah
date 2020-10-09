@@ -5,18 +5,17 @@ import Collapse from '@material-ui/core/Collapse';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import * as S from './styled';
 
-import Logo from './logo.png';
 import Menu from '../SVG/Menu';
 import Close from '../SVG/Close';
 
 const content = [
-  { title: 'home', arTitle: 'الرئيسية', link: '#home' },
-  { title: 'our services', arTitle: 'خدماتنا', link: '#our-services' },
-  { title: 'why us?', arTitle: 'من نحن ', link: '#why-us' },
-  { title: 'Customers', arTitle: ' عملاؤنا', link: '#our-people' },
-  { title: 'review', arTitle: 'قالو عنا', link: '#our-customers' },
+  { title: 'Home', arTitle: 'الرئيسية', link: '#home' },
+  { title: 'Services', arTitle: 'خدماتنا', link: '#our-services' },
+  { title: 'Why Mizha ?', arTitle: 'لماذا نحن', link: '#why-us' },
+  { title: 'Customer Testimonials', arTitle: 'شهادات العملاء', link: '#our-people' },
   { title: 'our projects', arTitle: 'آخر مشاريعنا ', link: '#our-projects' },
-  { title: 'for uniquenss contact us', arTitle: 'تواصل معنا', link: '#footer' },
+  { title: 'Clients Who Trust Us', arTitle: ' عملاءنا', link: '#our-customers' },
+  { title: 'For Uniquenss Contact Us', arTitle: 'تواصل معنا', link: '#footer' },
   // { title: 'blog', arTitle: 'المدونة', link: '#blog' },
 ];
 
@@ -41,7 +40,8 @@ const Header = ({ lang, setLang }) => {
         </S.Nav>
         <S.LogoContainer lang={lang}>
           <S.ImgContainer>
-            <S.Img src={Logo} />
+            <S.Img src='https://i.ibb.co/Lrqcn7S/meza-whiate.png' />
+            {/* <S.Img src='https://i.ibb.co/M9MP3Yw/logo-white.png' /> */}
           </S.ImgContainer>
           <S.Span />
           <S.Lang onClick={() => setLang(old => (old === 'en' ? 'ar' : 'en'))}>
@@ -103,7 +103,7 @@ const Header = ({ lang, setLang }) => {
       </S.Nav>
       <S.LogoContainer lang={lang}>
         <S.ImgContainer>
-          <S.Img src="https://i.ibb.co/42p6xj2/logo.png" />
+          <S.Img src="https://i.ibb.co/Lrqcn7S/meza-whiate.png" />
         </S.ImgContainer>
         <S.Span />
         <S.Lang onClick={() => setLang(old => (old === 'en' ? 'ar' : 'en'))}>

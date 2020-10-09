@@ -9,11 +9,9 @@ import Instagram from '../../components/SVG/Instagram';
 import GooglePlus from '../../components/SVG/googlePlus';
 
 import Location from './location.png';
-import Whatsapp from './whatsapp.png';
-import Website from './website.png';
 import Email from './email.png';
 
-const Footer = () => {
+const Footer = ({lang}) => {
   const [message, setMessage] = useState({});
   const [info, setInfo] = useState({
     instagram_url: '#',
@@ -21,10 +19,9 @@ const Footer = () => {
     twitter_url: '#',
     google_url: '#',
     address: '',
-    whatsapp_no:'',
-    website_url:'',
-    email:'',
-
+    whatsapp_no: '',
+    website_url: '',
+    email: '',
   });
   useEffect(() => {
     (async () => {
@@ -66,14 +63,15 @@ const Footer = () => {
 
         <Row jc="flex-start" wrap>
           <Col w={[4, 6, 4]}>
-            <S.H5Caps color="#f3c691">send as a message </S.H5Caps>
+            <S.H5Caps color="#f3c691">{lang === "en" ? "send as a message" : "ارسل لنا رسالة "} </S.H5Caps>
             <form noValidate autoComplete="off" onSubmit={handleSubmit}>
               <S.InputContainer>
-                <S.Label>
-                  Name
+                <S.Label lang={lang}>
+                  {lang === 'en' ? 'Name' : 'الإسم '}
                   <S.Input
                     type="text"
-                    placeholder="Enter your name .."
+                    lang={lang}
+                    placeholder={lang === 'en' ? "Enter your name .." : "ادخل اسمك "}
                     name="name"
                     value={message.name}
                     onChange={handleChange}
@@ -81,11 +79,12 @@ const Footer = () => {
                 </S.Label>
               </S.InputContainer>
               <S.InputContainer>
-                <S.Label>
-                  Email
+                <S.Label lang={lang}>
+                  {lang === 'en' ? 'Email' : 'الإيميل '}
                   <S.Input
                     type="text"
-                    placeholder="Enter your email .."
+                    lang={lang}
+                    placeholder={lang === 'en' ? "Enter your email .." :"ادحل الايميل الحاص بك"}
                     name="email"
                     value={message.email}
                     onChange={handleChange}
@@ -93,11 +92,12 @@ const Footer = () => {
                 </S.Label>
               </S.InputContainer>
               <S.InputContainer>
-                <S.Label>
-                  Phone No
+                <S.Label lang={lang}>
+                  {lang === 'en' ? "Phone No" : "رقم الموبايل"}
                   <S.Input
                     type="text"
-                    placeholder="Enter your Phone No .."
+                    lang={lang}
+                    placeholder={lang === 'en' ? "Enter your Phone No .." : "ادخل رقم الموبايل"}
                     name="phoneNo"
                     value={message.phoneNo}
                     onChange={handleChange}
@@ -105,12 +105,13 @@ const Footer = () => {
                 </S.Label>
               </S.InputContainer>
               <S.InputContainer>
-                <S.Label>
-                  Message
+                <S.Label lang={lang}>
+                  {lang === 'en' ? "Message" : "الرسالة"}
                   <S.TextArea
+                  lang={lang}
                     rows="4"
                     type="text"
-                    placeholder="Enter your message .."
+                    placeholder={lang === "en" ? "Enter your message .." : "ادخل رسالتك هنا "}
                     name="body"
                     value={message.body}
                     onChange={handleChange}
@@ -118,13 +119,13 @@ const Footer = () => {
                 </S.Label>
               </S.InputContainer>
               <S.ColorButton variant="contained" color="primary" type="submit">
-                Submit
+                {lang === "en" ? "Submit" : "إرسال"}
               </S.ColorButton>
             </form>
           </Col>
           <Col w={[4, 0, 4]} />
           <Col w={[4, 6, 4]} mtT={6} mbT={6}>
-            <S.H5Caps color="#cea380">For Uniqueness Contact Us</S.H5Caps>
+            <S.H5Caps color="#cea380">{lang === "en" ? "For Uniqueness Contact Us" : "للتميز تواصل معنا"}</S.H5Caps>
             <S.ContactList>
               <S.ListItem>
                 <S.LeftSideAddress>
@@ -138,7 +139,11 @@ const Footer = () => {
                 <S.LeftSideAddress>
                   {/* <S.P16 color="gray4">Whatsapp:</S.P16> */}
                   <S.ImgContainer>
-                    <img src="https://i.ibb.co/ypYdKKX/whatsapp.png" alt="Whatsapp" style={{ width: '70%', height: '70%' }} />
+                    <img
+                      src="https://i.ibb.co/ypYdKKX/whatsapp.png"
+                      alt="Whatsapp"
+                      style={{ width: '70%', height: '70%' }}
+                    />
                   </S.ImgContainer>
                 </S.LeftSideAddress>
                 <S.P16 color="gray4">{info.whatsapp_no}</S.P16>
@@ -147,7 +152,11 @@ const Footer = () => {
                 <S.LeftSideAddress>
                   {/* <S.P16 color="gray4">website:</S.P16> */}
                   <S.ImgContainer>
-                    <img src="https://i.ibb.co/rbVxtHr/website.png" alt="Website" style={{ width: '70%', height: '70%' }} />
+                    <img
+                      src="https://i.ibb.co/rbVxtHr/website.png"
+                      alt="Website"
+                      style={{ width: '70%', height: '70%' }}
+                    />
                   </S.ImgContainer>
                 </S.LeftSideAddress>
                 <S.P16 color="gray4">{info.website_url}</S.P16>

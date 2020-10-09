@@ -175,6 +175,7 @@ export const TitleSubContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: ${({ lang }) => (lang === 'en' ? 'row' : ' row-reverse')};
   width: 100%;
 `;
 
@@ -188,5 +189,16 @@ export const Title = styled.h1`
   }
   @media (max-width: 420px) {
     font-size: 26px;
+  }
+`;
+
+export const TitleImg = styled.img`
+  width: 80px;
+  height: 80px;
+  margin-right: ${({ lang }) => (lang === 'en' ? '-20px' : 0)};
+  margin-left: ${({ lang }) => (lang === 'ar' ? '-20px' : 0)};
+  @media (max-width: 500px) {
+    width: 50px;
+    height: 50px;
   }
 `;

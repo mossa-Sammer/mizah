@@ -58,7 +58,7 @@ const editAboutUs = ({
   ourVisionAr,
 }) =>
   connection.query(
-    'UPDATE website SET about_us_description=$1,about_us_description_ar=$2,video_Url=$3,video_url_ar=$4 our_values=$5,our_values_ar=$6,our_mission=$7,our_mission_ar=$8, our_vision=$9, our_vision_ar=$10 WHERE site_id=$11',
+    'UPDATE website SET about_us_description=$1,about_us_description_ar=$2,video_Url=$3,video_url_ar=$4, our_values=$5,our_values_ar=$6,our_mission=$7,our_mission_ar=$8, our_vision=$9, our_vision_ar=$10 WHERE site_id=$11',
     [
       description,
       descriptionAr,

@@ -2,6 +2,8 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import * as S from './styled';
 
+import Placeholder from '../../assets/white-image.png';
+
 const ProjectCard = ({ item, lang }) => {
   const history = useHistory();
   return (
@@ -14,14 +16,31 @@ const ProjectCard = ({ item, lang }) => {
       <S.Overlay className="overlay">
         <S.Items className="items" />
         <S.ItemsHead className="items head">
-          <p>{lang === 'en' ? item.title : item.titleAr}</p>
+          <p>{lang === 'en' ? item.title : item.title_ar}</p>
           <hr />
         </S.ItemsHead>
         <S.ItemsCart className="items cart">
           <span>click to go</span>
         </S.ItemsCart>
       </S.Overlay>
-    </S.Container>) : <h2>Loading..</h2>
+    </S.Container>) : (
+           (<S.Container
+            className="container"
+            bg={Placeholder}
+            onClick={() => history.push(`/project/${item.project_id}`)}
+          >
+            <S.Overlay className="overlay">
+              <S.Items className="items" />
+              <S.ItemsHead className="items head">
+                <p>{lang === 'en' ? item.title : item.titleAr}</p>
+                <hr />
+              </S.ItemsHead>
+              <S.ItemsCart className="items cart">
+                <span>click to go</span>
+              </S.ItemsCart>
+            </S.Overlay>
+          </S.Container>)
+    )
   );
 };
 

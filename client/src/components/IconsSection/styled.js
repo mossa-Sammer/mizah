@@ -53,7 +53,6 @@ export const SecondLeftIconContainer = styled.div`
   position: absolute;
   top: 14vh;
   right: 25vw;
-  // border: 1px solid red;
   transform: ${({ origin }) => (origin ? 'translate(18vw, -20vh)' : 'translate(0%, 0%)')};
   transition: 2s;
   @media (max-width: 960px) {
@@ -105,14 +104,14 @@ export const FourthLeftIconContainer = styled.div`
 `;
 
 export const Icon1 = styled.img`
-  width: 100px;
-  height: 130px;
+  width: 230px;
+  height: 150px;
   position: absolute;
   top: -50px;
-  left: -50px;
-  animation: ${wobble} 2s linear infinite;
+  left: -85px;
+  animation: ${rubberBand} 2s linear infinite;
   @media (max-width: 750px) {
-    width: 80px;
+    width: 170px;
     height: 110px;
   }
 `;
@@ -131,8 +130,8 @@ export const Icon6 = styled.img`
 `;
 
 export const Icon2 = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 110px;
+  height: 110px;
   position: absolute;
   top: -40px;
   right: -50px;
@@ -159,10 +158,10 @@ export const Icon8 = styled.img`
 `;
 
 export const Icon3 = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   position: absolute;
-  top: -40px;
+  top: -10px;
   left: -50px;
   animation: ${tada} 2s linear infinite;
   @media (max-width: 750px) {
@@ -185,8 +184,8 @@ export const Icon7 = styled.img`
 `;
 
 export const Icon4 = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 160px;
+  height: 160px;
   position: absolute;
   top: -40px;
   right: -50px;

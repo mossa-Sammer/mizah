@@ -37,6 +37,7 @@ export default function FormLayout({ page, route, setOpenForm, defaultValues }) 
     defaultValues.whatsAppLink = defaultValues.whatsapp_link;
     defaultValues.addressAr = defaultValues.address_ar;
     defaultValues.videoUrl = defaultValues.video_url;
+    defaultValues.videoUrlAr = defaultValues.video_url_ar;
     defaultValues.ourMission = defaultValues.our_mission;
     defaultValues.ourMissionAr = defaultValues.our_mission_ar;
     defaultValues.ourValues = defaultValues.our_values;
