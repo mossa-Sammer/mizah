@@ -2,6 +2,7 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/mizahom/public_html/
-    - /bin/cd repositories/mizah/
-    - npm install
-    - npm start
+    - /opt/cpanel/ea-nodejs10/bin/cd repositories/mizah/
+    - /opt/cpanel/ea-nodejs10/bin/npm install
+    - /opt/cpanel/ea-nodejs10/bin/set NODE_ENV=production
+    - /opt/cpanel/ea-nodejs10/bin/node src/index.js
