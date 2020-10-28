@@ -6,6 +6,7 @@
   "scripts": {
     "start": "NODE_ENV=production node src/index.js",
     "heroku-postbuild": "NODE_ENV=production cd client && npm install && npm run build",
+    "start-cpanel": "NODE_ENV=production /opt/cpanel/ea-nodejs10/bin/node src/index.js",
     "dev:server": "NODE_ENV=development nodemon ./src/index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
