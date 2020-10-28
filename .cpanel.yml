@@ -1,0 +1,7 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/mizahom/public_html/
+    - /bin/cd repositories/mizah/
+    - npm install
+    - npm start
