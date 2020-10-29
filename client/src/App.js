@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import axios from 'axios';
 
 // sections
 import OurStorySection from './Sections/OurStorySection';
@@ -28,6 +29,13 @@ import './App.css';
 function App() {
   const [slide, setSlide] = useState('left');
   const [lang, setLang] = useState('en');
+
+  // axios connection 
+  const baseURL = 'http://localhost:5000';
+  if (typeof baseURL !== 'undefined') {
+    axios.defaults.baseURL = baseURL;
+  }
+
   // this should be false just for testing
   const [isAuth, setIsAuth] = useState(false);
   return (
