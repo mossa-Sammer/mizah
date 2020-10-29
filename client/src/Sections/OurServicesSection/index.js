@@ -49,7 +49,7 @@ const OurServicesSection = ({ lang }) => {
   const [content, setContent] = useState(_content);
   useEffect(() => {
     (async () => {
-      const { data } = await axios.get("http://localhost:5000/api/v1/service");
+      const { data } = await axios.get("/api/v1/service");
       setContent(data);
     })();
   }, []);

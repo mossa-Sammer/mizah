@@ -20,7 +20,7 @@ const OurStorySection = ({ lang }) => {
   useEffect(() => {
     (async () => {
       const result = await axios.get("/api/v1/aboutus");
-      const dev = await axios.get("http://mizah.om:5000/api/v1/aboutus");
+      const dev = await axios.get("/api/v1/aboutus");
       try {
         console.log(dev);
       } catch (e) {

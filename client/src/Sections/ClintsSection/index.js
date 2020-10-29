@@ -19,7 +19,7 @@ const ClintsSection = ({ lang }) => {
   useEffect(() => {
     (async () => {
       try {
-        const data = await axios.get("http://localhost:5000/api/v1/customer");
+        const data = await axios.get("/api/v1/customer");
         setData(data.data);
         if (numberOfItems > data.data.length) {
           setNumberOfItems(data.data.length);

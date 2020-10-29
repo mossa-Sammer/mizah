@@ -36,10 +36,10 @@ function App() {
   const [lang, setLang] = useState("en");
 
   // axios connection
-  // const baseURL = 'http://localhost:5000';
-  // if (typeof baseURL !== 'undefined') {
-  //   axios.defaults.baseURL = baseURL;
-  // }
+  const baseURL = 'https://mizha-api.herokuapp.com';
+  if (typeof baseURL !== 'undefined') {
+    axios.defaults.baseURL = baseURL;
+  }
 
   // this should be false just for testing
   const [isAuth, setIsAuth] = useState(false);
