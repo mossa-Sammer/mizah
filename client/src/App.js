@@ -1,40 +1,45 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import axios from 'axios';
+import React, { useState } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
+import axios from "axios";
 
 // sections
-import OurStorySection from './Sections/OurStorySection';
-import OurServicesSection from './Sections/OurServicesSection';
-import WhyUsSection from './Sections/WhyUsSection';
+import OurStorySection from "./Sections/OurStorySection";
+import OurServicesSection from "./Sections/OurServicesSection";
+import WhyUsSection from "./Sections/WhyUsSection";
 
 // components
-import SliderContainer from './components/SliderContainer';
-import IconsSection from './components/IconsSection';
-import Header from './components/Header';
-import Login from './components/Login';
-import ControlPannel from './components/ControlPannel';
-import CustomersSection from './Sections/CustomersSection';
-import ProjectsSection from './Sections/ProjectsSection';
-import ClintsSection from './Sections/ClintsSection';
-import Footer from './Sections/Footer';
+import SliderContainer from "./components/SliderContainer";
+import IconsSection from "./components/IconsSection";
+import Header from "./components/Header";
+import Login from "./components/Login";
+import ControlPannel from "./components/ControlPannel";
+import CustomersSection from "./Sections/CustomersSection";
+import ProjectsSection from "./Sections/ProjectsSection";
+import ClintsSection from "./Sections/ClintsSection";
+import Footer from "./Sections/Footer";
 
 // pages
-import ProjectPage from './Pages/project';
+import ProjectPage from "./Pages/project";
 
 // test
 
-import './App.css';
+import "./App.css";
 
 function App() {
-  const [slide, setSlide] = useState('left');
-  const [lang, setLang] = useState('en');
+  const [slide, setSlide] = useState("left");
+  const [lang, setLang] = useState("en");
 
-  // axios connection 
-  const baseURL = 'http://localhost:5000';
-  if (typeof baseURL !== 'undefined') {
-    axios.defaults.baseURL = baseURL;
-  }
+  // axios connection
+  // const baseURL = 'http://localhost:5000';
+  // if (typeof baseURL !== 'undefined') {
+  //   axios.defaults.baseURL = baseURL;
+  // }
 
   // this should be false just for testing
   const [isAuth, setIsAuth] = useState(false);
@@ -72,7 +77,9 @@ function App() {
               isAuth ? (
                 <ControlPannel setIsAuth={setIsAuth} />
               ) : (
-                <h1>"You need permission to access this site".. try to login agin </h1>
+                <h1>
+                  "You need permission to access this site".. try to login agin{" "}
+                </h1>
               )
             }
           />
@@ -91,10 +98,8 @@ function App() {
                 {/* <Header lang={lang} setLang={setLang} /> */}
                 <Header lang={lang} setLang={setLang} />
 
-
-
-                <div style={{ width: '100%', height: '100vh' }} />
-                <div style={{ width: '100%', height: '100vh' }} />
+                <div style={{ width: "100%", height: "100vh" }} />
+                <div style={{ width: "100%", height: "100vh" }} />
               </>
             )}
           />
