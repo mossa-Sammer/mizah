@@ -25,7 +25,7 @@ const Footer = ({ lang }) => {
   });
   useEffect(() => {
     (async () => {
-      const result = await axios.get('http://localhost/api/v1/setting');
+      const result = await axios.get('http://mizah.om:5000/api/v1/setting');
       if (result.data) {
         setInfo(result.data);
       }
