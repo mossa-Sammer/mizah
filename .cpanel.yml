@@ -8,4 +8,4 @@ deployment:
     - NODE_ENV=production
     - PORT=80
     - .exit
-    - /opt/cpanel/ea-nodejs10/bin/node src/index.js
+    - /opt/cpanel/ea-nodejs10/bin/npm run start-cp

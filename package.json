@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=production node src/index.js",
-    "heroku-postbuild": "NODE_ENV=production cd client && npm install && npm run build",
-    "start-cpanel": "NODE_ENV=production PORT=80 /opt/cpanel/ea-nodejs10/bin/node src/index.js",
+    "start": "node src/index.js",
+    "start-cp": "\"concurrently \"/opt/cpanel/ea-nodejs10/bin/npm run start\" \"/opt/cpanel/ea-nodejs10/bin/cd client && /opt/cpanel/ea-nodejs10/bin/npm install && /opt/cpanel/ea-nodejs10/bin/npm run start\"",
     "dev:server": "NODE_ENV=development nodemon ./src/index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -26,6 +25,7 @@
     "uuid": "^8.3.0"
   },
   "devDependencies": {
+    "concurrently": "^5.3.0",
     "nodemon": "^2.0.4"
   }
 }
